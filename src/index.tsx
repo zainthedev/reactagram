@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Routes } from './Routes';
 import 'firebase/firestore';
+import 'firebase/auth';
 import { FirebaseAppProvider } from 'reactfire';
+import { App } from './App';
 
 // Firebase/reactfire config
 const firebaseConfig = {
@@ -15,9 +16,11 @@ const firebaseConfig = {
 	appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
+console.log(firebaseConfig);
+
 ReactDOM.render(
 	<FirebaseAppProvider firebaseConfig={firebaseConfig}>
-		<Routes />
+		<App />
 	</FirebaseAppProvider>,
 	document.getElementById('root')
 );

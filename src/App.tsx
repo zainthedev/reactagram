@@ -1,5 +1,20 @@
-import React from 'react';
+import { useAuth } from 'reactfire';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HomeComponent } from './components/HomeComponent';
+import { LoginComponent } from './components/LoginComponent';
 
 export const App = () => {
-	return <div className='App'></div>;
+	const auth = useAuth();
+
+	return (
+		<BrowserRouter>
+			<Switch>
+				{auth.currentUser === null ? (
+					<Route exact path='/' component={LoginComponent} />
+				) : (
+					<Route exact path='/' component={HomeComponent} />
+				)}
+			</Switch>
+		</BrowserRouter>
+	);
 };
