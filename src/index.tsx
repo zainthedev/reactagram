@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import 'firebase/firestore';
 import 'firebase/auth';
@@ -15,8 +14,6 @@ const firebaseConfig = {
 	messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
 	appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
-
-console.log(firebaseConfig);
 
 ReactDOM.render(
 	<FirebaseAppProvider firebaseConfig={firebaseConfig}>
