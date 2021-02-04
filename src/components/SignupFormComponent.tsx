@@ -1,7 +1,8 @@
 import { useAuth } from 'reactfire';
 import { SignupUserType } from '../types';
+import { AuthForm, SignupFormInput } from '../styled-components/authStyles';
 
-export const SignupFormComponent = ({ email, password }: SignupUserType) => {
+export const SignupFormComponent = ({ signupUser }: SignupUserType) => {
 	const auth = useAuth();
 
 	const signUp = async (email: string, password: string) => {
@@ -12,5 +13,10 @@ export const SignupFormComponent = ({ email, password }: SignupUserType) => {
 		//todo
 	};
 
-	return <div onSubmit={handleSubmit} />;
+	return (
+		<AuthForm>
+			Email: <SignupFormInput />
+			Password: <SignupFormInput />
+		</AuthForm>
+	);
 };

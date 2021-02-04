@@ -1,6 +1,7 @@
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import { useAuth } from 'reactfire';
 import { SignupUserType } from '../types';
+import { AuthForm } from '../styled-components/authStyles';
 
 export const LoginFormComponent = ({ signupUser }: SignupUserType) => {
 	const auth = useAuth();
@@ -17,5 +18,5 @@ export const LoginFormComponent = ({ signupUser }: SignupUserType) => {
 		await auth.signOut();
 	};
 
-	return <div onSubmit={signInWithGmail} />;
+	return <AuthForm></AuthForm>;
 };
