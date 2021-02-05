@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import { useAuth } from 'reactfire';
 import { SignupUserType } from '../types';
-import { AuthForm } from '../styled-components/authStyles';
+import { AuthForm, AuthFormInput, AuthFormButton } from '../styled-components/authStyles';
 
 export const LoginFormComponent = ({ signupUser }: SignupUserType) => {
 	const auth = useAuth();
@@ -18,5 +18,11 @@ export const LoginFormComponent = ({ signupUser }: SignupUserType) => {
 		await auth.signOut();
 	};
 
-	return <AuthForm></AuthForm>;
+	return (
+		<AuthForm>
+			<AuthFormInput type={'email'} placeholder={'Email'} />
+			<AuthFormInput type={'password'} placeholder={'Password'} />
+			<AuthFormButton>Login</AuthFormButton>
+		</AuthForm>
+	);
 };
