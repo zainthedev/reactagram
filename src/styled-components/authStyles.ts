@@ -15,6 +15,7 @@ export const AuthButton = styled.div`
 export const AuthForm = styled.div`
 	display: flex;
 	flex-direction: column;
+
 	height: 300px;
 	max-width: 350px;
 	place-items: center;

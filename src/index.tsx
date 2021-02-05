@@ -3,6 +3,8 @@ import 'firebase/firestore';
 import 'firebase/auth';
 import { FirebaseAppProvider } from 'reactfire';
 import { App } from './App';
+import './styles/reset.css';
+import './styles/main.css';
 
 // Firebase/reactfire config
 const firebaseConfig = {
