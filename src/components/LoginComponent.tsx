@@ -1,6 +1,5 @@
-import { SignupFormComponent } from './SignupFormComponent';
 import { LoginFormComponent } from './LoginFormComponent';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { AuthFormComponent } from './AuthFormComponent';
 import { Login } from '../styled-components/authStyles';
 

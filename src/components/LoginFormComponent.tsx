@@ -1,7 +1,10 @@
-import firebase from 'firebase/app';
 import { useAuth } from 'reactfire';
 import { SignupUserType } from '../types';
-import { AuthForm, AuthFormInput, AuthFormButton } from '../styled-components/authStyles';
+import {
+	AuthFormInputWrapper,
+	AuthFormInput,
+	AuthFormButton,
+} from '../styled-components/authStyles';
 
 export const LoginFormComponent = ({ signupUser }: SignupUserType) => {
 	const auth = useAuth();
@@ -10,19 +13,15 @@ export const LoginFormComponent = ({ signupUser }: SignupUserType) => {
 		await auth.signInWithEmailAndPassword(signupUser.email, signupUser.password);
 	};
 
-	const signInWithGmail = async () => {
-		await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-	};
-
 	const signOut = async () => {
 		await auth.signOut();
 	};
 
 	return (
-		<AuthForm>
+		<AuthFormInputWrapper>
 			<AuthFormInput type={'email'} placeholder={'Email'} />
 			<AuthFormInput type={'password'} placeholder={'Password'} />
-			<AuthFormButton>Login</AuthFormButton>
-		</AuthForm>
+			<AuthFormButton>Log in</AuthFormButton>
+		</AuthFormInputWrapper>
 	);
 };

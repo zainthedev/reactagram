@@ -1,5 +1,9 @@
-import { AuthForm } from '../styled-components/authStyles';
-import { ReactagramText } from '../styled-components/globalStyles';
+import firebase from 'firebase/app';
+import { useAuth } from 'reactfire';
+import { AuthForm, GmailLoginWrapper } from '../styled-components/authStyles';
+import { ImageWrapper, GmailIcon } from '../styled-components/imageStyles';
+import { ReactagramTextWrapper, ReactagramText } from '../styled-components/globalStyles';
+import gmailIcon from '../images/gmailIcon.svg';
 
 export interface AuthFormComponentProps {
 	children: React.ReactNode;
@@ -7,10 +11,24 @@ export interface AuthFormComponentProps {
 }
 
 export const AuthFormComponent = (props: AuthFormComponentProps) => {
+	const auth = useAuth();
+
+	const signInWithGmail = async () => {
+		await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+	};
+
 	return (
 		<AuthForm>
-			<ReactagramText>Reactagram</ReactagramText>
+			<ReactagramTextWrapper>
+				<ReactagramText>Reactagram</ReactagramText>
+			</ReactagramTextWrapper>
 			{props.children}
+			<GmailLoginWrapper>
+				<ImageWrapper>
+					<GmailIcon src={gmailIcon} />
+				</ImageWrapper>
+				Log in with Gmail
+			</GmailLoginWrapper>
 		</AuthForm>
 	);
 };
