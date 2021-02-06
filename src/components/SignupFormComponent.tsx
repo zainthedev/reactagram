@@ -1,8 +1,7 @@
 import { useAuth } from 'reactfire';
-import { SignupUserType } from '../types';
-import { AuthForm, AuthFormInput } from '../styled-components/authStyles';
+import { AuthFormInputWrapper, AuthFormInput, AuthButton } from '../styled-components/authStyles';
 
-export const SignupFormComponent = ({ signupUser }: SignupUserType) => {
+export const SignupFormComponent = () => {
 	const auth = useAuth();
 
 	const signUp = async (email: string, password: string) => {
@@ -14,10 +13,11 @@ export const SignupFormComponent = ({ signupUser }: SignupUserType) => {
 	};
 
 	return (
-		<AuthForm>
+		<AuthFormInputWrapper>
 			<AuthFormInput type={'email'} placeholder={'Email'} />
 			<AuthFormInput type={'text'} placeholder={'Username/Display name'} />
 			<AuthFormInput type={'password'} placeholder={'Password'} />
-		</AuthForm>
+			<AuthButton onClick={handleSubmit}>Sign up</AuthButton>
+		</AuthFormInputWrapper>
 	);
 };

@@ -1,14 +1,31 @@
 import { LoginFormComponent } from './LoginFormComponent';
-import { useState } from 'react';
+import { SignupComponent } from './SignupComponent';
 import { AuthFormComponent } from './AuthFormComponent';
-import { AuthForm, Login } from '../styled-components/authStyles';
+import { Auth, SignupTextWrapper } from '../styled-components/authStyles';
+import { ReactagramLink } from '../styled-components/globalStyles';
+import { useState } from 'react';
 
 export const LoginComponent = () => {
+	const [signingUp, setSigningUp] = useState(false);
+
+	const handleSignup = () => {
+		return setSigningUp(true);
+	};
 	return (
-		<Login>
-			<AuthFormComponent>
-				<LoginFormComponent />
-			</AuthFormComponent>
-		</Login>
+		<Auth>
+			{signingUp === false ? (
+				<>
+					<AuthFormComponent>
+						<LoginFormComponent />
+					</AuthFormComponent>
+					<SignupTextWrapper>
+						Don't have an account?
+						<ReactagramLink onClick={handleSignup}> Sign up</ReactagramLink>
+					</SignupTextWrapper>
+				</>
+			) : (
+				<SignupComponent />
+			)}
+		</Auth>
 	);
 };
