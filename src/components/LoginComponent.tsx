@@ -2,7 +2,7 @@ import { LoginFormComponent } from './LoginFormComponent';
 import { SignupComponent } from './SignupComponent';
 import { AuthFormComponent } from './AuthFormComponent';
 import { Auth, AuthTextWrapper } from '../styled-components/authStyles';
-import { ReactagramLink } from '../styled-components/globalStyles';
+import { ReactagramLink, GithubLink } from '../styled-components/globalStyles';
 import { useState } from 'react';
 
 export const LoginComponent = () => {
@@ -27,6 +27,9 @@ export const LoginComponent = () => {
 			) : (
 				<SignupComponent handleSignup={handleSignup} />
 			)}
+			<GithubLink href='https://github.com/zainthedev/reactagram' target='_blank'>
+				View on Github
+			</GithubLink>
 		</Auth>
 	);
 };

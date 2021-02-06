@@ -5,7 +5,7 @@ import { ReactagramLink } from '../styled-components/globalStyles';
 
 export const SignupComponent = (props: any) => {
 	return (
-		<Auth>
+		<>
 			<AuthFormComponent>
 				<SignupFormComponent />
 			</AuthFormComponent>
@@ -13,6 +13,6 @@ export const SignupComponent = (props: any) => {
 				Already have an account?
 				<ReactagramLink onClick={props.handleSignup}> Log in</ReactagramLink>
 			</AuthTextWrapper>
-		</Auth>
+		</>
 	);
 };

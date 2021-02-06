@@ -20,3 +20,9 @@ export const ReactagramLink = styled.div`
 	white-space: break-spaces;
 	cursor: pointer;
 `;
+
+export const GithubLink = styled.a`
+	margin-top: 20px;
+	cursor: pointer;
+	color: #3d6ec9;
+`;
