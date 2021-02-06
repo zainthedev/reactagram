@@ -7,7 +7,6 @@ import gmailIcon from '../images/gmailIcon.svg';
 
 export interface AuthFormComponentProps {
 	children: React.ReactNode;
-	signupUser: { email: string; password: string };
 }
 
 export const AuthFormComponent = (props: AuthFormComponentProps) => {
@@ -23,7 +22,7 @@ export const AuthFormComponent = (props: AuthFormComponentProps) => {
 				<ReactagramText>Reactagram</ReactagramText>
 			</ReactagramTextWrapper>
 			{props.children}
-			<GmailLoginWrapper>
+			<GmailLoginWrapper onClick={signInWithGmail}>
 				<ImageWrapper>
 					<GmailIcon src={gmailIcon} /> Log in with Gmail
 				</ImageWrapper>
