@@ -25,9 +25,8 @@ export const AuthFormComponent = (props: AuthFormComponentProps) => {
 			{props.children}
 			<GmailLoginWrapper>
 				<ImageWrapper>
-					<GmailIcon src={gmailIcon} />
+					<GmailIcon src={gmailIcon} /> Log in with Gmail
 				</ImageWrapper>
-				Log in with Gmail
 			</GmailLoginWrapper>
 		</AuthForm>
 	);
