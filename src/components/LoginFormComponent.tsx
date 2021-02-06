@@ -2,6 +2,7 @@ import { useAuth } from 'reactfire';
 import { AuthButton } from '../styled-components/authStyles';
 import { FormInputWrapper, FormInput } from '../styled-components/globalStyles';
 import { useState } from 'react';
+import { getInputError } from '../helper-functions/getInputError';
 
 export const LoginFormComponent = () => {
 	const [email, setEmail] = useState('');
@@ -14,19 +15,14 @@ export const LoginFormComponent = () => {
 		try {
 			await auth.signInWithEmailAndPassword(email, password);
 		} catch (err) {
-			let error = '';
-			if (err.code === 'auth/invalid-email') {
-				error = 'Invailid email address.';
-			} else if (err.code === 'auth/wrong-password' || err.code === 'auth/user-not-found') {
-				error = 'The password or username you entered is incorrect.';
-			}
-			setLoginError({ error: true, message: error });
+			setLoginError({ error: true, message: getInputError(err) });
 		}
 	};
 
 	const signOut = async () => {
 		await auth.signOut();
 	};
+	signOut();
 
 	const handleInput = (e: React.FormEvent<HTMLInputElement>) => {
 		const formValue = e.currentTarget.value;

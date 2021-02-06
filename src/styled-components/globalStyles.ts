@@ -3,15 +3,15 @@ import { NavbarContentWrapper } from './navbarStyles';
 
 export const ReactagramTextWrapper = styled.div`
 	display: flex;
-	${NavbarContentWrapper} & {
-		font-size: 33px;
-	}
 `;
 
 export const ReactagramText = styled.div`
 	font-family: 'Grand Hotel', cursive;
 	font-size: 60px;
 	user-select: none;
+	${NavbarContentWrapper} & {
+		font-size: 33px;
+	}
 `;
 
 export const ReactagramLink = styled.div`
@@ -40,7 +40,7 @@ export const FormInputWrapper = styled.div`
 	flex-direction: column;
 	place-items: center;
 	justify-content: space-evenly;
-	height: 100%;
+	height: 50%;
 `;
 
 export const FormInput = styled.input`
