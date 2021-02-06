@@ -25,4 +25,8 @@ export const GithubLink = styled.a`
 	margin-top: 20px;
 	cursor: pointer;
 	color: #3d6ec9;
+	font-size: calc((0.2em + 0.6vmin) + (0.2em + 0.6vmax));
+	@media (max-width: 768px) {
+		font-size: calc((0.2em + 1vmin) + (0.2em + 1vmax));
+	}
 `;

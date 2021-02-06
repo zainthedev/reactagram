@@ -87,4 +87,24 @@ export const GmailLoginWrapper = styled(AuthButton)`
 export const AuthTextWrapper = styled.div`
 	display: flex;
 	margin-top: 20px;
+	border: solid 1px #dbdbdb;
+	border-radius: 3px;
+	padding: 8px;
+	background: white;
+	font-size: calc((0.2em + 0.6vmin) + (0.2em + 0.6vmax));
+	text-align: center;
+	@media (max-width: 768px) {
+		font-size: calc((0.2em + 1vmin) + (0.2em + 1vmax));
+	}
+`;
+
+export const TestingText = styled(AuthTextWrapper)`
+	flex-direction: column;
+	border: solid 1px #dbdbdb;
+	border-radius: 3px;
+	padding: 8px;
+	background: white;
+	white-space: pre;
+	text-align: center;
+	line-height: 1.5;
 `;

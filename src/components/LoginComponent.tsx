@@ -1,14 +1,14 @@
 import { LoginFormComponent } from './LoginFormComponent';
 import { SignupComponent } from './SignupComponent';
 import { AuthFormComponent } from './AuthFormComponent';
-import { Auth, AuthTextWrapper } from '../styled-components/authStyles';
+import { Auth, AuthTextWrapper, TestingText } from '../styled-components/authStyles';
 import { ReactagramLink, GithubLink } from '../styled-components/globalStyles';
 import { useState } from 'react';
 
 export const LoginComponent = () => {
 	const [signingUp, setSigningUp] = useState(false);
 
-	const handleSignup = () => {
+	const handleSigningUp = () => {
 		return signingUp === false ? setSigningUp(true) : setSigningUp(false);
 	};
 
@@ -21,11 +21,16 @@ export const LoginComponent = () => {
 					</AuthFormComponent>
 					<AuthTextWrapper>
 						Don't have an account?
-						<ReactagramLink onClick={handleSignup}> Sign up</ReactagramLink>
+						<ReactagramLink onClick={handleSigningUp}> Sign up</ReactagramLink>
 					</AuthTextWrapper>
+					<TestingText>
+						Just testing?{'\n'}
+						Email: test@test.com{'\n'}
+						Password: test12
+					</TestingText>
 				</>
 			) : (
-				<SignupComponent handleSignup={handleSignup} />
+				<SignupComponent handleSigningUp={handleSigningUp} />
 			)}
 			<GithubLink href='https://github.com/zainthedev/reactagram' target='_blank'>
 				View on Github

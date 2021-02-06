@@ -1,6 +1,6 @@
 import { SignupFormComponent } from './SignupFormComponent';
 import { AuthFormComponent } from './AuthFormComponent';
-import { Auth, AuthTextWrapper } from '../styled-components/authStyles';
+import { AuthTextWrapper } from '../styled-components/authStyles';
 import { ReactagramLink } from '../styled-components/globalStyles';
 
 export const SignupComponent = (props: any) => {
@@ -11,7 +11,7 @@ export const SignupComponent = (props: any) => {
 			</AuthFormComponent>
 			<AuthTextWrapper>
 				Already have an account?
-				<ReactagramLink onClick={props.handleSignup}> Log in</ReactagramLink>
+				<ReactagramLink onClick={props.handleSigningUp}> Log in</ReactagramLink>
 			</AuthTextWrapper>
 		</>
 	);
