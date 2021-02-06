@@ -5,10 +5,22 @@ import { useState } from 'react';
 export const LoginFormComponent = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [loginError, setLoginError] = useState({ error: false, message: '' });
+
 	const auth = useAuth();
 
 	const signIn = async (email: string, password: string) => {
-		await auth.signInWithEmailAndPassword(email, password);
+		try {
+			await auth.signInWithEmailAndPassword(email, password);
+		} catch (err) {
+			let error = '';
+			if (err.code === 'auth/invalid-email') {
+				error = 'Invailid email address.';
+			} else if (err.code === 'auth/wrong-password' || err.code === 'auth/user-not-found') {
+				error = 'The password or username you entered is incorrect.';
+			}
+			setLoginError({ error: true, message: error });
+		}
 	};
 
 	const signOut = async () => {
@@ -21,14 +33,18 @@ export const LoginFormComponent = () => {
 	};
 
 	const handleClick = (e: React.MouseEvent<HTMLInputElement>) => {
-		return signIn(email, password);
+		signIn(email, password);
+		console.log(auth.currentUser);
 	};
 
 	return (
-		<AuthFormInputWrapper>
-			<AuthFormInput type={'email'} placeholder={'Email'} onChange={handleInput} />
-			<AuthFormInput type={'password'} placeholder={'Password'} onChange={handleInput} />
-			<AuthButton onClick={handleClick}>Log in</AuthButton>
-		</AuthFormInputWrapper>
+		<>
+			<AuthFormInputWrapper>
+				<AuthFormInput type={'email'} placeholder={'Email'} onChange={handleInput} />
+				<AuthFormInput type={'password'} placeholder={'Password'} onChange={handleInput} />
+				<AuthButton onClick={handleClick}>Log in</AuthButton>
+			</AuthFormInputWrapper>
+			{loginError.error === true && loginError.message}
+		</>
 	);
 };
