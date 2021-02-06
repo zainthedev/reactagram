@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const Login = styled.div`
+export const Auth = styled.div`
 	display: flex;
 	background: #fafafa;
 	flex-direction: column;
 	place-items: center;
-	justify-content: center;
+	place-content: center;
 	height: 100%;
 `;
 
@@ -41,8 +41,10 @@ export const AuthForm = styled.div`
 	place-items: center;
 	@media (max-width: 425px) {
 		place-content: center;
-		height: 100%;
 		width: 100%;
+		padding: 0px;
+		border: none;
+		background: none;
 	} ;
 `;
 
@@ -57,6 +59,8 @@ export const AuthFormInputWrapper = styled.div`
 export const AuthFormInput = styled.input`
 	border: solid 1px #dbdbdb;
 	border-radius: 3px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	font-size: calc((0.2em + 0.6vmin) + (0.2em + 0.6vmax));
 	text-align: center;
 	@media (max-width: 768px) {
@@ -71,7 +75,10 @@ export const GmailLoginWrapper = styled(AuthButton)`
 	justify-content: space-evenly;
 	background: none;
 	color: #3d6ec9;
-	font-weight: 600;
 	width: 90%;
-	white-space: break-spaces;
+`;
+
+export const SignupTextWrapper = styled.div`
+	display: flex;
+	margin-top: 20px;
 `;

@@ -2,6 +2,7 @@ html {
 	min-height: 100vh;
 	font-family: 'Montserrat', sans-serif;
 	color: #262626;
+	background: #fafafa;
 }
 
 #root {
