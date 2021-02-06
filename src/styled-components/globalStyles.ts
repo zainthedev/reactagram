@@ -7,4 +7,5 @@ export const ReactagramTextWrapper = styled.div`
 export const ReactagramText = styled.div`
 	font-family: 'Grand Hotel', cursive;
 	font-size: 60px;
+	user-select: none;
 `;

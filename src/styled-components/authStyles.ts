@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Login = styled.div`
 	display: flex;
+	background: #fafafa;
 	flex-direction: column;
 	place-items: center;
 	justify-content: center;
@@ -10,15 +11,39 @@ export const Login = styled.div`
 
 export const AuthButton = styled.div`
 	display: flex;
+	width: 100%;
+	place-content: center;
+	border: none;
+	border-radius: 5px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	font-size: calc((0.2em + 0.6vmin) + (0.2em + 0.6vmax));
+	font-weight: 500;
+	text-align: center;
+	color: white;
+	background: rgba(0, 149, 246, 0.3);
+	cursor: pointer;
+	user-select: none;
+	@media (max-width: 768px) {
+		font-size: calc((0.2em + 1vmin) + (0.2em + 1vmax));
+	} ;
 `;
 
 export const AuthForm = styled.div`
 	display: flex;
+	background: white;
+	padding: 50px;
+	border: solid 1px #dbdbdb;
+	border-radius: 2px;
 	flex-direction: column;
-	justify-content: space-evenly;
-	height: 300px;
-	max-width: 350px;
+	place-content: space-evenly;
+	height: 400px;
 	place-items: center;
+	@media (max-width: 425px) {
+		place-content: center;
+		height: 100%;
+		width: 100%;
+	} ;
 `;
 
 export const AuthFormInputWrapper = styled.div`
@@ -30,8 +55,8 @@ export const AuthFormInputWrapper = styled.div`
 `;
 
 export const AuthFormInput = styled.input`
-	border: solid 1px grey;
-	border-radius: 5px;
+	border: solid 1px #dbdbdb;
+	border-radius: 3px;
 	font-size: calc((0.2em + 0.6vmin) + (0.2em + 0.6vmax));
 	text-align: center;
 	@media (max-width: 768px) {
@@ -40,24 +65,13 @@ export const AuthFormInput = styled.input`
 	background: #fafafa;
 `;
 
-export const AuthFormButton = styled.button`
-	border: none;
-	border-radius: 5px;
-	font-size: calc((0.2em + 0.6vmin) + (0.2em + 0.6vmax));
-	text-align: center;
-	background: rgba(0, 149, 246, 0.3);
-	@media (max-width: 768px) {
-		font-size: calc((0.2em + 1vmin) + (0.2em + 1vmax));
-	} ;
-`;
-
-export const GmailLoginWrapper = styled.div`
+export const GmailLoginWrapper = styled(AuthButton)`
 	display: flex;
 	align-items: flex-end;
-	width: 60%;
 	justify-content: space-evenly;
-	background: rgba(0, 149, 246, 0.3);
-	padding-top: 5px;
-	padding-bottom: 5px;
-	border-radius: 5px;
+	background: none;
+	color: #3d6ec9;
+	font-weight: 600;
+	width: 90%;
+	white-space: break-spaces;
 `;
