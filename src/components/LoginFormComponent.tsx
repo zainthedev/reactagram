@@ -1,5 +1,6 @@
 import { useAuth } from 'reactfire';
-import { AuthFormInputWrapper, AuthFormInput, AuthButton } from '../styled-components/authStyles';
+import { AuthButton } from '../styled-components/authStyles';
+import { FormInputWrapper, FormInput } from '../styled-components/globalStyles';
 import { useState } from 'react';
 
 export const LoginFormComponent = () => {
@@ -39,11 +40,11 @@ export const LoginFormComponent = () => {
 
 	return (
 		<>
-			<AuthFormInputWrapper>
-				<AuthFormInput type={'email'} placeholder={'Email'} onChange={handleInput} />
-				<AuthFormInput type={'password'} placeholder={'Password'} onChange={handleInput} />
+			<FormInputWrapper>
+				<FormInput type={'email'} placeholder={'Email'} onChange={handleInput} />
+				<FormInput type={'password'} placeholder={'Password'} onChange={handleInput} />
 				<AuthButton onClick={handleClick}>Log in</AuthButton>
-			</AuthFormInputWrapper>
+			</FormInputWrapper>
 			{loginError.error === true && loginError.message}
 		</>
 	);

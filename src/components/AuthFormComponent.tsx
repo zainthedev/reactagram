@@ -2,12 +2,9 @@ import firebase from 'firebase/app';
 import { useAuth } from 'reactfire';
 import { AuthForm, GmailLoginWrapper } from '../styled-components/authStyles';
 import { ImageWrapper, GmailIcon } from '../styled-components/imageStyles';
-import {
-	ReactagramTextWrapper,
-	ReactagramText,
-	ReactagramLink,
-} from '../styled-components/globalStyles';
+import { ReactagramLink } from '../styled-components/globalStyles';
 import gmailIcon from '../images/gmailIcon.svg';
+import { ReactagramLogoComponent } from './ReactagramLogoComponent';
 
 export interface AuthFormComponentProps {
 	children: React.ReactNode;
@@ -22,9 +19,7 @@ export const AuthFormComponent = (props: AuthFormComponentProps) => {
 
 	return (
 		<AuthForm>
-			<ReactagramTextWrapper>
-				<ReactagramText>Reactagram</ReactagramText>
-			</ReactagramTextWrapper>
+			<ReactagramLogoComponent />
 			{props.children}
 			<GmailLoginWrapper onClick={signInWithGmail}>
 				<ImageWrapper>

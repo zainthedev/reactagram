@@ -51,27 +51,6 @@ export const AuthForm = styled.div`
 	} ;
 `;
 
-export const AuthFormInputWrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	place-items: center;
-	justify-content: space-evenly;
-	height: 50%;
-`;
-
-export const AuthFormInput = styled.input`
-	border: solid 1px #dbdbdb;
-	border-radius: 3px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	font-size: calc((0.2em + 0.6vmin) + (0.2em + 0.6vmax));
-	text-align: center;
-	@media (max-width: 768px) {
-		font-size: calc((0.2em + 1vmin) + (0.2em + 1vmax));
-	}
-	background: #fafafa;
-`;
-
 export const GmailLoginWrapper = styled(AuthButton)`
 	display: flex;
 	align-items: flex-end;
@@ -79,6 +58,7 @@ export const GmailLoginWrapper = styled(AuthButton)`
 	background: none;
 	color: #3d6ec9;
 	width: 90%;
+	min-inline-size: max-content;
 	:hover {
 		background: none;
 	}
@@ -89,7 +69,7 @@ export const AuthTextWrapper = styled.div`
 	margin-top: 20px;
 	border: solid 1px #dbdbdb;
 	border-radius: 3px;
-	padding: 8px;
+	padding: 15px;
 	background: white;
 	font-size: calc((0.2em + 0.6vmin) + (0.2em + 0.6vmax));
 	text-align: center;
