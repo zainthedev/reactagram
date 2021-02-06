@@ -8,13 +8,13 @@ export const App = () => {
 
 	return (
 		<BrowserRouter>
-			<Switch>
-				{auth.currentUser === null ? (
-					<Route exact path='/' component={LoginComponent} />
-				) : (
+			{auth.currentUser === null ? (
+				<LoginComponent />
+			) : (
+				<Switch>
 					<Route exact path='/' component={HomeComponent} />
-				)}
-			</Switch>
+				</Switch>
+			)}
 		</BrowserRouter>
 	);
 };
