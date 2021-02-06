@@ -26,7 +26,10 @@ export const AuthButton = styled.div`
 	user-select: none;
 	@media (max-width: 768px) {
 		font-size: calc((0.2em + 1vmin) + (0.2em + 1vmax));
-	} ;
+	}
+	:hover {
+		background: rgba(0, 149, 246, 1);
+	}
 `;
 
 export const AuthForm = styled.div`
@@ -76,9 +79,12 @@ export const GmailLoginWrapper = styled(AuthButton)`
 	background: none;
 	color: #3d6ec9;
 	width: 90%;
+	:hover {
+		background: none;
+	}
 `;
 
-export const SignupTextWrapper = styled.div`
+export const AuthTextWrapper = styled.div`
 	display: flex;
 	margin-top: 20px;
 `;
