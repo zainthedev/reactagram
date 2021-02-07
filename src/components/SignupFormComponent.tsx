@@ -3,6 +3,7 @@ import { useAuth, useFirestore, useFirestoreDocData } from 'reactfire';
 import { AuthButton } from '../styled-components/authStyles';
 import { FormInputWrapper, FormInput } from '../styled-components/globalStyles';
 import { getInputError } from '../helper-functions/getInputError';
+import { checkForBadWords } from '../helper-functions/checkForBadWords';
 
 export const SignupFormComponent = () => {
 	const [email, setEmail] = useState('');
@@ -26,7 +27,11 @@ export const SignupFormComponent = () => {
 
 	const signUp = async (email: string, password: string) => {
 		//Check if username exists, if not, then create account
-		if (username.length > 0 && !usernames.namesArray.includes(username)) {
+		if (
+			username.length > 0 &&
+			!usernames.namesArray.includes(username) &&
+			checkForBadWords(username) === false
+		) {
 			try {
 				await auth.createUserWithEmailAndPassword(email, password);
 				await auth.currentUser?.updateProfile({ displayName: username });
