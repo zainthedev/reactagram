@@ -9,7 +9,7 @@ export const Auth = styled.div`
 	height: 100%;
 `;
 
-export const AuthButton = styled.div`
+export const AuthButton = styled.button`
 	display: flex;
 	width: 100%;
 	place-content: center;

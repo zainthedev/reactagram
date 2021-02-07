@@ -39,7 +39,7 @@ export const GithubLink = styled.a`
 	}
 `;
 
-export const FormInputWrapper = styled.div`
+export const FormInputWrapper = styled.form`
 	display: flex;
 	flex-direction: column;
 	place-items: center;

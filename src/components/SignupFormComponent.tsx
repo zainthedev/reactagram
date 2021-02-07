@@ -57,17 +57,18 @@ export const SignupFormComponent = () => {
 		}
 	};
 
-	const handleSubmit = () => {
-		return signUp(email, password);
-	};
-
 	return (
 		<>
-			<FormInputWrapper>
+			<FormInputWrapper
+				onSubmit={(e) => {
+					e.preventDefault();
+					signUp(email, password);
+				}}
+			>
 				<FormInput type={'email'} placeholder={'Email'} onChange={handleInput} />
 				<FormInput type={'text'} placeholder={'Username/Display name'} onChange={handleInput} />
 				<FormInput type={'password'} placeholder={'Password'} onChange={handleInput} />
-				<AuthButton onClick={handleSubmit}>Sign up</AuthButton>
+				<AuthButton type='submit'>Sign up</AuthButton>
 			</FormInputWrapper>
 			{signUpError.error === true && signUpError.message}
 		</>

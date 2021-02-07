@@ -28,17 +28,17 @@ export const LoginFormComponent = () => {
 		return e.currentTarget.type === 'email' ? setEmail(formValue) : setPassword(formValue);
 	};
 
-	const handleClick = (e: React.MouseEvent<HTMLInputElement>) => {
-		signIn(email, password);
-		console.log(auth.currentUser);
-	};
-
 	return (
 		<>
-			<FormInputWrapper>
+			<FormInputWrapper
+				onSubmit={(e) => {
+					e.preventDefault();
+					signIn(email, password);
+				}}
+			>
 				<FormInput type={'email'} placeholder={'Email'} onChange={handleInput} />
 				<FormInput type={'password'} placeholder={'Password'} onChange={handleInput} />
-				<AuthButton onClick={handleClick}>Log in</AuthButton>
+				<AuthButton type='submit'>Log in</AuthButton>
 			</FormInputWrapper>
 			{loginError.error === true && loginError.message}
 		</>
