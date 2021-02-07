@@ -36,7 +36,7 @@ export const MobileHeader = styled.div`
 export const NavbarContentWrapper = styled.div`
 	display: flex;
 	height: 100%;
-	width: 70%;
+	width: 60%;
 	place-items: center;
 	place-content: space-between;
 	@media (max-width: 768px) {
