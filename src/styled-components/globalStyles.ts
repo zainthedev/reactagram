@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavbarContentWrapper } from './navbarStyles';
+import searchIcon from '../images/searchIcon.svg';
 
 export const ReactagramTextWrapper = styled.div`
 	display: flex;
@@ -55,6 +56,11 @@ export const FormInput = styled.input`
 	text-align: center;
 	background: #fafafa;
 	${NavbarContentWrapper} & {
+		background-image: url(${searchIcon});
+		background-position-x: 30%;
+		background-position-y: 45%;
+		background-size: calc((0.1em + 0.4vmin) + (0.1em + 0.4vmax));
+		background-repeat: no-repeat;
 		@media (max-width: 768px) {
 			display: none;
 		}
