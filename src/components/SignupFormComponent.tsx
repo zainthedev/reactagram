@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
+import { useAuth, useFirestore, useFirestoreDocData } from 'reactfire';
 import { AuthButton } from '../styled-components/authStyles';
 import { FormInputWrapper, FormInput } from '../styled-components/globalStyles';
 import { getInputError } from '../helper-functions/getInputError';
@@ -12,40 +12,21 @@ export const SignupFormComponent = () => {
 
 	const auth = useAuth();
 
-	const usernameCollectionQuery = useFirestore().collection('usernames');
-	const usernameCollection = useFirestoreCollectionData(usernameCollectionQuery).data;
+	const usernameCollectionQuery = useFirestore().collection('users');
+	const usernamesDoc: any = useFirestoreDocData(usernameCollectionQuery.doc('usernames'));
+	const usernames = usernamesDoc.data;
+	const FieldValue = useFirestore.FieldValue;
 
-	const usernames: string[] = [];
-	const populateUsernames = async () => {
-		usernameCollection.forEach((obj: any) => {
-			if (!usernames.includes(username)) {
-				usernames.push(obj.name);
-			}
-		});
-	};
-
+	//Add usernames to Firebase doc
 	const addUsername = async () => {
-		await usernameCollectionQuery.add({ name: username.toString() });
-	};
-
-	const handleInput = (e: React.FormEvent<HTMLInputElement>) => {
-		const formValue = e.currentTarget.value;
-		switch (e.currentTarget.type) {
-			case 'email':
-				setEmail(formValue);
-				break;
-			case 'text':
-				setUsername(formValue);
-				break;
-			case 'password':
-				setPassword(formValue);
-				break;
-		}
+		await usernameCollectionQuery
+			.doc('usernames')
+			.update({ namesArray: FieldValue.arrayUnion(username.toString()) });
 	};
 
 	const signUp = async (email: string, password: string) => {
-		populateUsernames();
-		if (username.length > 0 && !usernames.includes(username)) {
+		//Check if username exists, if not, then create account
+		if (username.length > 0 && !usernames.namesArray.includes(username)) {
 			try {
 				await auth.createUserWithEmailAndPassword(email, password);
 				await auth.currentUser?.updateProfile({ displayName: username });
@@ -61,6 +42,21 @@ export const SignupFormComponent = () => {
 				error: true,
 				message: username.length === 0 ? 'Enter username' : 'Username unavailable',
 			});
+		}
+	};
+
+	const handleInput = (e: React.FormEvent<HTMLInputElement>) => {
+		const formValue = e.currentTarget.value;
+		switch (e.currentTarget.type) {
+			case 'email':
+				setEmail(formValue);
+				break;
+			case 'text':
+				setUsername(formValue);
+				break;
+			case 'password':
+				setPassword(formValue);
+				break;
 		}
 	};
 
