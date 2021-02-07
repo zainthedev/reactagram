@@ -31,13 +31,10 @@ export const SignupFormComponent = () => {
 				await auth.createUserWithEmailAndPassword(email, password);
 				await auth.currentUser?.updateProfile({ displayName: username });
 				addUsername();
-				console.log(usernames);
 			} catch (err) {
-				console.log(err);
 				setSignUpError({ error: true, message: getInputError(err) });
 			}
 		} else {
-			console.log(usernames);
 			setSignUpError({
 				error: true,
 				message: username.length === 0 ? 'Enter username' : 'Username unavailable',

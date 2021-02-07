@@ -11,6 +11,9 @@ export const ReactagramText = styled.div`
 	user-select: none;
 	${NavbarContentWrapper} & {
 		font-size: 33px;
+		@media (max-width: 768px) {
+			display: none;
+		}
 	}
 `;
 

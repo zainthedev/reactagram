@@ -22,7 +22,6 @@ export const LoginFormComponent = () => {
 	const signOut = async () => {
 		await auth.signOut();
 	};
-	signOut();
 
 	const handleInput = (e: React.FormEvent<HTMLInputElement>) => {
 		const formValue = e.currentTarget.value;

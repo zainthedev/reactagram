@@ -24,7 +24,8 @@ export const NavbarContentWrapper = styled.div`
 	place-items: center;
 	place-content: space-between;
 	@media (max-width: 768px) {
-		width: 90%;
+		place-content: space-around;
+		width: 100%;
 	}
 `;
 
@@ -35,6 +36,6 @@ export const NavbarButtons = styled.div`
 	height: 100%;
 	width: 20%;
 	@media (max-width: 768px) {
-		width: 50%;
+		width: 100%;
 	}
 `;

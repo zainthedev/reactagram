@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="House" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#303C42;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+<title>House</title>
+<polyline class="st0" points="8.5,22.5 8.5,12.5 15.5,12.5 15.5,22.5 " style="fill: none; stroke: #303C42; stroke-linecap: round; stroke-linejoin: round;"/>
+<path class="st0" d="M12,1.5l-10.5,9h2V21c0,0.8,0.7,1.5,1.5,1.5h14c0.8,0,1.5-0.7,1.5-1.5V10.5h2L12,1.5z" style="fill: none; stroke: #303C42; stroke-linecap: round; stroke-linejoin: round;"/>
+
+	<metadata>
+		<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+			<rdf:Description about="https://iconscout.com/legal#licenses" dc:title="place; architecture; building; landmark; house; home; 3" dc:description="place; architecture; building; landmark; house; home; 3" dc:publisher="Iconscout" dc:date="2017-02-16" dc:format="image/svg+xml" dc:language="en">
+				<dc:creator>
+					<rdf:Bag>
+						<rdf:li>Alpár - Etele Méder</rdf:li>
+					</rdf:Bag>
+				</dc:creator>
+			</rdf:Description>
+		</rdf:RDF>
+    </metadata></svg>
