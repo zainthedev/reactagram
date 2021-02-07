@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" id="Power_1" data-name="Power 1" viewBox="0 0 24 24"><title>Power 1</title><path d="M8.5,5.17a9.5,9.5,0,1,0,7,0" style="fill:none;stroke:#303c42;stroke-linecap:round;stroke-linejoin:round"/><line x1="12" y1="0.5" x2="12" y2="12" style="fill:none;stroke:#303c42;stroke-linecap:round;stroke-linejoin:round"/>
+	<metadata>
+		<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+			<rdf:Description about="https://iconscout.com/legal#licenses" dc:title="ui; interface; user; user interface; power; on; off; button" dc:description="ui; interface; user; user interface; power; on; off; button" dc:publisher="Iconscout" dc:date="2017-02-16" dc:format="image/svg+xml" dc:language="en">
+				<dc:creator>
+					<rdf:Bag>
+						<rdf:li>Alpár - Etele Méder</rdf:li>
+					</rdf:Bag>
+				</dc:creator>
+			</rdf:Description>
+		</rdf:RDF>
+    </metadata></svg>

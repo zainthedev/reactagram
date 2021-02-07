@@ -4,6 +4,7 @@ import { NavbarContentWrapper } from './navbarStyles';
 export const ImageWrapper = styled.div`
 	display: flex;
 	align-items: center;
+	color: #262626;
 `;
 
 export const GmailIcon = styled.img`

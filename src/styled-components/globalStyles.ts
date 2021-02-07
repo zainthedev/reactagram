@@ -10,6 +10,7 @@ export const ReactagramText = styled.div`
 	font-family: 'Grand Hotel', cursive;
 	font-size: 60px;
 	user-select: none;
+	color: #262626;
 	${NavbarContentWrapper} & {
 		font-size: 33px;
 		@media (max-width: 768px) {
@@ -70,5 +71,30 @@ export const FormInput = styled.input`
 	}
 	@media (max-width: 768px) {
 		font-size: calc((0.2em + 1vmin) + (0.2em + 1vmax));
+	}
+`;
+
+export const StyledPopover = styled.div`
+	display: flex;
+	width: 10%;
+	flex-direction: column;
+	border-radius: 5px;
+	background: white;
+	box-shadow: 0px 0px 4px 1px #dbdbdb;
+	white-space: pre;
+`;
+
+export const PopoverButton = styled.div`
+	display: flex;
+	border: none;
+	padding: 10px;
+	font-size: 20px;
+	color: #262626;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+	user-select: none;
+	:hover {
+		background: #f7f7f7;
 	}
 `;
