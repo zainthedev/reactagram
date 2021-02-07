@@ -27,19 +27,27 @@ export const ReactagramLink = styled.div`
 	align-items: flex-end;
 	justify-content: space-evenly;
 	background: none;
-	color: #3d6ec9;
+	color: rgba(61, 110, 201, 0.8);
 	font-weight: 600;
 	white-space: break-spaces;
 	cursor: pointer;
+	outline: none;
+	:hover {
+		color: rgba(61, 110, 201, 1);
+	}
 `;
 
 export const GithubLink = styled.a`
 	margin-top: 20px;
 	cursor: pointer;
-	color: #3d6ec9;
+	color: rgba(61, 110, 201, 0.8);
 	font-size: calc((0.2em + 0.6vmin) + (0.2em + 0.6vmax));
 	@media (max-width: 768px) {
 		font-size: calc((0.2em + 1vmin) + (0.2em + 1vmax));
+	}
+	outline: none;
+	:hover {
+		color: rgba(61, 110, 201, 1);
 	}
 `;
 
@@ -59,6 +67,7 @@ export const FormInput = styled.input`
 	font-size: calc((0.1em + 0.4vmin) + (0.1em + 0.4vmax));
 	text-align: center;
 	background: #fafafa;
+	outline-color: #3d6ec9;
 	${NavbarContentWrapper} & {
 		background-image: url(${searchIcon});
 		background-position-x: 30%;

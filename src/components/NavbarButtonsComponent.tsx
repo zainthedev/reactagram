@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { UserPopoverComponent } from './UserPopoverComponent';
 import { NavbarButtons } from '../styled-components/navbarStyles';
-import { ImageWrapper, Icon } from '../styled-components/imageStyles';
+import { ImageWrapper, Icon, UserIcon } from '../styled-components/imageStyles';
 import homeIcon from '../images/homeIcon.svg';
 import exploreIcon from '../images/exploreIcon.svg';
 import uploadIcon from '../images/uploadIcon.svg';

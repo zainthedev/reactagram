@@ -1,7 +1,7 @@
 import { useUser, useAuth } from 'reactfire';
 import { Link } from 'react-router-dom';
 import { Popover, Target, Trigger } from '@accessible/popover';
-import { ImageWrapper, Icon } from '../styled-components/imageStyles';
+import { ImageWrapper, Icon, UserIcon } from '../styled-components/imageStyles';
 import { StyledPopover, PopoverButton } from '../styled-components/globalStyles';
 import userIcon from '../images/userIcon.svg';
 import logoutIcon from '../images/logoutIcon.svg';
@@ -22,7 +22,7 @@ export const UserPopoverComponent = () => {
 					<PopoverButton>
 						<Link style={{ textDecoration: 'none' }} to='/user'>
 							<ImageWrapper>
-								<Icon alt='user' src={userImage || userIcon} />
+								<UserIcon alt='user' src={userImage || userIcon} />
 								<p> View profile</p>
 							</ImageWrapper>
 						</Link>
@@ -37,7 +37,7 @@ export const UserPopoverComponent = () => {
 			</Target>
 			<Trigger on='click'>
 				<ImageWrapper>
-					<Icon alt='user' src={userImage || userIcon} />
+					<UserIcon alt='user' src={userImage || userIcon} />
 				</ImageWrapper>
 			</Trigger>
 		</Popover>
