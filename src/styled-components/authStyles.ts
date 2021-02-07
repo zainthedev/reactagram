@@ -21,7 +21,7 @@ export const AuthButton = styled.button`
 	font-weight: 500;
 	text-align: center;
 	color: white;
-	background: rgba(0, 149, 246, 0.3);
+	background: rgba(0, 149, 246, 0.7);
 	cursor: pointer;
 	user-select: none;
 	@media (max-width: 768px) {
@@ -76,6 +76,11 @@ export const AuthTextWrapper = styled.div`
 	@media (max-width: 768px) {
 		font-size: calc((0.2em + 1vmin) + (0.2em + 1vmax));
 	}
+`;
+
+export const ErrorTextWrapper = styled.div`
+	font-size: 16px;
+	color: #ea4335;
 `;
 
 export const TestingText = styled(AuthTextWrapper)`

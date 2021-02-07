@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth, useFirestore, useFirestoreDocData } from 'reactfire';
-import { AuthButton } from '../styled-components/authStyles';
+import { AuthButton, ErrorTextWrapper } from '../styled-components/authStyles';
 import { FormInputWrapper, FormInput } from '../styled-components/globalStyles';
 import { getInputError } from '../helper-functions/getInputError';
 import { checkForBadWords } from '../helper-functions/checkForBadWords';
@@ -75,7 +75,7 @@ export const SignupFormComponent = () => {
 				<FormInput type={'password'} placeholder={'Password'} onChange={handleInput} />
 				<AuthButton type='submit'>Sign up</AuthButton>
 			</FormInputWrapper>
-			{signUpError.error === true && signUpError.message}
+			{signUpError.error === true && <ErrorTextWrapper>{signUpError.message}</ErrorTextWrapper>}
 		</>
 	);
 };

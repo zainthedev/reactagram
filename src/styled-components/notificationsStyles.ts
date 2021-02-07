@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Home = styled.div`
+export const Notifications = styled.div`
 	display: flex;
 	padding-top: 53px;
 `;

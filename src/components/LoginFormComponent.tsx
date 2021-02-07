@@ -1,5 +1,5 @@
 import { useAuth } from 'reactfire';
-import { AuthButton } from '../styled-components/authStyles';
+import { AuthButton, ErrorTextWrapper } from '../styled-components/authStyles';
 import { FormInputWrapper, FormInput } from '../styled-components/globalStyles';
 import { useState } from 'react';
 import { getInputError } from '../helper-functions/getInputError';
@@ -40,7 +40,7 @@ export const LoginFormComponent = () => {
 				<FormInput type={'password'} placeholder={'Password'} onChange={handleInput} />
 				<AuthButton type='submit'>Log in</AuthButton>
 			</FormInputWrapper>
-			{loginError.error === true && loginError.message}
+			{loginError.error === true && <ErrorTextWrapper>{loginError.message}</ErrorTextWrapper>}
 		</>
 	);
 };
