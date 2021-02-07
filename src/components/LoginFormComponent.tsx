@@ -19,10 +19,6 @@ export const LoginFormComponent = () => {
 		}
 	};
 
-	const signOut = async () => {
-		await auth.signOut();
-	};
-
 	const handleInput = (e: React.FormEvent<HTMLInputElement>) => {
 		const formValue = e.currentTarget.value;
 		return e.currentTarget.type === 'email' ? setEmail(formValue) : setPassword(formValue);

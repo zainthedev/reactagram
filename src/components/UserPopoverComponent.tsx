@@ -1,4 +1,4 @@
-import { useUser } from 'reactfire';
+import { useUser, useAuth } from 'reactfire';
 import { Link } from 'react-router-dom';
 import { Popover, Target, Trigger } from '@accessible/popover';
 import { ImageWrapper, Icon } from '../styled-components/imageStyles';
@@ -9,6 +9,11 @@ import logoutIcon from '../images/logoutIcon.svg';
 export const UserPopoverComponent = () => {
 	const user = useUser();
 	const userImage = user.data.photoURL;
+
+	const auth = useAuth();
+	const signOut = async () => {
+		await auth.signOut();
+	};
 
 	return (
 		<Popover repositionOnScroll repositionOnResize>
@@ -22,7 +27,7 @@ export const UserPopoverComponent = () => {
 							</ImageWrapper>
 						</Link>
 					</PopoverButton>
-					<PopoverButton>
+					<PopoverButton onClick={() => signOut()}>
 						<ImageWrapper>
 							<Icon alt='logout' src={logoutIcon} />
 							<p> Log out</p>

@@ -70,13 +70,15 @@ export const FormInput = styled.input`
 		}
 	}
 	@media (max-width: 768px) {
-		font-size: calc((0.2em + 1vmin) + (0.2em + 1vmax));
+		border-radius: 3px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		font-size: calc((0.2em + 0.8vmin) + (0.2em + 0.8vmax));
 	}
 `;
 
 export const StyledPopover = styled.div`
 	display: flex;
-	width: 10%;
 	flex-direction: column;
 	border-radius: 5px;
 	background: white;
