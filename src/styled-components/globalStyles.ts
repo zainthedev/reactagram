@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { NavbarContentWrapper } from './navbarStyles';
+import { NavbarContentWrapper, MobileHeaderContentWrapper } from './navbarStyles';
 import searchIcon from '../images/searchIcon.svg';
 
 export const ReactagramTextWrapper = styled.div`
@@ -15,6 +15,9 @@ export const ReactagramText = styled.div`
 		@media (max-width: 768px) {
 			display: none;
 		}
+	}
+	${MobileHeaderContentWrapper} & {
+		font-size: 33px;
 	}
 `;
 
