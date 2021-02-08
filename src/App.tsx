@@ -4,7 +4,7 @@ import { HomeComponent } from './components/HomeComponent';
 import { LoginComponent } from './components/LoginComponent';
 import { MobileHeaderComponent } from './components/MobileHeaderComponent';
 import { NavbarComponent } from './components/NavbarComponent';
-import { UserProfile } from './components/UserProfileComponent';
+import { UserProfileComponent } from './components/UserProfileComponent';
 
 export const App = () => {
 	return (
@@ -13,10 +13,11 @@ export const App = () => {
 				<MobileHeaderComponent />
 				<NavbarComponent />
 				<Switch>
-					<Route path='/:id'>
-						<UserProfile />
-					</Route>
 					<Route exact path='/' component={HomeComponent} />
+					<Route exact path='/explore' component={HomeComponent} />
+					<Route exact path='/upload' component={HomeComponent} />
+					<Route exact path='/notifications' component={HomeComponent} />
+					<Route path='/:profile' component={UserProfileComponent} />
 				</Switch>
 			</AuthCheck>
 		</BrowserRouter>
