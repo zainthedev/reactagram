@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { useAuth, useFirestore, useFirestoreDocData } from 'reactfire';
+import { useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { AuthButton, ErrorTextWrapper } from '../styled-components/authStyles';
 import { FormInputWrapper, FormInput } from '../styled-components/globalStyles';
 import { getInputError } from '../helper-functions/getInputError';
 import { checkForBadWords } from '../helper-functions/checkForBadWords';
+import { addUser } from '../helper-functions/addUser';
 
 export const SignupFormComponent = () => {
 	const [email, setEmail] = useState('');
@@ -12,30 +13,20 @@ export const SignupFormComponent = () => {
 	const [signUpError, setSignUpError] = useState({ error: false, message: '' });
 
 	const auth = useAuth();
-
-	const usernameCollectionQuery = useFirestore().collection('users');
-	const usernamesDoc: any = useFirestoreDocData(usernameCollectionQuery.doc('usernames'));
-	const usernames = usernamesDoc.data;
-	const FieldValue = useFirestore.FieldValue;
-
-	//Add usernames to Firebase doc
-	const addUsername = async () => {
-		await usernameCollectionQuery
-			.doc('usernames')
-			.update({ namesArray: FieldValue.arrayUnion(username.toString()) });
-	};
+	const userCollectionQuery = useFirestore().collection('users');
+	const users = useFirestoreCollectionData(userCollectionQuery).data;
 
 	const signUp = async (email: string, password: string) => {
 		//Check if username exists, if not, then create account
 		if (
 			username.length > 0 &&
-			!usernames.namesArray.includes(username) &&
+			!users.find((user) => user.name === username) &&
 			checkForBadWords(username) === false
 		) {
 			try {
 				await auth.createUserWithEmailAndPassword(email, password);
 				await auth.currentUser?.updateProfile({ displayName: username });
-				addUsername();
+				addUser(userCollectionQuery, username);
 			} catch (err) {
 				setSignUpError({ error: true, message: getInputError(err) });
 			}

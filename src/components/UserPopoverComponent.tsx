@@ -20,10 +20,10 @@ export const UserPopoverComponent = () => {
 			<Target placement='bottom'>
 				<StyledPopover className='my-popover'>
 					<PopoverButton>
-						<Link style={{ textDecoration: 'none' }} to='/user'>
+						<Link style={{ textDecoration: 'none' }} to='/0'>
 							<ImageWrapper>
 								<UserIcon alt='user' src={userImage || userIcon} />
-								<p> View profile</p>
+								<p> Profile</p>
 							</ImageWrapper>
 						</Link>
 					</PopoverButton>
