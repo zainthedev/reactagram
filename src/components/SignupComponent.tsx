@@ -1,3 +1,4 @@
+import React from 'react';
 import { SignupFormComponent } from './SignupFormComponent';
 import { AuthFormComponent } from './AuthFormComponent';
 import { AuthTextWrapper } from '../styled-components/authStyles';

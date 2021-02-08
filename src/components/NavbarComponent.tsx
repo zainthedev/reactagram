@@ -1,3 +1,4 @@
+import React from 'react';
 import { ReactagramLogoComponent } from './ReactagramLogoComponent';
 import { Navbar, NavbarContentWrapper } from '../styled-components/navbarStyles';
 import { FormInputWrapper, FormInput } from '../styled-components/globalStyles';

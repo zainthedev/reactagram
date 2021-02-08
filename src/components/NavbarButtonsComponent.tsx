@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { UserPopoverComponent } from './UserPopoverComponent';
 import { NavbarButtons } from '../styled-components/navbarStyles';

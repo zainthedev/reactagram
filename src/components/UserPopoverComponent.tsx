@@ -1,3 +1,4 @@
+import React from 'react';
 import { useUser, useAuth } from 'reactfire';
 import { Link } from 'react-router-dom';
 import { Popover, Target, Trigger } from '@accessible/popover';
