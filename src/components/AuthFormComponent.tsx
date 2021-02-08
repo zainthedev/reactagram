@@ -4,8 +4,8 @@ import { AuthForm, GmailLoginWrapper } from '../styled-components/authStyles';
 import { ReactagramLogoComponent } from './ReactagramLogoComponent';
 import { ImageWrapper, GmailIcon } from '../styled-components/imageStyles';
 import { ReactagramLink } from '../styled-components/globalStyles';
-import gmailIcon from '../images/gmailIcon.svg';
 import { addUser } from '../helper-functions/addUser';
+import gmailIcon from '../images/gmailIcon.svg';
 
 export interface AuthFormComponentProps {
 	children: React.ReactNode;
