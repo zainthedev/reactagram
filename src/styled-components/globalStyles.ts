@@ -3,8 +3,11 @@ import { NavbarContentWrapper, MobileHeaderContentWrapper } from './navbarStyles
 import searchIcon from '../images/searchIcon.svg';
 
 export const AppWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
 	width: 50vw;
-	height: calc(100vh - 54px);
+	height: calc(100vh - 79px);
+	padding-top: 25px;
 	@media (max-width: 768px) {
 		width: 100vw;
 	}
