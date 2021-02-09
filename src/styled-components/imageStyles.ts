@@ -7,13 +7,9 @@ export const ImageWrapper = styled.div`
 	align-items: center;
 	color: #262626;
 	outline: none;
-	${UserProfile} & {
-		height: 50px;
-	}
 `;
 
 export const UserProfileImageWrapper = styled(ImageWrapper)`
-	height: 50px;
 	place-content: center;
 `;
 
@@ -32,6 +28,9 @@ export const UserIcon = styled(Icon)`
 	height: 30px;
 	border-radius: 50%;
 	${UserProfile} & {
-		height: 50px;
+		height: 150px;
+		@media (max-width: 768px) {
+			height: 77px;
+		}
 	}
 `;
