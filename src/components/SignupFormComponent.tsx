@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState } from 'react';
 import { useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { AuthButton, ErrorTextWrapper } from '../styled-components/authStyles';

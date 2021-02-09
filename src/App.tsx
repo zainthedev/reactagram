@@ -17,7 +17,7 @@ export const App = () => {
 					<Route exact path='/explore' component={HomeComponent} />
 					<Route exact path='/upload' component={HomeComponent} />
 					<Route exact path='/notifications' component={HomeComponent} />
-					<Route path='/:profile' component={UserProfileComponent} />
+					<Route path='/u/:profile' component={UserProfileComponent} />
 				</Switch>
 			</AuthCheck>
 		</BrowserRouter>
