@@ -26,7 +26,7 @@ export const SignupFormComponent = () => {
 			try {
 				await auth.createUserWithEmailAndPassword(email, password);
 				await auth.currentUser?.updateProfile({ displayName: username });
-				addUser(userCollectionQuery, username);
+				addUser(userCollectionQuery, username, '');
 			} catch (err) {
 				setSignUpError({ error: true, message: getInputError(err) });
 			}

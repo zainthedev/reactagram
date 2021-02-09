@@ -18,8 +18,9 @@ export const AuthFormComponent = (props: AuthFormComponentProps) => {
 	const signInWithGmail = async () => {
 		await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((result: any) => {
 			// The signed-in user info.
+			const picture = result.user.photoURL;
 			const username = result.user.email.split('@').shift();
-			addUser(userCollectionQuery, username);
+			addUser(userCollectionQuery, username, picture);
 		});
 	};
 
