@@ -9,7 +9,7 @@ export type PostType = {
 	tags: string[];
 };
 
-export type UserType = {
+export interface UserType {
 	user: {
 		name: string;
 		displayPicture: string;
@@ -19,4 +19,17 @@ export type UserType = {
 		following: string[];
 		likes: string[];
 	};
-};
+}
+
+export interface UserListType {
+	user: {
+		name: string;
+		displayPicture: string;
+		posts: string[];
+		taggedPosts: string[];
+		followers: string[];
+		following: string[];
+		likes: string[];
+	};
+	list: string;
+}
