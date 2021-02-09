@@ -13,7 +13,7 @@ export type UserType = {
 	user: {
 		name: string;
 		displayPicture: string;
-		posts: PostType[];
+		posts: string[];
 		taggedPosts: string[];
 		followers: string[];
 		following: string[];
