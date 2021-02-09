@@ -4,6 +4,11 @@ export const UserProfile = styled.div`
 	display: flex;
 	place-content: center;
 	width: 100%;
+	height: 20%;
+	min-height: 150px;
+	@media (max-width: 768px) {
+		min-height: 77px;
+	}
 `;
 
 export const UserProfileInfoWrapper = styled.div`
@@ -42,6 +47,7 @@ export const UserProfileStat = styled.div`
 	flex-direction: column;
 	padding-left: 20px;
 	@media (max-width: 768px) {
+		padding-left: 4vw;
 		flex-direction: column;
 	}
 `;
