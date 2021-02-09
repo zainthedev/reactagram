@@ -1,8 +1,6 @@
-import { useParams, useRouteMatch } from 'react-router-dom';
 import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { useEffect, useState } from 'react';
 import { UserList } from '../styled-components/userListStyles';
-import { UserLinkComponent } from './UserLinkComponent';
 import { UserCardComponent } from './UserCardComponent';
 
 export const UserListComponent = () => {
@@ -18,14 +16,11 @@ export const UserListComponent = () => {
 		}
 	}, [userCollectionData.data]);
 
-	let { url } = useRouteMatch();
-	let { profile }: any = useParams();
-
 	return (
 		<UserList>
 			{users !== undefined &&
 				users.map((user: any) => {
-					return <UserCardComponent user={user} />;
+					return <UserCardComponent key={user.name} user={user} />;
 				})}
 		</UserList>
 	);
