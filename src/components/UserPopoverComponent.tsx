@@ -27,9 +27,11 @@ export const UserPopoverComponent = () => {
 	useEffect(() => {
 		if (userCollectionData.data !== undefined) {
 			const foundUser: any = userCollectionData.data.find((p) => p.name === user.data.displayName);
-			const foundUsername = foundUser.name;
-			setUsername(foundUsername);
-			console.log(username);
+			if (foundUser !== undefined) {
+				const foundUsername = foundUser.name;
+				setUsername(foundUsername);
+				console.log(username);
+			}
 		}
 	}, [userCollectionData.data, user.data.displayName, username]);
 
