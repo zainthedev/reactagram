@@ -4,7 +4,7 @@ import searchIcon from '../images/searchIcon.svg';
 
 export const AppWrapper = styled.div`
 	width: 50vw;
-	height: calc(100vh - 53px);
+	height: calc(100vh - 54px);
 	@media (max-width: 768px) {
 		width: 100vw;
 	}
