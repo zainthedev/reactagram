@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavbarContentWrapper } from './navbarStyles';
+import { UserProfileInfo } from './profileStyles';
 
 export const ImageWrapper = styled.div`
 	display: flex;
@@ -22,6 +23,7 @@ export const Icon = styled.img`
 export const UserIcon = styled(Icon)`
 	height: 30px;
 	border-radius: 50%;
-	${NavbarContentWrapper} & {
+	${UserProfileInfo} & {
+		height: 50px;
 	}
 `;

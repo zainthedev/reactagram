@@ -11,6 +11,7 @@ export const Navbar = styled.div`
 	font-size: calc((0.1em + 1vmin) + (0.1em + 1vmax));
 	background: white;
 	border-bottom: solid 1px #dbdbdb;
+	box-sizing: border-box;
 	@media (max-width: 768px) {
 		bottom: 0;
 		top: auto;
