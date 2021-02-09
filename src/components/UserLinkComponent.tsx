@@ -11,9 +11,5 @@ import {
 import { ImageWrapper, Icon, UserIcon } from '../styled-components/imageStyles';
 
 export const UserLinkComponent = (user: any) => {
-	return (
-		<Link to={'u/' + user.user.name}>
-			<div></div>
-		</Link>
-	);
+	return <Link to={'u/' + user.user.name}></Link>;
 };

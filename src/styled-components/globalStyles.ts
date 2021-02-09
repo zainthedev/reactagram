@@ -2,6 +2,14 @@ import styled from 'styled-components';
 import { NavbarContentWrapper, MobileHeaderContentWrapper } from './navbarStyles';
 import searchIcon from '../images/searchIcon.svg';
 
+export const AppWrapper = styled.div`
+	width: 50vw;
+	height: calc(100vh - 53px);
+	@media (max-width: 768px) {
+		width: 100vw;
+	}
+`;
+
 export const ReactagramTextWrapper = styled.div`
 	display: flex;
 `;

@@ -5,6 +5,7 @@ import { LoginComponent } from './components/LoginComponent';
 import { MobileHeaderComponent } from './components/MobileHeaderComponent';
 import { NavbarComponent } from './components/NavbarComponent';
 import { UserProfileComponent } from './components/UserProfileComponent';
+import { AppWrapper } from './styled-components/globalStyles';
 
 export const App = () => {
 	return (
@@ -13,11 +14,13 @@ export const App = () => {
 				<MobileHeaderComponent />
 				<NavbarComponent />
 				<Switch>
-					<Route exact path='/' component={HomeComponent} />
-					<Route exact path='/explore' component={HomeComponent} />
-					<Route exact path='/upload' component={HomeComponent} />
-					<Route exact path='/notifications' component={HomeComponent} />
-					<Route path='/u/:profile' component={UserProfileComponent} />
+					<AppWrapper>
+						<Route exact path='/' component={HomeComponent} />
+						<Route exact path='/explore' component={HomeComponent} />
+						<Route exact path='/upload' component={HomeComponent} />
+						<Route exact path='/notifications' component={HomeComponent} />
+						<Route path='/u/:profile' component={UserProfileComponent} />
+					</AppWrapper>
 				</Switch>
 			</AuthCheck>
 		</BrowserRouter>

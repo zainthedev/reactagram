@@ -3,6 +3,7 @@ import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { useEffect, useState } from 'react';
 import { UserList } from '../styled-components/userListStyles';
 import { UserLinkComponent } from './UserLinkComponent';
+import { UserCardComponent } from './UserCardComponent';
 
 export const UserListComponent = () => {
 	const [users, setUsers]: any = useState();
@@ -24,11 +25,7 @@ export const UserListComponent = () => {
 		<UserList>
 			{users !== undefined &&
 				users.map((user: any) => {
-					return (
-						<div>
-							<UserLinkComponent user={user} />
-						</div>
-					);
+					return <UserCardComponent user={user} />;
 				})}
 		</UserList>
 	);
