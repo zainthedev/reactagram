@@ -1,9 +1,8 @@
-import { useFirestore, useFirestoreCollectionData } from 'reactfire';
+import { useFirestore, useFirestoreCollectionData, useAuth } from 'reactfire';
 import { useEffect, useState } from 'react';
 import { UserListWrapper, UserList } from '../styled-components/userListStyles';
 import { UserCardComponent } from './UserCardComponent';
-import { UserListType } from '../types';
-import { UserType } from '../types';
+import { UserType, UserListType } from '../types';
 
 export const UserListComponent = ({ user, list }: UserListType) => {
 	const [targetList, setTargetList]: any = useState([]);
@@ -11,11 +10,13 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 	const userCollectionQuery = useFirestore().collection('users');
 	const userCollectionData = useFirestoreCollectionData(userCollectionQuery);
 
+	const currentUser = useAuth().currentUser?.displayName;
+	const targetUser = userCollectionData.data.find((p) => p.name === user.name)!;
+	const targetUserFollowing: any = targetUser.following;
+	const targetUserFollowers: any = targetUser.followers;
+
 	useEffect(() => {
 		if (userCollectionData.data !== undefined) {
-			const targetUser = userCollectionData.data.find((p) => p.name === user.name)!;
-			const targetUserFollowing: any = targetUser.following;
-			const targetUserFollowers: any = targetUser.followers;
 			const userList: any = [];
 			if (list === 'followers') {
 				targetUserFollowers.forEach((target: string) => {
@@ -31,7 +32,7 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 				setTargetList(userList);
 			}
 		}
-	}, [userCollectionData.data, list, user.name]);
+	}, [userCollectionData.data, list, user.name, targetUserFollowers, targetUserFollowing]);
 
 	async function removeFollower(follower: any) {
 		if (list === 'followers') {
@@ -64,7 +65,9 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 						return (
 							<>
 								<UserCardComponent key={user.name} user={user} />
-								<div onClick={() => removeFollower(user)}>Remove follower</div>
+								{currentUser === targetUser.name && (
+									<div onClick={() => removeFollower(user)}>Remove follower</div>
+								)}
 							</>
 						);
 					})}
