@@ -19,7 +19,6 @@ export const UserProfileComponent = () => {
 
 	const handleClick = (e: React.MouseEvent) => {
 		const targetList = e.currentTarget.textContent!.replace(/[0-9]/g, '');
-		console.log(targetList);
 		setDisplayModal({ display: !displayModal.display, list: targetList || '' });
 	};
 

@@ -8,7 +8,6 @@ import {
 import { UserModalType } from '../types';
 
 export const UserProfileStatsComponent = ({ user, handleClick }: UserModalType) => {
-	console.log(user);
 	return (
 		<UserProfileStats>
 			<UserPostsStat>

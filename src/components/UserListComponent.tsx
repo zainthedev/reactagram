@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react';
 import { UserListWrapper, UserList } from '../styled-components/userListStyles';
 import { UserCardComponent } from './UserCardComponent';
 import { UserListType } from '../types';
+import { UserType } from '../types';
 
 export const UserListComponent = ({ user, list }: UserListType) => {
-	const [targetList, setTargetList] = useState([]);
+	const [targetList, setTargetList]: any = useState([]);
 
 	const userCollectionQuery = useFirestore().collection('users');
 	const userCollectionData = useFirestoreCollectionData(userCollectionQuery);
@@ -32,12 +33,40 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 		}
 	}, [userCollectionData.data, list, user.name]);
 
+	async function removeFollower(follower: any) {
+		if (list === 'followers') {
+			const targetUserFollowing = [...follower.following];
+			const userFollowers = [...user.followers];
+
+			const filteredFollowingArray = targetUserFollowing.filter((p) => p.name === user.name);
+			const filteredFollowersArray = userFollowers.filter((p) => p !== follower.name);
+
+			await userCollectionQuery.doc(follower.name).set(
+				{
+					following: filteredFollowingArray,
+				},
+				{ merge: true }
+			);
+			await userCollectionQuery.doc(user.name).set(
+				{
+					followers: filteredFollowersArray,
+				},
+				{ merge: true }
+			);
+		}
+	}
+
 	return (
 		<UserListWrapper>
 			<UserList>
 				{targetList.length > 0 &&
 					targetList.map((user: any) => {
-						return <UserCardComponent key={user.name} user={user} />;
+						return (
+							<>
+								<UserCardComponent key={user.name} user={user} />
+								<div onClick={() => removeFollower(user)}>Remove follower</div>
+							</>
+						);
 					})}
 			</UserList>
 		</UserListWrapper>

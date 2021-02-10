@@ -6,11 +6,10 @@ interface UserListModalProps extends UserModalType {
 	list: string;
 }
 export const UserListModal = ({ user, list, handleClick }: UserListModalProps) => {
-	console.log(list);
 	return (
 		<ModalWrapper onClick={handleClick}>
 			<Modal>
-				Looking at {list}
+				{user.name}'s {list}
 				<UserListComponent user={user} list={list} />
 			</Modal>
 		</ModalWrapper>
