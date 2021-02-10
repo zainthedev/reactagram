@@ -1,15 +1,18 @@
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import { ImageWrapper, UserIcon } from '../styled-components/imageStyles';
 import { UserCard } from '../styled-components/userListStyles';
+import { UserType } from '../types';
 
-export const UserCardComponent = (user: any) => {
+export const UserCardComponent = ({ user }: UserType) => {
+	let { url } = useRouteMatch();
+
 	return (
-		<Link to={'u/' + user.user.name}>
+		<Link to={url.substring(0, 3) === '/u/' ? user.name : 'u/' + user.name}>
 			<UserCard>
 				<ImageWrapper>
-					<UserIcon alt='user' src={user.user.displayPicture} />
+					<UserIcon alt='user' src={user.displayPicture} />
 				</ImageWrapper>
-				{user.user.name}
+				{user.name}
 			</UserCard>
 		</Link>
 	);
