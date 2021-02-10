@@ -17,13 +17,13 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 			const targetUserFollowers: any = targetUser.followers;
 			const userList: any = [];
 			if (list === 'followers') {
-				targetUserFollowing.forEach((target: string) => {
+				targetUserFollowers.forEach((target: string) => {
 					const newTarget = userCollectionData.data.find((p) => p.name === target)!;
 					userList.push(newTarget);
 				});
 				setTargetList(userList);
 			} else {
-				targetUserFollowers.forEach((target: string) => {
+				targetUserFollowing.forEach((target: string) => {
 					const newTarget = userCollectionData.data.find((p) => p.name === target)!;
 					userList.push(newTarget);
 				});
