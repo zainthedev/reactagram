@@ -21,15 +21,10 @@ export interface UserType {
 	};
 }
 
-export interface UserListType {
-	user: {
-		name: string;
-		displayPicture: string;
-		posts: string[];
-		taggedPosts: string[];
-		followers: string[];
-		following: string[];
-		likes: string[];
-	};
+export interface UserListType extends UserType {
 	list: string;
+}
+
+export interface UserModalType extends UserType {
+	handleClick: any;
 }

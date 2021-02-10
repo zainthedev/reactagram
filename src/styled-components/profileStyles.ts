@@ -52,6 +52,10 @@ export const UserProfileStat = styled.div`
 	}
 `;
 
+export const UserPostsStat = styled(UserProfileStat)`
+	display: flex;
+`;
+
 export const UserProfileStatNumber = styled.div`
 	font-weight: 600;
 `;

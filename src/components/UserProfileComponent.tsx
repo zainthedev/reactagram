@@ -3,6 +3,7 @@ import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { useEffect, useState } from 'react';
 import { UserProfile } from '../styled-components/profileStyles';
 import { UserProfileInfoComponent } from './UserProfileInfoComponent';
+import { UserListModal } from './UserListModal';
 
 export const UserProfileComponent = () => {
 	const [user, setUser] = useState({
@@ -14,6 +15,13 @@ export const UserProfileComponent = () => {
 		following: [],
 		likes: [],
 	});
+	const [displayModal, setDisplayModal] = useState({ display: false, list: '' });
+
+	const handleClick = (e: React.MouseEvent) => {
+		const targetList = e.currentTarget.textContent!.replace(/[0-9]/g, '');
+		console.log(targetList);
+		setDisplayModal({ display: !displayModal.display, list: targetList || '' });
+	};
 
 	const { profile }: any = useParams();
 
@@ -33,7 +41,10 @@ export const UserProfileComponent = () => {
 
 	return (
 		<UserProfile>
-			<UserProfileInfoComponent user={user}></UserProfileInfoComponent>
+			{displayModal.display === true && (
+				<UserListModal user={user} list={displayModal.list} handleClick={handleClick} />
+			)}
+			<UserProfileInfoComponent user={user} handleClick={handleClick}></UserProfileInfoComponent>
 		</UserProfile>
 	);
 };

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { NavbarContentWrapper } from './navbarStyles';
 import { UserProfile } from './profileStyles';
+import { UserList } from './userListStyles';
 
 export const ImageWrapper = styled.div`
 	display: flex;
@@ -32,5 +33,8 @@ export const UserIcon = styled(Icon)`
 		@media (max-width: 768px) {
 			height: 77px;
 		}
+	}
+	${UserList} & {
+		height: 40px;
 	}
 `;

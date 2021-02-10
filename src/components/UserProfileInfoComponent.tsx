@@ -1,9 +1,8 @@
 import { UserProfileStatsComponent } from './UserProfileStatsComponent';
 import { UserProfileImageWrapper, UserIcon } from '../styled-components/imageStyles';
 import { UserProfileInfo, UserProfileName } from '../styled-components/profileStyles';
-import { UserType } from '../types';
 
-export const UserProfileInfoComponent = ({ user }: UserType) => {
+export const UserProfileInfoComponent = ({ user, handleClick }: any) => {
 	return (
 		<>
 			<UserProfileImageWrapper>
@@ -11,7 +10,7 @@ export const UserProfileInfoComponent = ({ user }: UserType) => {
 			</UserProfileImageWrapper>
 			<UserProfileInfo>
 				<UserProfileName>{user.name}</UserProfileName>
-				<UserProfileStatsComponent user={user} />
+				<UserProfileStatsComponent user={user} handleClick={handleClick} />
 			</UserProfileInfo>
 		</>
 	);

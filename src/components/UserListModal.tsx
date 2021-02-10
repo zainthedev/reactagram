@@ -1,11 +1,18 @@
 import { UserListComponent } from './UserListComponent';
-import { Modal } from '../styled-components/modalStyles';
-import { UserListType } from '../types';
+import { ModalWrapper, Modal } from '../styled-components/modalStyles';
+import { UserModalType } from '../types';
 
-export const UserListModal = ({ user, list }: UserListType) => {
+interface UserListModalProps extends UserModalType {
+	list: string;
+}
+export const UserListModal = ({ user, list, handleClick }: UserListModalProps) => {
+	console.log(list);
 	return (
-		<Modal>
-			<UserListComponent user={user} list={list} />
-		</Modal>
+		<ModalWrapper onClick={handleClick}>
+			<Modal>
+				Looking at {list}
+				<UserListComponent user={user} list={list} />
+			</Modal>
+		</ModalWrapper>
 	);
 };
