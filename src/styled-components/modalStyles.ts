@@ -19,7 +19,7 @@ export const Modal = styled.div`
 	top: 50%;
 	transform: translate(-50%, -50%);
 	padding: 20px;
-	width: 25vw;
+	width: 20vw;
 	height: 30vh;
 	border-radius: 10px;
 	font-weight: 700;
@@ -27,9 +27,6 @@ export const Modal = styled.div`
 	border: solid 1px #dbdbdb;
 	background: #fafafa;
 	@media (max-width: 768px) {
-		width: auto;
-		margin-top: 8vh;
-		min-height: 90vh;
-		min-width: 100vw;
+		width: 80vw;
 	} ;
 `;

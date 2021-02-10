@@ -1,8 +1,13 @@
 import { useFirestore, useFirestoreCollectionData, useAuth } from 'reactfire';
 import { useEffect, useState } from 'react';
-import { UserListWrapper, UserList } from '../styled-components/userListStyles';
+import {
+	UserListWrapper,
+	UserList,
+	UserListUser,
+	HandleFollowButton,
+} from '../styled-components/userListStyles';
 import { UserCardComponent } from './UserCardComponent';
-import { UserType, UserListType } from '../types';
+import { UserListType } from '../types';
 
 export const UserListComponent = ({ user, list }: UserListType) => {
 	const [targetList, setTargetList]: any = useState([]);
@@ -63,12 +68,14 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 				{targetList.length > 0 &&
 					targetList.map((user: any) => {
 						return (
-							<>
+							<UserListUser key={user.name}>
 								<UserCardComponent key={user.name} user={user} />
 								{currentUser === targetUser.name && (
-									<div onClick={() => removeFollower(user)}>Remove follower</div>
+									<HandleFollowButton onClick={() => removeFollower(user)}>
+										Remove
+									</HandleFollowButton>
 								)}
-							</>
+							</UserListUser>
 						);
 					})}
 			</UserList>

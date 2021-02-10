@@ -7,7 +7,10 @@ export const UserCardComponent = ({ user }: UserType) => {
 	let { url } = useRouteMatch();
 
 	return (
-		<Link to={url.substring(0, 3) === '/u/' ? user.name : 'u/' + user.name}>
+		<Link
+			to={url.substring(0, 3) === '/u/' ? user.name : 'u/' + user.name}
+			style={{ textDecoration: 'none', color: '#262626', overflowX: 'hidden', alignSelf: 'center' }}
+		>
 			<UserCard>
 				<ImageWrapper>
 					<UserIcon alt='user' src={user.displayPicture} />

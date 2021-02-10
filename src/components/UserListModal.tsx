@@ -10,7 +10,7 @@ export const UserListModal = ({ user, list, handleClick }: UserListModalProps) =
 		<ModalWrapper onClick={handleClick}>
 			<Modal>
 				{user.name}'s {list}
-				<UserListComponent user={user} list={list} />
+				<UserListComponent user={user} list={list} key={user.name} />
 			</Modal>
 		</ModalWrapper>
 	);

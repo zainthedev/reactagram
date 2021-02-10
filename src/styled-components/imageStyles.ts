@@ -35,6 +35,7 @@ export const UserIcon = styled(Icon)`
 		}
 	}
 	${UserList} & {
-		height: 40px;
+		height: 30px;
+		margin-right: 10px;
 	}
 `;
