@@ -1,5 +1,5 @@
 import firebase from 'firebase/app';
-import { useAuth, useFirestore } from 'reactfire';
+import { useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { AuthForm, GmailLoginWrapper } from '../styled-components/authStyles';
 import { ReactagramLogoComponent } from './ReactagramLogoComponent';
 import { ImageWrapper, GmailIcon } from '../styled-components/imageStyles';
@@ -14,13 +14,17 @@ export interface AuthFormComponentProps {
 export const AuthFormComponent = (props: AuthFormComponentProps) => {
 	const auth = useAuth();
 	const userCollectionQuery = useFirestore().collection('users');
+	const userCollectionQueryData = useFirestoreCollectionData(userCollectionQuery);
 
 	const signInWithGmail = async () => {
 		await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((result: any) => {
 			// The signed-in user info.
 			const picture = result.user.photoURL;
 			const username = result.user.email.split('@').shift();
-			addUser(userCollectionQuery, username, picture);
+			const userExists = userCollectionQueryData.data.find((p) => p.name === username)!;
+			if (!userExists) {
+				addUser(userCollectionQuery, username, picture);
+			}
 		});
 	};
 
