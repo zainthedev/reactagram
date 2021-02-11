@@ -19,6 +19,7 @@ export const UserList = styled.div`
 	flex-direction: column;
 	font-size: 16px;
 	width: 100%;
+	place-items: center;
 `;
 
 export const UserListUser = styled.div`

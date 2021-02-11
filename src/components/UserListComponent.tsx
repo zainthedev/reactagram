@@ -66,21 +66,22 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 	return (
 		<UserListWrapper>
 			<UserList>
-				{targetList.length > 0 &&
-					targetList.map((user: any) => {
-						return (
-							<UserListUser key={user.name}>
-								<UserCardComponent key={user.name} user={user} />
-								{currentUser === targetUser.name && list === 'followers' ? (
-									<RemoveFollowerButton onClick={() => removeFollower(user)}>
-										Remove
-									</RemoveFollowerButton>
-								) : (
-									<HandleFollowButton>Follow</HandleFollowButton>
-								)}
-							</UserListUser>
-						);
-					})}
+				{targetList.length > 0
+					? targetList.map((user: any) => {
+							return (
+								<UserListUser key={user.name}>
+									<UserCardComponent key={user.name} user={user} />
+									{currentUser === targetUser.name && list === 'followers' ? (
+										<RemoveFollowerButton onClick={() => removeFollower(user)}>
+											Remove
+										</RemoveFollowerButton>
+									) : (
+										<HandleFollowButton>Follow</HandleFollowButton>
+									)}
+								</UserListUser>
+							);
+					  })
+					: 'No users found.'}
 			</UserList>
 		</UserListWrapper>
 	);
