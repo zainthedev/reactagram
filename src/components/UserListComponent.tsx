@@ -16,7 +16,11 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 	const userCollectionQuery = useFirestore().collection('users');
 	const userCollectionData = useFirestoreCollectionData(userCollectionQuery);
 
-	const currentUser = useAuth().currentUser?.displayName;
+	const currentUserName = useAuth().currentUser?.email?.split('@').shift();
+	const currentUser = userCollectionData.data.find((p) => p.name === currentUserName)!;
+	console.log(currentUser);
+	const currentUserFollowing: any = currentUser.following;
+
 	const targetUser = userCollectionData.data.find((p) => p.name === user.name)!;
 	const targetUserFollowing: any = targetUser.following;
 	const targetUserFollowers: any = targetUser.followers;
@@ -40,15 +44,15 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 		}
 	}, [userCollectionData.data, list, user.name, targetUserFollowers, targetUserFollowing]);
 
-	async function removeFollower(follower: any) {
+	async function removeFollower(targetUser: any) {
 		if (list === 'followers') {
-			const targetUserFollowing = [...follower.following];
-			const userFollowers = [...user.followers];
-
+			const targetUserFollowing = [...targetUser.following];
 			const filteredFollowingArray = targetUserFollowing.filter((p) => p.name === user.name);
-			const filteredFollowersArray = userFollowers.filter((p) => p !== follower.name);
 
-			await userCollectionQuery.doc(follower.name).set(
+			const userFollowers = [...user.followers];
+			const filteredFollowersArray = userFollowers.filter((p) => p !== targetUser.name);
+
+			await userCollectionQuery.doc(targetUser.name).set(
 				{
 					following: filteredFollowingArray,
 				},
@@ -63,20 +67,43 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 		}
 	}
 
+	async function handleFollow(targetUser: any) {
+		const targetUserFollowers = [...targetUser.followers];
+		targetUserFollowers.push(currentUserName);
+
+		const userFollowing = [...currentUserFollowing];
+		userFollowing.push(targetUser.name);
+
+		await userCollectionQuery.doc(targetUser.name).set(
+			{
+				followers: targetUserFollowers,
+			},
+			{ merge: true }
+		);
+		await userCollectionQuery.doc(currentUserName).set(
+			{
+				following: userFollowing,
+			},
+			{ merge: true }
+		);
+	}
+
 	return (
 		<UserListWrapper>
 			<UserList>
 				{targetList.length > 0
-					? targetList.map((user: any) => {
+					? targetList.map((listUser: any) => {
 							return (
-								<UserListUser key={user.name}>
-									<UserCardComponent key={user.name} user={user} />
-									{currentUser === targetUser.name && list === 'followers' ? (
-										<RemoveFollowerButton onClick={() => removeFollower(user)}>
+								<UserListUser key={listUser.name}>
+									<UserCardComponent key={listUser.name} user={listUser} />
+									{currentUserName === targetUser.name && list === 'followers' ? (
+										<RemoveFollowerButton onClick={() => removeFollower(listUser)}>
 											Remove
 										</RemoveFollowerButton>
 									) : (
-										<HandleFollowButton>Follow</HandleFollowButton>
+										<HandleFollowButton onClick={() => handleFollow(listUser)}>
+											Follow
+										</HandleFollowButton>
 									)}
 								</UserListUser>
 							);
