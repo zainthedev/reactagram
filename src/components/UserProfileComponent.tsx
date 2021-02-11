@@ -17,26 +17,34 @@ export const UserProfileComponent = () => {
 	});
 	const [displayModal, setDisplayModal] = useState({ display: false, list: '' });
 
-	const handleClick = (e: React.MouseEvent) => {
-		const targetList = e.currentTarget.textContent!.replace(/[0-9]/g, '');
-		setDisplayModal({ display: !displayModal.display, list: targetList || '' });
-	};
-
 	const { profile }: any = useParams();
 
 	const userCollectionQuery = useFirestore().collection('users');
-	const userCollectionData = useFirestoreCollectionData(userCollectionQuery);
+	const userCollectionQueryData = useFirestoreCollectionData(userCollectionQuery);
+
+	const handleClick = (e: React.MouseEvent) => {
+		const targetElement = e.target as HTMLInputElement;
+		const targetList = e.currentTarget.textContent!.replace(/[0-9]/g, '');
+
+		//Prevent closing the modal on button click
+		if (
+			targetElement.className !== 'sc-jJEJSO eWSPVY' &&
+			targetElement.className !== 'sc-iktFzd eWArSt'
+		) {
+			setDisplayModal({ display: !displayModal.display, list: targetList || '' });
+		}
+	};
 
 	//Find the correct user in Firestore and set the state
 	useEffect(() => {
-		if (userCollectionData.data !== undefined) {
-			const foundUser: any = userCollectionData.data.find((p) => p.name === profile);
+		if (userCollectionQueryData.data !== undefined) {
+			const foundUser: any = userCollectionQueryData.data.find((p) => p.name === profile);
 			if (foundUser !== undefined) {
 				const foundUsername = foundUser;
 				setUser(foundUsername);
 			}
 		}
-	}, [userCollectionData.data, profile]);
+	}, [userCollectionQueryData.data, profile]);
 
 	return (
 		<UserProfile>
