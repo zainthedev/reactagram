@@ -113,18 +113,19 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 							return (
 								<UserListUser key={listUser.name}>
 									<UserCardComponent key={listUser.name} user={listUser} />
-									{currentUserName === targetUser.name && list === 'followers' ? (
-										<RemoveFollowerButton onClick={() => removeFollower(listUser)}>
-											Remove
-										</RemoveFollowerButton>
-									) : (
-										<HandleFollowButton onClick={() => handleFollow(listUser)}>
-											{currentUserFollowing !== undefined &&
-											currentUserFollowing.includes(listUser.name)
-												? 'Unfollow'
-												: 'Follow'}
-										</HandleFollowButton>
-									)}
+									{listUser.name !== currentUserName &&
+										(currentUserName === user.name && list === 'followers' ? (
+											<RemoveFollowerButton onClick={() => removeFollower(listUser)}>
+												Remove
+											</RemoveFollowerButton>
+										) : (
+											<HandleFollowButton onClick={() => handleFollow(listUser)}>
+												{currentUserFollowing !== undefined &&
+												currentUserFollowing.includes(listUser.name)
+													? 'Unfollow'
+													: 'Follow'}
+											</HandleFollowButton>
+										))}
 								</UserListUser>
 							);
 					  })
