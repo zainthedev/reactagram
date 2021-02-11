@@ -4,6 +4,7 @@ import {
 	UserListWrapper,
 	UserList,
 	UserListUser,
+	RemoveFollowerButton,
 	HandleFollowButton,
 } from '../styled-components/userListStyles';
 import { UserCardComponent } from './UserCardComponent';
@@ -70,10 +71,12 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 						return (
 							<UserListUser key={user.name}>
 								<UserCardComponent key={user.name} user={user} />
-								{currentUser === targetUser.name && (
-									<HandleFollowButton onClick={() => removeFollower(user)}>
+								{currentUser === targetUser.name && list === 'followers' ? (
+									<RemoveFollowerButton onClick={() => removeFollower(user)}>
 										Remove
-									</HandleFollowButton>
+									</RemoveFollowerButton>
+								) : (
+									<HandleFollowButton>Follow</HandleFollowButton>
 								)}
 							</UserListUser>
 						);
