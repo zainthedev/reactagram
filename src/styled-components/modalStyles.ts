@@ -4,6 +4,7 @@ export const ModalWrapper = styled.div`
 	display: flex;
 	place-items: center;
 	position: fixed;
+	top: 0;
 	width: 100vw;
 	height: 100vh;
 	background: rgba(38, 38, 38, 0.3);

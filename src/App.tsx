@@ -5,6 +5,7 @@ import { LoginComponent } from './components/auth/LoginComponent';
 import { MobileHeaderComponent } from './components/nav/MobileHeaderComponent';
 import { NavbarComponent } from './components/nav/NavbarComponent';
 import { UserProfileComponent } from './components/userProfiles/UserProfileComponent';
+import { UploadImageComponent } from './components/UploadImageComponent';
 import { AppWrapper } from './styled-components/globalStyles';
 
 export const App = () => {
@@ -17,7 +18,7 @@ export const App = () => {
 					<AppWrapper>
 						<Route exact path='/' component={HomeComponent} />
 						<Route exact path='/explore' component={HomeComponent} />
-						<Route exact path='/upload' component={HomeComponent} />
+						<Route exact path='/upload' component={UploadImageComponent} />
 						<Route exact path='/notifications' component={HomeComponent} />
 						<Route path='/u/:profile' component={UserProfileComponent} />
 					</AppWrapper>

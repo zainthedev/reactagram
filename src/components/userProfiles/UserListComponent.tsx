@@ -16,7 +16,8 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 	const userCollectionQuery = useFirestore().collection('users');
 	const userCollectionData = useFirestoreCollectionData(userCollectionQuery);
 
-	const currentUserName = useAuth().currentUser?.email?.split('@').shift();
+	const currentUserName = useAuth().currentUser?.displayName!;
+	console.log(useAuth().currentUser);
 	const currentUser = userCollectionData.data.find((p) => p.name === currentUserName)!;
 
 	const currentUserFollowing: any = currentUser.following;

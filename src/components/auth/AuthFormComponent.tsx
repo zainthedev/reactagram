@@ -17,10 +17,11 @@ export const AuthFormComponent = (props: AuthFormComponentProps) => {
 	const userCollectionQueryData = useFirestoreCollectionData(userCollectionQuery);
 
 	const signInWithGmail = async () => {
-		await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((result: any) => {
+		await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(async (result: any) => {
 			// The signed-in user info.
 			const picture = result.user.photoURL;
 			const username = result.user.email.split('@').shift();
+			await auth.currentUser?.updateProfile({ displayName: username });
 			const userExists = userCollectionQueryData.data.find((p) => p.name === username)!;
 			if (!userExists) {
 				addUser(userCollectionQuery, username, picture);
