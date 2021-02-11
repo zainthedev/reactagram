@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useUser, useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
-import { Link } from 'react-router-dom';
 import { Popover, Target, Trigger } from '@accessible/popover';
 import { ImageWrapper, Icon, UserIcon } from '../styled-components/imageStyles';
 import { StyledPopover, PopoverButton, RouterLink } from '../styled-components/globalStyles';

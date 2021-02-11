@@ -9,7 +9,7 @@ import {
 } from '../styled-components/userListStyles';
 import { UserCardComponent } from './UserCardComponent';
 import { UserListType } from '../types';
-import { handleFollow } from '../helper-functions/handleFollow';
+import { HandleFollowButtonComponent } from './HandleFollowButtonComponent';
 
 export const UserListComponent = ({ user, list }: UserListType) => {
 	const [targetList, setTargetList]: any = useState([]);
@@ -82,21 +82,12 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 												Remove
 											</RemoveFollowerButton>
 										) : (
-											<HandleFollowButton
-												onClick={() =>
-													handleFollow(
-														userCollectionQuery,
-														currentUserFollowing,
-														currentUserName!,
-														listUser
-													)
-												}
-											>
-												{currentUserFollowing !== undefined &&
-												currentUserFollowing.includes(listUser.name)
-													? 'Unfollow'
-													: 'Follow'}
-											</HandleFollowButton>
+											<HandleFollowButtonComponent
+												userCollectionQuery={userCollectionQuery}
+												currentUserName={currentUserName!}
+												currentUserFollowing={currentUserFollowing}
+												targetUser={listUser}
+											/>
 										))}
 								</UserListUser>
 							);

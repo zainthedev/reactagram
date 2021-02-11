@@ -1,5 +1,5 @@
 export const handleFollow = async (
-	query: any,
+	userCollectionQuery: any,
 	currentUserFollowing: any[],
 	currentUserName: string,
 	targetUser: any
@@ -10,14 +10,14 @@ export const handleFollow = async (
 	if (userFollowing.includes(targetUser.name)) {
 		const filteredFollowersArray = targetUserFollowers.filter((p) => p !== currentUserName);
 		const filteredFollowingArray = userFollowing.filter((p) => p !== targetUser.name);
-		await query.doc(targetUser.name).set(
+		await userCollectionQuery.doc(targetUser.name).set(
 			{
 				followers: filteredFollowersArray,
 			},
 			{ merge: true }
 		);
 
-		await query.doc(currentUserName).set(
+		await userCollectionQuery.doc(currentUserName).set(
 			{
 				following: filteredFollowingArray,
 			},
@@ -26,13 +26,13 @@ export const handleFollow = async (
 	} else {
 		targetUserFollowers.push(currentUserName);
 		userFollowing.push(targetUser.name);
-		await query.doc(targetUser.name).set(
+		await userCollectionQuery.doc(targetUser.name).set(
 			{
 				followers: targetUserFollowers,
 			},
 			{ merge: true }
 		);
-		await query.doc(currentUserName).set(
+		await userCollectionQuery.doc(currentUserName).set(
 			{
 				following: userFollowing,
 			},
