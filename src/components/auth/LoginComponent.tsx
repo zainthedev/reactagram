@@ -32,7 +32,7 @@ export const LoginComponent = () => {
 			) : (
 				<SignupComponent handleSigningUp={handleSigningUp} />
 			)}
-			<GithubLink href='https://github.com/zainthedev/reactagram' target='_blank'>
+			<GithubLink href='https://github.com/zainthedev/reactagram' target='_blank' rel='author'>
 				View on Github
 			</GithubLink>
 		</Auth>

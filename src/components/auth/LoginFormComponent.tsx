@@ -32,9 +32,15 @@ export const LoginFormComponent = () => {
 					signIn(email, password);
 				}}
 			>
-				<FormInput type={'email'} placeholder={'Email'} onChange={handleInput} />
-				<FormInput type={'password'} placeholder={'Password'} onChange={handleInput} />
-				<AuthButton type='submit'>Log in</AuthButton>
+				<label>
+					<FormInput type={'email'} placeholder={'Email'} onChange={handleInput} />
+				</label>
+				<label>
+					<FormInput type={'password'} placeholder={'Password'} onChange={handleInput} />
+				</label>
+				<label>
+					<AuthButton type='submit'>Log in</AuthButton>
+				</label>
 			</FormInputWrapper>
 			{loginError.error === true && <ErrorTextWrapper>{loginError.message}</ErrorTextWrapper>}
 		</>
