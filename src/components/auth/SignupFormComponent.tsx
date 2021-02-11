@@ -26,7 +26,7 @@ export const SignupFormComponent = () => {
 			try {
 				await auth.createUserWithEmailAndPassword(email, password);
 				await auth.currentUser?.updateProfile({ displayName: username });
-				addUser(userCollectionQuery, username, '');
+				addUser(userCollectionQuery, username, undefined!);
 			} catch (err) {
 				setSignUpError({ error: true, message: getInputError(err) });
 			}
@@ -61,10 +61,18 @@ export const SignupFormComponent = () => {
 					signUp(email, password);
 				}}
 			>
-				<FormInput type={'email'} placeholder={'Email'} onChange={handleInput} />
-				<FormInput type={'text'} placeholder={'Username/Display name'} onChange={handleInput} />
-				<FormInput type={'password'} placeholder={'Password'} onChange={handleInput} />
-				<AuthButton type='submit'>Sign up</AuthButton>
+				<label>
+					<FormInput type={'email'} placeholder={'Email'} onChange={handleInput} />
+				</label>
+				<label>
+					<FormInput type={'text'} placeholder={'Username/Display name'} onChange={handleInput} />
+				</label>
+				<label>
+					<FormInput type={'password'} placeholder={'Password'} onChange={handleInput} />
+				</label>
+				<label>
+					<AuthButton type='submit'>Sign up</AuthButton>
+				</label>
 			</FormInputWrapper>
 			{signUpError.error === true && <ErrorTextWrapper>{signUpError.message}</ErrorTextWrapper>}
 		</>

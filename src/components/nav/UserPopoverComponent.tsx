@@ -19,7 +19,7 @@ export const UserPopoverComponent = () => {
 
 	useEffect(() => {
 		if (userCollectionData.data !== undefined && userData !== undefined) {
-			const username = userData.email.split('@').shift();
+			const username = userData.displayName;
 			const foundUser = userCollectionData.data.find((p) => p.name === username)!;
 			if (foundUser) {
 				const foundUsername: any = foundUser.name;
