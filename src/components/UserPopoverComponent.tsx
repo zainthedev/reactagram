@@ -3,7 +3,7 @@ import { useUser, useAuth, useFirestore, useFirestoreCollectionData } from 'reac
 import { Link } from 'react-router-dom';
 import { Popover, Target, Trigger } from '@accessible/popover';
 import { ImageWrapper, Icon, UserIcon } from '../styled-components/imageStyles';
-import { StyledPopover, PopoverButton } from '../styled-components/globalStyles';
+import { StyledPopover, PopoverButton, RouterLink } from '../styled-components/globalStyles';
 import userIcon from '../images/userIcon.svg';
 import logoutIcon from '../images/logoutIcon.svg';
 
@@ -40,12 +40,12 @@ export const UserPopoverComponent = () => {
 			<Target placement='bottom'>
 				<StyledPopover className='my-popover'>
 					<PopoverButton>
-						<Link style={{ textDecoration: 'none' }} to={`/u/${username}`}>
+						<RouterLink to={`/u/${username}`}>
 							<ImageWrapper>
 								<UserIcon alt='user' src={userImage} />
 								<p> Profile</p>
 							</ImageWrapper>
-						</Link>
+						</RouterLink>
 					</PopoverButton>
 					<PopoverButton onClick={() => signOut()}>
 						<ImageWrapper>

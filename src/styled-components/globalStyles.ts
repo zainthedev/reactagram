@@ -54,6 +54,8 @@ export const RouterLink = styled(Link)`
 	text-decoration: none;
 	-webkit-tap-highlight-color: transparent;
 	user-select: none;
+	color: #262626;
+	align-self: center;
 `;
 
 export const GithubLink = styled.a`

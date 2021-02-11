@@ -8,10 +8,7 @@ export const NavbarComponent = () => {
 	return (
 		<Navbar>
 			<NavbarContentWrapper>
-				<RouterLink
-					to='/'
-					style={{ textDecoration: 'none', WebkitTapHighlightColor: 'transparent' }}
-				>
+				<RouterLink to='/'>
 					<ReactagramLogoComponent />
 				</RouterLink>
 				<FormInputWrapper>
