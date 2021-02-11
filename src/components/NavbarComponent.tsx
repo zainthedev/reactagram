@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ReactagramLogoComponent } from './ReactagramLogoComponent';
 import { Navbar, NavbarContentWrapper } from '../styled-components/navbarStyles';
 import { FormInputWrapper, FormInput } from '../styled-components/globalStyles';
@@ -7,7 +8,9 @@ export const NavbarComponent = () => {
 	return (
 		<Navbar>
 			<NavbarContentWrapper>
-				<ReactagramLogoComponent />
+				<Link to='/' style={{ textDecoration: 'none' }}>
+					<ReactagramLogoComponent />
+				</Link>
 				<FormInputWrapper>
 					<FormInput placeholder='Search'></FormInput>
 				</FormInputWrapper>
