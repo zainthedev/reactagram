@@ -1,7 +1,7 @@
 import { SignupFormComponent } from './SignupFormComponent';
 import { AuthFormComponent } from './AuthFormComponent';
-import { AuthTextWrapper } from '../styled-components/authStyles';
-import { ReactagramLink } from '../styled-components/globalStyles';
+import { AuthTextWrapper } from '../../styled-components/authStyles';
+import { ReactagramLink } from '../../styled-components/globalStyles';
 
 export const SignupComponent = (props: any) => {
 	return (

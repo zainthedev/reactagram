@@ -1,11 +1,11 @@
 import { UserPopoverComponent } from './UserPopoverComponent';
-import { RouterLink } from '../styled-components/globalStyles';
-import { NavbarButtons } from '../styled-components/navbarStyles';
-import { ImageWrapper, Icon } from '../styled-components/imageStyles';
-import homeIcon from '../images/homeIcon.svg';
-import exploreIcon from '../images/exploreIcon.svg';
-import uploadIcon from '../images/uploadIcon.svg';
-import heartIcon from '../images/heartIcon.svg';
+import { RouterLink } from '../../styled-components/globalStyles';
+import { NavbarButtons } from '../../styled-components/navbarStyles';
+import { ImageWrapper, Icon } from '../../styled-components/imageStyles';
+import homeIcon from '../../images/homeIcon.svg';
+import exploreIcon from '../../images/exploreIcon.svg';
+import uploadIcon from '../../images/uploadIcon.svg';
+import heartIcon from '../../images/heartIcon.svg';
 
 export const NavbarButtonsComponent = () => {
 	return (

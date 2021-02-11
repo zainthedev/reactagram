@@ -4,8 +4,8 @@ import {
 	UserPostsStat,
 	UserProfileStatNumber,
 	UserProfileStatText,
-} from '../styled-components/profileStyles';
-import { UserModalType } from '../types';
+} from '../../styled-components/profileStyles';
+import { UserModalType } from '../../types';
 
 export const UserProfileStatsComponent = ({ user, handleClick }: UserModalType) => {
 	return (

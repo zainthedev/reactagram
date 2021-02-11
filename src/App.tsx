@@ -1,10 +1,10 @@
 import { AuthCheck } from 'reactfire';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { HomeComponent } from './components/HomeComponent';
-import { LoginComponent } from './components/LoginComponent';
-import { MobileHeaderComponent } from './components/MobileHeaderComponent';
-import { NavbarComponent } from './components/NavbarComponent';
-import { UserProfileComponent } from './components/UserProfileComponent';
+import { LoginComponent } from './components/auth/LoginComponent';
+import { MobileHeaderComponent } from './components/nav/MobileHeaderComponent';
+import { NavbarComponent } from './components/nav/NavbarComponent';
+import { UserProfileComponent } from './components/userProfiles/UserProfileComponent';
 import { AppWrapper } from './styled-components/globalStyles';
 
 export const App = () => {

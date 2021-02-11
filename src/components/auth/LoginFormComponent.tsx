@@ -1,8 +1,8 @@
 import { useAuth } from 'reactfire';
-import { AuthButton, ErrorTextWrapper } from '../styled-components/authStyles';
-import { FormInputWrapper, FormInput } from '../styled-components/globalStyles';
+import { AuthButton, ErrorTextWrapper } from '../../styled-components/authStyles';
+import { FormInputWrapper, FormInput } from '../../styled-components/globalStyles';
 import { useState } from 'react';
-import { getInputError } from '../helper-functions/getInputError';
+import { getInputError } from '../../helper-functions/getInputError';
 
 export const LoginFormComponent = () => {
 	const [email, setEmail] = useState('');

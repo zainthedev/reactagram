@@ -1,8 +1,8 @@
 import { LoginFormComponent } from './LoginFormComponent';
 import { SignupComponent } from './SignupComponent';
 import { AuthFormComponent } from './AuthFormComponent';
-import { Auth, AuthTextWrapper, TestingText } from '../styled-components/authStyles';
-import { ReactagramLink, GithubLink } from '../styled-components/globalStyles';
+import { Auth, AuthTextWrapper, TestingText } from '../../styled-components/authStyles';
+import { ReactagramLink, GithubLink } from '../../styled-components/globalStyles';
 import { useState } from 'react';
 
 export const LoginComponent = () => {

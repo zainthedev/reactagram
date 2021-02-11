@@ -1,6 +1,6 @@
 import { UserListComponent } from './UserListComponent';
-import { ModalWrapper, Modal } from '../styled-components/modalStyles';
-import { UserModalType } from '../types';
+import { ModalWrapper, Modal } from '../../styled-components/modalStyles';
+import { UserModalType } from '../../types';
 
 interface UserListModalProps extends UserModalType {
 	list: string;

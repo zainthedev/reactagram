@@ -5,11 +5,10 @@ import {
 	UserList,
 	UserListUser,
 	RemoveFollowerButton,
-	HandleFollowButton,
-} from '../styled-components/userListStyles';
-import { UserCardComponent } from './UserCardComponent';
-import { UserListType } from '../types';
-import { HandleFollowButtonComponent } from './HandleFollowButtonComponent';
+} from '../../styled-components/userListStyles';
+import { UserCardComponent } from '../userProfiles/UserCardComponent';
+import { UserListType } from '../../types';
+import { HandleFollowButtonComponent } from '../HandleFollowButtonComponent';
 
 export const UserListComponent = ({ user, list }: UserListType) => {
 	const [targetList, setTargetList]: any = useState([]);

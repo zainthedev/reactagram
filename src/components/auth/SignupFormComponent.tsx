@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
-import { AuthButton, ErrorTextWrapper } from '../styled-components/authStyles';
-import { FormInputWrapper, FormInput } from '../styled-components/globalStyles';
-import { getInputError } from '../helper-functions/getInputError';
-import { checkForBadWords } from '../helper-functions/checkForBadWords';
-import { addUser } from '../helper-functions/addUser';
+import { AuthButton, ErrorTextWrapper } from '../../styled-components/authStyles';
+import { FormInputWrapper, FormInput } from '../../styled-components/globalStyles';
+import { getInputError } from '../../helper-functions/getInputError';
+import { checkForBadWords } from '../../helper-functions/checkForBadWords';
+import { addUser } from '../../helper-functions/addUser';
 
 export const SignupFormComponent = () => {
 	const [email, setEmail] = useState('');

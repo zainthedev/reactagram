@@ -1,8 +1,8 @@
-import { RouterLink } from '../styled-components/globalStyles';
+import { RouterLink } from '../../styled-components/globalStyles';
 import { useRouteMatch } from 'react-router-dom';
-import { ImageWrapper, UserIcon } from '../styled-components/imageStyles';
-import { UserCard } from '../styled-components/userListStyles';
-import { UserType } from '../types';
+import { ImageWrapper, UserIcon } from '../../styled-components/imageStyles';
+import { UserCard } from '../../styled-components/userListStyles';
+import { UserType } from '../../types';
 
 export const UserCardComponent = ({ user }: UserType) => {
 	let { url } = useRouteMatch();

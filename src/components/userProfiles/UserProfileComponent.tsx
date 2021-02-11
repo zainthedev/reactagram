@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { useEffect, useState } from 'react';
-import { UserProfile } from '../styled-components/profileStyles';
+import { UserProfile } from '../../styled-components/profileStyles';
 import { UserProfileInfoComponent } from './UserProfileInfoComponent';
-import { HandleFollowButtonComponent } from './HandleFollowButtonComponent';
+import { HandleFollowButtonComponent } from '../HandleFollowButtonComponent';
 import { UserListModal } from './UserListModal';
 
 export const UserProfileComponent = () => {

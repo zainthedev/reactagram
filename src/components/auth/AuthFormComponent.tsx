@@ -1,11 +1,11 @@
 import firebase from 'firebase/app';
 import { useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
-import { AuthForm, GmailLoginWrapper } from '../styled-components/authStyles';
-import { ReactagramLogoComponent } from './ReactagramLogoComponent';
-import { ImageWrapper, GmailIcon } from '../styled-components/imageStyles';
-import { ReactagramLink } from '../styled-components/globalStyles';
-import { addUser } from '../helper-functions/addUser';
-import gmailIcon from '../images/gmailIcon.svg';
+import { AuthForm, GmailLoginWrapper } from '../../styled-components/authStyles';
+import { ReactagramLogoComponent } from '.././ReactagramLogoComponent';
+import { ImageWrapper, GmailIcon } from '../../styled-components/imageStyles';
+import { ReactagramLink } from '../../styled-components/globalStyles';
+import { addUser } from '../../helper-functions/addUser';
+import gmailIcon from '../../images/gmailIcon.svg';
 
 export interface AuthFormComponentProps {
 	children: React.ReactNode;
