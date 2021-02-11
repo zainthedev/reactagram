@@ -28,6 +28,7 @@ export const UserListUser = styled.div`
 	font-size: 20px;
 	width: 100%;
 	height: 40px;
+	margin-bottom: 10px;
 `;
 
 export const UserCard = styled.div`

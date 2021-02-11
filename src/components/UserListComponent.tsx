@@ -9,6 +9,7 @@ import {
 } from '../styled-components/userListStyles';
 import { UserCardComponent } from './UserCardComponent';
 import { UserListType } from '../types';
+import { handleFollow } from '../helper-functions/handleFollow';
 
 export const UserListComponent = ({ user, list }: UserListType) => {
 	const [targetList, setTargetList]: any = useState([]);
@@ -67,44 +68,6 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 		}
 	}
 
-	async function handleFollow(targetUser: any) {
-		const targetUserFollowers = [...targetUser.followers];
-		const userFollowing = [...currentUserFollowing];
-
-		if (userFollowing.includes(targetUser.name)) {
-			const filteredFollowersArray = targetUserFollowers.filter((p) => p !== currentUserName);
-			const filteredFollowingArray = userFollowing.filter((p) => p !== targetUser.name);
-			await userCollectionQuery.doc(targetUser.name).set(
-				{
-					followers: filteredFollowersArray,
-				},
-				{ merge: true }
-			);
-
-			await userCollectionQuery.doc(currentUserName).set(
-				{
-					following: filteredFollowingArray,
-				},
-				{ merge: true }
-			);
-		} else {
-			targetUserFollowers.push(currentUserName);
-			userFollowing.push(targetUser.name);
-			await userCollectionQuery.doc(targetUser.name).set(
-				{
-					followers: targetUserFollowers,
-				},
-				{ merge: true }
-			);
-			await userCollectionQuery.doc(currentUserName).set(
-				{
-					following: userFollowing,
-				},
-				{ merge: true }
-			);
-		}
-	}
-
 	return (
 		<UserListWrapper>
 			<UserList>
@@ -119,7 +82,16 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 												Remove
 											</RemoveFollowerButton>
 										) : (
-											<HandleFollowButton onClick={() => handleFollow(listUser)}>
+											<HandleFollowButton
+												onClick={() =>
+													handleFollow(
+														userCollectionQuery,
+														currentUserFollowing,
+														currentUserName!,
+														listUser
+													)
+												}
+											>
 												{currentUserFollowing !== undefined &&
 												currentUserFollowing.includes(listUser.name)
 													? 'Unfollow'
