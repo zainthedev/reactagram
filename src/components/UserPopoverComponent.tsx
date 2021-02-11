@@ -12,22 +12,24 @@ export const UserPopoverComponent = () => {
 	const [userImage, setUserImage] = useState('');
 
 	const user = useUser();
+	const userData: any = user.data;
 
 	const auth = useAuth();
 	const userCollectionQuery = useFirestore().collection('users');
 	const userCollectionData = useFirestoreCollectionData(userCollectionQuery);
 
 	useEffect(() => {
-		if (userCollectionData.data !== undefined) {
-			const foundUser: any = userCollectionData.data.find((p) => p.name === user.data.displayName);
-			if (foundUser !== undefined) {
-				const foundUsername = foundUser.name;
-				const foundUserImage = foundUser.displayPicture;
+		if (userCollectionData.data !== undefined && userData !== undefined) {
+			const username = userData.email.split('@').shift();
+			const foundUser = userCollectionData.data.find((p) => p.name === username)!;
+			if (foundUser) {
+				const foundUsername: any = foundUser.name;
+				const foundUserImage: any = foundUser.displayPicture;
 				setUsername(foundUsername);
 				setUserImage(foundUserImage);
 			}
 		}
-	}, [userCollectionData.data, user.data.displayName, username]);
+	}, [userData, userCollectionData.data]);
 
 	const signOut = async () => {
 		await auth.signOut();
