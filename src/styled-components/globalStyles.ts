@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { NavbarContentWrapper, MobileHeaderContentWrapper } from './navbarStyles';
 import searchIcon from '../images/searchIcon.svg';
 
@@ -47,6 +48,12 @@ export const ReactagramLink = styled.div`
 	:hover {
 		color: rgba(61, 110, 201, 1);
 	}
+`;
+
+export const RouterLink = styled(Link)`
+	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
+	user-select: none;
 `;
 
 export const GithubLink = styled.a`

@@ -8,7 +8,7 @@ export const NavbarComponent = () => {
 	return (
 		<Navbar>
 			<NavbarContentWrapper>
-				<Link to='/' style={{ textDecoration: 'none' }}>
+				<Link to='/' style={{ textDecoration: 'none', WebkitTapHighlightColor: 'transparent' }}>
 					<ReactagramLogoComponent />
 				</Link>
 				<FormInputWrapper>
