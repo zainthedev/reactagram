@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NavbarContentWrapper } from './navbarStyles';
-import { UserProfile } from './profileStyles';
+import { UserProfileInfoWrapper } from './profileStyles';
 import { UserList } from './userListStyles';
 
 export const ImageWrapper = styled.div`
@@ -28,10 +28,13 @@ export const Icon = styled.img`
 export const UserIcon = styled(Icon)`
 	height: 30px;
 	border-radius: 50%;
-	${UserProfile} & {
+	${UserProfileInfoWrapper} & {
 		height: 150px;
 		@media (max-width: 768px) {
 			height: 77px;
+		}
+		@media (max-width: 320px) {
+			height: 60px;
 		}
 	}
 	${UserList} & {

@@ -38,23 +38,3 @@ export const UserCard = styled.div`
 	overflow-x: hidden;
 	margin-right: 10px;
 `;
-
-export const RemoveFollowerButton = styled.div`
-	display: flex;
-	place-items: center;
-	background-color: transparent;
-	font-size: 14px;
-	border: solid 1px #dbdbdb;
-	padding: 6px;
-	cursor: pointer;
-`;
-
-export const HandleFollowButton = styled.div`
-	display: flex;
-	place-items: center;
-	background-color: transparent;
-	font-size: 14px;
-	border: solid 1px #dbdbdb;
-	padding: 6px;
-	cursor: pointer;
-`;

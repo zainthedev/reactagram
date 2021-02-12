@@ -1,11 +1,7 @@
 import { useFirestore, useFirestoreCollectionData, useAuth } from 'reactfire';
 import { useEffect, useState } from 'react';
-import {
-	UserListWrapper,
-	UserList,
-	UserListUser,
-	RemoveFollowerButton,
-} from '../../styled-components/userListStyles';
+import { UserListWrapper, UserList, UserListUser } from '../../styled-components/userListStyles';
+import { RemoveFollowerButton } from '../../styled-components/globalStyles';
 import { UserCardComponent } from '../userProfiles/UserCardComponent';
 import { UserListType } from '../../types';
 import { HandleFollowButtonComponent } from '../HandleFollowButtonComponent';
@@ -17,10 +13,6 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 	const userCollectionData = useFirestoreCollectionData(userCollectionQuery);
 
 	const currentUserName = useAuth().currentUser?.displayName!;
-	console.log(useAuth().currentUser);
-	const currentUser = userCollectionData.data.find((p) => p.name === currentUserName)!;
-
-	const currentUserFollowing: any = currentUser.following;
 
 	const targetUser = userCollectionData.data.find((p) => p.name === user.name)!;
 	const targetUserFollowing: any = targetUser.following;

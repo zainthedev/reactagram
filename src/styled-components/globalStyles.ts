@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { NavbarContentWrapper, MobileHeaderContentWrapper } from './navbarStyles';
+import { AuthButton } from './authStyles';
 import searchIcon from '../images/searchIcon.svg';
 
 export const AppWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	width: 60vw;
 	height: calc(100vh - 79px);
 	padding-top: 25px;
@@ -129,4 +131,20 @@ export const PopoverButton = styled.div`
 	:hover {
 		background: #f7f7f7;
 	}
+`;
+
+export const RemoveFollowerButton = styled.div`
+	display: flex;
+	place-items: center;
+	background-color: transparent;
+	font-size: 14px;
+	border: solid 1px #dbdbdb;
+	padding: 6px;
+	cursor: pointer;
+`;
+
+export const HandleFollowButton = styled(AuthButton)`
+	font-size: 14px;
+	width: 150px;
+	align-self: center;
 `;

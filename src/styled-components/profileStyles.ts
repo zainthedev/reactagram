@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 export const UserProfile = styled.div`
 	display: flex;
-	place-content: center;
+	flex-direction: column;
 	width: 100%;
-	height: 20%;
+	height: 100%;
+	max-width: 1000px;
 	min-height: 150px;
 	@media (max-width: 768px) {
 		min-height: 77px;
@@ -12,10 +13,9 @@ export const UserProfile = styled.div`
 `;
 
 export const UserProfileInfoWrapper = styled.div`
-	display: grid;
-	grid-template-columns: 1fr 3fr;
-	place-items: center;
-	place-content: center;
+	display: flex;
+	height: 15%;
+	margin-bottom: 50px;
 `;
 
 export const UserProfileInfo = styled.div`

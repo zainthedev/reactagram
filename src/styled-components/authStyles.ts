@@ -13,8 +13,9 @@ export const AuthButton = styled.button`
 	display: flex;
 	width: 100%;
 	place-content: center;
-	border: none;
+	border: solid 1px #dbdbdb;
 	border-radius: 5px;
+	outline: none;
 	padding-top: 6px;
 	padding-bottom: 6px;
 	font-size: calc((0.2em + 0.6vmin) + (0.2em + 0.6vmax));
