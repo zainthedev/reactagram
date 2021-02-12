@@ -82,12 +82,7 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 												Remove
 											</RemoveFollowerButton>
 										) : (
-											<HandleFollowButtonComponent
-												userCollectionQuery={userCollectionQuery}
-												currentUserName={currentUserName!}
-												currentUserFollowing={currentUserFollowing}
-												targetUser={listUser}
-											/>
+											<HandleFollowButtonComponent user={listUser} />
 										))}
 								</UserListUser>
 							);

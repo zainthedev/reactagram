@@ -4,9 +4,10 @@ export type SignupUserType = {
 
 export type PostType = {
 	poster: string;
-	image: string[];
 	caption: string;
+	image: string;
 	tags: string[];
+	comments: string[];
 };
 
 export interface UserType {

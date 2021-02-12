@@ -1,26 +1,22 @@
 import { HandleFollowButton } from '../styled-components/userListStyles';
 import { handleFollow } from '../helper-functions/handleFollow';
+import { useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
+import { UserType } from '../types';
 
-type HandleFollowButtonComponentProps = {
-	userCollectionQuery: any;
-	currentUserFollowing: any[];
-	currentUserName: string;
-	targetUser: any;
-};
+export const HandleFollowButtonComponent = ({ user }: UserType) => {
+	const userCollectionQuery = useFirestore().collection('users');
+	const userCollectionData = useFirestoreCollectionData(userCollectionQuery);
+	const currentUserName = useAuth().currentUser?.displayName!;
+	const currentUser = userCollectionData.data.find((p) => p.name === currentUserName)!;
 
-export const HandleFollowButtonComponent = ({
-	userCollectionQuery,
-	currentUserFollowing,
-	currentUserName,
-	targetUser,
-}: HandleFollowButtonComponentProps) => {
+	const currentUserFollowing: any = currentUser.following;
 	return (
 		<HandleFollowButton
 			onClick={() =>
-				handleFollow(userCollectionQuery, currentUserFollowing, currentUserName!, targetUser)
+				handleFollow(userCollectionQuery, currentUserFollowing, currentUserName!, user)
 			}
 		>
-			{currentUserFollowing !== undefined && currentUserFollowing.includes(targetUser.name)
+			{currentUserFollowing !== undefined && currentUserFollowing.includes(user.name)
 				? 'Unfollow'
 				: 'Follow'}
 		</HandleFollowButton>
