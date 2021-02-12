@@ -49,10 +49,20 @@ export const UserProfileComponent = () => {
 
 	return (
 		<UserProfile>
-			{displayModal.display === true && (
-				<UserListModal user={user} list={displayModal.list} handleClick={handleClick} />
+			{user.name.length > 0 ? (
+				<>
+					{displayModal.display === true && (
+						<UserListModal user={user} list={displayModal.list} handleClick={handleClick} />
+					)}
+					<UserProfileInfoComponent
+						user={user}
+						handleClick={handleClick}
+					></UserProfileInfoComponent>
+					<HandleFollowButtonComponent user={user} />
+				</>
+			) : (
+				'User not found'
 			)}
-			<UserProfileInfoComponent user={user} handleClick={handleClick}></UserProfileInfoComponent>
 		</UserProfile>
 	);
 };

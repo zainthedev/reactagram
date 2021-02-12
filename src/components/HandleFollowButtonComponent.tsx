@@ -5,11 +5,11 @@ import { UserType } from '../types';
 
 export const HandleFollowButtonComponent = ({ user }: UserType) => {
 	const userCollectionQuery = useFirestore().collection('users');
-	const userCollectionData = useFirestoreCollectionData(userCollectionQuery);
+	const userCollectionQueryData = useFirestoreCollectionData(userCollectionQuery);
 	const currentUserName = useAuth().currentUser?.displayName!;
-	const currentUser = userCollectionData.data.find((p) => p.name === currentUserName)!;
-
+	const currentUser: any = userCollectionQueryData.data.find((p) => p.name === currentUserName);
 	const currentUserFollowing: any = currentUser.following;
+
 	return (
 		<HandleFollowButton
 			onClick={() =>

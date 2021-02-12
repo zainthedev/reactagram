@@ -17,8 +17,8 @@ export const UploadImageComponent = () => {
 	const config = {
 		reduceBeforeEdit: {
 			mode: 'auto',
-			widthLimit: 1000,
-			heightLimit: 1000,
+			widthLimit: 1200,
+			heightLimit: 628,
 		},
 		colorScheme: 'light',
 		showInModal: true,
