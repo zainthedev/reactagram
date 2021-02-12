@@ -39,3 +39,7 @@ export const UserIcon = styled(Icon)`
 		margin-right: 10px;
 	}
 `;
+
+export const EditableImage = styled.img`
+	width: 100%;
+`;

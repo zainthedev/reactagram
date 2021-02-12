@@ -1,32 +1,36 @@
-import 'tui-image-editor/dist/tui-image-editor.css';
-import ImageEditor from '@toast-ui/react-image-editor';
+import FilerobotImageEditor from 'filerobot-image-editor';
+import { ImageWrapper, EditableImage } from '../styled-components/imageStyles';
+import { useState } from 'react';
 
-const ReactagramTheme = {
-	// Theme object to extends default dark theme.
+export const UploadImageComponent = () => {
+	const [isShow, setIsShow] = useState(false);
+	const [imgSrc, stImgSrc] = useState('https://cdn.scaleflex.it/demo/stephen-walker-unsplash.jpg');
+
+	const showImageEditor = () => {
+		setIsShow(true);
+	};
+
+	const onClose = () => {
+		setIsShow(false);
+	};
+
+	const config = {
+		reduceBeforeEdit: {
+			mode: 'auto',
+			widthLimit: 1000,
+			heightLimit: 1000,
+		},
+		colorScheme: 'light',
+		showInModal: true,
+	};
+
+	return (
+		<div>
+			<h1>Filerobot Image Editor</h1>
+			<ImageWrapper>
+				<EditableImage src={imgSrc} onClick={showImageEditor} alt='example' />
+			</ImageWrapper>
+			<FilerobotImageEditor config={config} show={isShow} src={imgSrc} onClose={onClose} />
+		</div>
+	);
 };
-
-export const UploadImageComponent = () => (
-	<ImageEditor
-		includeUI={{
-			loadImage: {
-				path: 'img/sampleImage.jpg',
-				name: 'SampleImage',
-			},
-			theme: ReactagramTheme,
-			menu: ['shape', 'filter'],
-			initMenu: 'filter',
-			uiSize: {
-				width: '1000px',
-				height: '700px',
-			},
-			menuBarPosition: 'bottom',
-		}}
-		cssMaxHeight={500}
-		cssMaxWidth={700}
-		selectionStyle={{
-			cornerSize: 20,
-			rotatingPointOffset: 70,
-		}}
-		usageStatistics={true}
-	/>
-);
