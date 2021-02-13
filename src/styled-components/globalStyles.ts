@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { NavbarContentWrapper, MobileHeaderContentWrapper } from './navbarStyles';
 import { AuthButton } from './authStyles';
+import { UploadImage } from './uploadStyles';
 import searchIcon from '../images/searchIcon.svg';
 import Popover from 'react-bootstrap/Popover';
 
@@ -9,6 +10,7 @@ export const AppWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	place-content: center;
 	width: 60vw;
 	height: calc(100vh - 79px);
 	padding-top: 25px;
@@ -50,6 +52,10 @@ export const ReactagramLink = styled.div`
 	outline: none;
 	:hover {
 		color: rgba(61, 110, 201, 1);
+	}
+	${UploadImage} & {
+		font-size: 24px;
+		text-align: center;
 	}
 `;
 

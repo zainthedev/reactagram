@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import { NavbarContentWrapper } from './navbarStyles';
 import { UserProfileInfoWrapper } from './profileStyles';
 import { UserList } from './userListStyles';
+import { UploadImage } from './uploadStyles';
 
 export const ImageWrapper = styled.div`
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	color: #262626;
 	outline: none;
 `;
@@ -20,8 +21,10 @@ export const GmailIcon = styled.img`
 
 export const Icon = styled.img`
 	height: 30px;
+	cursor: pointer;
 
-	${NavbarContentWrapper} & {
+	${UploadImage} & {
+		height: 200px;
 	}
 `;
 
@@ -41,8 +44,4 @@ export const UserIcon = styled(Icon)`
 		height: 30px;
 		margin-right: 10px;
 	}
-`;
-
-export const EditableImage = styled.img`
-	width: 100%;
 `;
