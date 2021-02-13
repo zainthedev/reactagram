@@ -11,9 +11,11 @@ export const NavbarComponent = () => {
 				<RouterLink to='/'>
 					<ReactagramLogoComponent />
 				</RouterLink>
-				<FormInputWrapper>
-					<FormInput placeholder='Search'></FormInput>
-				</FormInputWrapper>
+				<label>
+					<FormInputWrapper>
+						<FormInput placeholder='Search'></FormInput>
+					</FormInputWrapper>
+				</label>
 				<NavbarButtonsComponent />
 			</NavbarContentWrapper>
 		</Navbar>
