@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { NavbarContentWrapper, MobileHeaderContentWrapper } from './navbarStyles';
 import { AuthButton } from './authStyles';
-import { UploadImage } from './uploadStyles';
+import { UploadImage, FinaliseUpload } from './uploadStyles';
 import searchIcon from '../images/searchIcon.svg';
 import Popover from 'react-bootstrap/Popover';
 
@@ -87,6 +87,11 @@ export const FormInputWrapper = styled.form`
 	place-items: center;
 	justify-content: space-evenly;
 	height: 50%;
+	${FinaliseUpload} & {
+		flex-direction: row;
+		height: auto;
+		width: 50%;
+	}
 `;
 
 export const FormInput = styled.input`

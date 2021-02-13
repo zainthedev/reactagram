@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FinaliseUpload } from './uploadStyles';
 
 export const ModalWrapper = styled.div`
 	display: flex;
@@ -30,5 +31,9 @@ export const Modal = styled.div`
 	background: #fafafa;
 	@media (max-width: 768px) {
 		width: 80vw;
-	} ;
+	}
+	${FinaliseUpload} & {
+		padding: 0px;
+		height: auto;
+	}
 `;
