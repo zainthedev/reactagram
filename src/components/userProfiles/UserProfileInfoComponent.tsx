@@ -5,6 +5,7 @@ import {
 	UserProfileInfo,
 	UserProfileName,
 } from '../../styled-components/profileStyles';
+import { HandleFollowButtonComponent } from '../HandleFollowButtonComponent';
 
 export const UserProfileInfoComponent = ({ user, handleClick }: any) => {
 	return (
@@ -15,6 +16,7 @@ export const UserProfileInfoComponent = ({ user, handleClick }: any) => {
 			<UserProfileInfo>
 				<UserProfileName>{user.name}</UserProfileName>
 				<UserProfileStatsComponent user={user} handleClick={handleClick} />
+				<HandleFollowButtonComponent user={user} />
 			</UserProfileInfo>
 		</UserProfileInfoWrapper>
 	);

@@ -14,8 +14,9 @@ export const UserProfile = styled.div`
 
 export const UserProfileInfoWrapper = styled.div`
 	display: flex;
-	height: 15%;
-	margin-bottom: 50px;
+	height: 20%;
+	padding-bottom: 50px;
+	border-bottom: solid 1px #dbdbdb;
 `;
 
 export const UserProfileInfo = styled.div`
@@ -23,7 +24,7 @@ export const UserProfileInfo = styled.div`
 	font-weight: 400;
 	width: 100%;
 	height: 100%;
-	justify-content: space-evenly;
+	place-content: space-between;
 	flex-direction: column;
 	place-items: center;
 `;

@@ -3,7 +3,6 @@ import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { useEffect, useState } from 'react';
 import { UserProfile } from '../../styled-components/profileStyles';
 import { UserProfileInfoComponent } from './UserProfileInfoComponent';
-import { HandleFollowButtonComponent } from '../HandleFollowButtonComponent';
 import { UserListModal } from './UserListModal';
 
 export const UserProfileComponent = () => {
@@ -49,19 +48,22 @@ export const UserProfileComponent = () => {
 
 	return (
 		<UserProfile>
-			{user.name.length > 0 ? (
-				<>
-					{displayModal.display === true && (
-						<UserListModal user={user} list={displayModal.list} handleClick={handleClick} />
-					)}
-					<UserProfileInfoComponent
-						user={user}
-						handleClick={handleClick}
-					></UserProfileInfoComponent>
-					<HandleFollowButtonComponent user={user} />
-				</>
+			{userCollectionQueryData.data ? (
+				userCollectionQueryData.data.includes(user) ? (
+					<>
+						{displayModal.display === true && (
+							<UserListModal user={user} list={displayModal.list} handleClick={handleClick} />
+						)}
+						<UserProfileInfoComponent
+							user={user}
+							handleClick={handleClick}
+						></UserProfileInfoComponent>
+					</>
+				) : (
+					'User not found'
+				)
 			) : (
-				'User not found'
+				'Loading...'
 			)}
 		</UserProfile>
 	);
