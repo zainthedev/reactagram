@@ -1,14 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useUser, useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
-import { Popover, Target, Trigger } from '@accessible/popover';
+
 import { ImageWrapper, Icon, UserIcon } from '../../styled-components/imageStyles';
 import { StyledPopover, PopoverButton, RouterLink } from '../../styled-components/globalStyles';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Popover from 'react-bootstrap/Popover';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Button from 'react-bootstrap/Button';
 import userIcon from '../../images/userIcon.svg';
 import logoutIcon from '../../images/logoutIcon.svg';
 
 export const UserPopoverComponent = () => {
 	const [username, setUsername] = useState('');
 	const [userImage, setUserImage] = useState('');
+	const [isOpen, setIsOpen] = useState(false);
 
 	const user = useUser();
 	const userData: any = user.data;
@@ -34,31 +39,32 @@ export const UserPopoverComponent = () => {
 		await auth.signOut();
 	};
 
-	return (
-		<Popover repositionOnScroll repositionOnResize>
-			<Target placement='bottom'>
-				<StyledPopover className='my-popover'>
-					<PopoverButton>
-						<RouterLink to={`/u/${username}`}>
-							<ImageWrapper>
-								<UserIcon alt='user' src={userImage} />
-								<p> Profile</p>
-							</ImageWrapper>
-						</RouterLink>
-					</PopoverButton>
-					<PopoverButton onClick={() => signOut()}>
+	const popover = (
+		<StyledPopover>
+			<Popover.Content>
+				<PopoverButton>
+					<RouterLink to={`/u/${username}`}>
 						<ImageWrapper>
-							<Icon alt='logout' src={logoutIcon} />
-							<p> Log out</p>
+							<UserIcon alt='user' src={userImage} />
+							<p> Profile</p>
 						</ImageWrapper>
-					</PopoverButton>
-				</StyledPopover>
-			</Target>
-			<Trigger on='click'>
-				<ImageWrapper>
-					<UserIcon alt='user' src={userImage || userIcon} />
-				</ImageWrapper>
-			</Trigger>
-		</Popover>
+					</RouterLink>
+				</PopoverButton>
+				<PopoverButton onClick={() => signOut()}>
+					<ImageWrapper>
+						<Icon alt='logout' src={logoutIcon} />
+						<p> Log out</p>
+					</ImageWrapper>
+				</PopoverButton>
+			</Popover.Content>
+		</StyledPopover>
+	);
+
+	return (
+		<OverlayTrigger trigger='click' rootClose placement='bottom' overlay={popover}>
+			<ImageWrapper>
+				<UserIcon alt='user' src={userImage || userIcon} />
+			</ImageWrapper>
+		</OverlayTrigger>
 	);
 };

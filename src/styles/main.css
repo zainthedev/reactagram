@@ -3,10 +3,13 @@ html {
 	font-family: 'Montserrat', sans-serif;
 	color: #262626;
 	background: #fafafa;
+	text-decoration: none;
 }
 
 #root {
 	display: flex;
+	background: #fafafa;
 	justify-content: center;
 	padding-top: 54px;
+	text-decoration: none;
 }

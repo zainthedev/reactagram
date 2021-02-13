@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { NavbarContentWrapper, MobileHeaderContentWrapper } from './navbarStyles';
 import { AuthButton } from './authStyles';
 import searchIcon from '../images/searchIcon.svg';
+import Popover from 'react-bootstrap/Popover';
 
 export const AppWrapper = styled.div`
 	display: flex;
@@ -109,7 +110,7 @@ export const FormInput = styled.input`
 	}
 `;
 
-export const StyledPopover = styled.div`
+export const StyledPopover = styled(Popover)`
 	display: flex;
 	flex-direction: column;
 	border-radius: 5px;
