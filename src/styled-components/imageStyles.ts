@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { UserProfileInfoWrapper } from './profileStyles';
 import { UserList } from './userListStyles';
-import { UploadImage } from './uploadStyles';
+import { UploadImage, FinaliseUpload } from './uploadStyles';
 import { ModalWrapper, Modal } from './modalStyles';
 
 export const ImageWrapper = styled.div`
@@ -45,8 +45,10 @@ export const UserIcon = styled(Icon)`
 		}
 	}
 	${UserList} & {
-		height: 30px;
 		margin-right: 10px;
+	}
+	${FinaliseUpload} & {
+		height: 50px;
 	}
 `;
 

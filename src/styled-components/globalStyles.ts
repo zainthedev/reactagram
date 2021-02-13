@@ -90,7 +90,7 @@ export const FormInputWrapper = styled.form`
 	${FinaliseUpload} & {
 		flex-direction: row;
 		height: auto;
-		width: 50%;
+		width: 300px;
 	}
 `;
 
@@ -112,6 +112,9 @@ export const FormInput = styled.input`
 		@media (max-width: 768px) {
 			display: none;
 		}
+	}
+	${FinaliseUpload} & {
+		font-size: 18px;
 	}
 	@media (max-width: 768px) {
 		border-radius: 3px;
