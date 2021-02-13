@@ -57,7 +57,7 @@ export const UserPopoverComponent = () => {
 	);
 
 	return (
-		<OverlayTrigger trigger='click' rootClose placement='bottom' overlay={popover}>
+		<OverlayTrigger trigger='click' rootClose placement='auto' overlay={popover}>
 			<ImageWrapper>
 				<UserIcon alt='user' src={userImage || userIcon} />
 			</ImageWrapper>
