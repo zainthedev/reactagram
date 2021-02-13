@@ -1,19 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useUser, useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
-
 import { ImageWrapper, Icon, UserIcon } from '../../styled-components/imageStyles';
 import { StyledPopover, PopoverButton, RouterLink } from '../../styled-components/globalStyles';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Button from 'react-bootstrap/Button';
 import userIcon from '../../images/userIcon.svg';
 import logoutIcon from '../../images/logoutIcon.svg';
 
 export const UserPopoverComponent = () => {
 	const [username, setUsername] = useState('');
 	const [userImage, setUserImage] = useState('');
-	const [isOpen, setIsOpen] = useState(false);
 
 	const user = useUser();
 	const userData: any = user.data;
