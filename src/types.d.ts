@@ -3,9 +3,11 @@ export type SignupUserType = {
 };
 
 export type PostType = {
+	postID: string;
 	poster: string;
 	caption: string;
 	image: string;
+	location: string;
 	tags: string[];
 	comments: string[];
 };
