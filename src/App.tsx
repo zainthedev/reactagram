@@ -5,7 +5,7 @@ import { LoginComponent } from './components/auth/LoginComponent';
 import { MobileHeaderComponent } from './components/nav/MobileHeaderComponent';
 import { NavbarComponent } from './components/nav/NavbarComponent';
 import { UserProfileComponent } from './components/userProfiles/UserProfileComponent';
-import { UploadImageComponent } from './components/UploadImageComponent';
+import { UploadImageComponent } from './components/upload/UploadImageComponent';
 import { AppWrapper } from './styled-components/globalStyles';
 
 export const App = () => {

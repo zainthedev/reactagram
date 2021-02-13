@@ -144,7 +144,7 @@ export const RemoveFollowerButton = styled.div`
 	cursor: pointer;
 `;
 
-export const HandleFollowButton = styled(AuthButton)`
+export const ReactagramButton = styled(AuthButton)`
 	font-size: 14px;
 	width: 150px;
 	align-self: center;
