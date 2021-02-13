@@ -1,10 +1,10 @@
 import FilerobotImageEditor from 'filerobot-image-editor';
 import { ImageWrapper, EditableImage } from '../styled-components/imageStyles';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const UploadImageComponent = () => {
 	const [isShow, setIsShow] = useState(false);
-	const [imgSrc, stImgSrc] = useState('https://cdn.scaleflex.it/demo/stephen-walker-unsplash.jpg');
+	const [selectedImage, setSelectedImage] = useState('');
 
 	const showImageEditor = () => {
 		setIsShow(true);
@@ -24,13 +24,23 @@ export const UploadImageComponent = () => {
 		showInModal: true,
 	};
 
+	const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const file = e.currentTarget.files![0];
+		const fileURL = URL.createObjectURL(file);
+		setSelectedImage(fileURL);
+	};
+
 	return (
 		<div>
-			<h1>Filerobot Image Editor</h1>
-			<ImageWrapper>
-				<EditableImage src={imgSrc} onClick={showImageEditor} alt='example' />
-			</ImageWrapper>
-			<FilerobotImageEditor config={config} show={isShow} src={imgSrc} onClose={onClose} />
+			<label>
+				<input type='file' name='file' accept='image/*' onChange={onChangeHandler}></input>
+			</label>
+			{selectedImage && (
+				<ImageWrapper>
+					<EditableImage src={selectedImage} onClick={showImageEditor} alt='example' />
+				</ImageWrapper>
+			)}
+			<FilerobotImageEditor config={config} show={isShow} src={selectedImage} onClose={onClose} />
 		</div>
 	);
 };
