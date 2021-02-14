@@ -1,6 +1,6 @@
 html {
 	min-height: 100vh;
-	font-family: 'Montserrat', sans-serif;
+	font-family: Helvetica, Arial, sans-serif;
 	color: #262626;
 	background: #fafafa;
 	text-decoration: none;
@@ -11,5 +11,6 @@ html {
 	background: #fafafa;
 	justify-content: center;
 	padding-top: 54px;
+	padding-bottom: 54px;
 	text-decoration: none;
 }

@@ -52,6 +52,9 @@ export const UserIcon = styled(Icon)`
 		height: 50px;
 		margin-right: 10px;
 	}
+	${PostCard} & {
+		margin-right: 10px;
+	}
 `;
 
 export const UploadedImage = styled.img`
@@ -68,8 +71,10 @@ export const UploadedImage = styled.img`
 		}
 	}
 	${PostCard} & {
-		width: 100%;
+		width: 100vw;
+		max-width: 600px;
 		height: 100%;
 		border-radius: 0px;
+		padding-bottom: 10px;
 	}
 `;

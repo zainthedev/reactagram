@@ -8,20 +8,25 @@ export const PostCardWrapper = styled.div`
 export const PostCard = styled.div`
 	display: flex;
 	flex-direction: column;
-	place-content: space-evenly;
 	height: 800px;
+`;
+
+export const PostInfo = styled.div`
+	padding-bottom: 15px;
+	font-weight: 500;
 `;
 
 export const PostCaptionWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
+	padding-bottom: 15px;
 `;
 
 export const PostCaption = styled.p`
 	width: 100%;
 	max-height: 64px;
 	overflow: hidden;
-	white-space: pre;
+	white-space: pre-line;
 `;
 
 export const MoreButton = styled.div`

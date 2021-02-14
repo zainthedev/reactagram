@@ -40,5 +40,6 @@ export const UserCard = styled.div`
 	margin-right: 10px;
 	${PostCard} & {
 		font-weight: 600;
+		padding-bottom: 10px;
 	}
 `;

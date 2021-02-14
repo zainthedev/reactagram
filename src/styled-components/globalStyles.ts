@@ -18,7 +18,9 @@ export const AppWrapper = styled.div`
 	padding-top: 25px;
 	@media (max-width: 768px) {
 		width: 90vw;
+		height: max-content;
 		align-items: center;
+		margin-bottom: 55px;
 	}
 `;
 
