@@ -41,3 +41,18 @@ export const CaptionInputWrapper = styled.div`
 	justify-content: space-evenly;
 	place-items: center;
 `;
+
+export const NavigationButtonWrapper = styled.div`
+	display: flex;
+	width: 100%;
+	place-content: space-between;
+`;
+
+export const ExtraInfoWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	place-items: center;
+	height: 20%;
+	width: 100%;
+	place-content: space-evenly;
+`;

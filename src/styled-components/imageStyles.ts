@@ -49,15 +49,16 @@ export const UserIcon = styled(Icon)`
 	}
 	${FinaliseUpload} & {
 		height: 50px;
+		margin-right: 10px;
 	}
 `;
 
 export const UploadedImage = styled.img`
-	width: 200px;
+	width: 300px;
 	cursor: pointer;
 	border-radius: 7px;
 	${Modal} & {
-		width: 100%;
+		width: 800px;
 		height: 100%;
 		border-radius: 0px;
 		@media (max-width: 768px) {

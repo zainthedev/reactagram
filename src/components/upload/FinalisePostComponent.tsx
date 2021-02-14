@@ -2,12 +2,16 @@ import { useState } from 'react';
 import { useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { ReactagramButton } from '../../styled-components/globalStyles';
 import { ImageWrapper, UserIcon, UploadedImage } from '../../styled-components/imageStyles';
-import { FinaliseUpload, CaptionInputWrapper } from '../../styled-components/uploadStyles';
+import {
+	FinaliseUpload,
+	NavigationButtonWrapper,
+	CaptionInputWrapper,
+	ExtraInfoWrapper,
+} from '../../styled-components/uploadStyles';
 import { FormInputWrapper, FormInput } from '../../styled-components/globalStyles';
 import { ModalWrapper, Modal } from '../../styled-components/modalStyles';
 import { addPost } from '../../helper-functions/addPost';
 import { Redirect } from 'react-router-dom';
-import { UserListModal } from '../userProfiles/UserListModal';
 
 type FinalisePostComponentProps = {
 	selectedImage: string;
@@ -57,9 +61,12 @@ export const FinalisePostComponent = ({
 
 	return (
 		<FinaliseUpload>
-			<ReactagramButton onClick={handleFinishEditing}>Back</ReactagramButton>
 			{currentUser && (
 				<>
+					<NavigationButtonWrapper>
+						<ReactagramButton onClick={handleFinishEditing}>Back</ReactagramButton>
+						<ReactagramButton onClick={handlePost}>Post</ReactagramButton>
+					</NavigationButtonWrapper>
 					<CaptionInputWrapper>
 						<FormInputWrapper>
 							<ImageWrapper>
@@ -75,10 +82,12 @@ export const FinalisePostComponent = ({
 							/>
 						</ImageWrapper>
 					</CaptionInputWrapper>
-					<FormInputWrapper>
-						<FormInput placeholder={'Add a location'} onChange={handleInput} />
-					</FormInputWrapper>
-					<ReactagramButton>Add tags</ReactagramButton>
+					<ExtraInfoWrapper>
+						<FormInputWrapper>
+							<FormInput placeholder={'Enter a location'} onChange={handleInput} />
+						</FormInputWrapper>
+						<ReactagramButton>Tag people</ReactagramButton>
+					</ExtraInfoWrapper>
 				</>
 			)}
 			{showImage && (
@@ -90,7 +99,6 @@ export const FinalisePostComponent = ({
 					</Modal>
 				</ModalWrapper>
 			)}
-			<ReactagramButton onClick={handlePost}>Post</ReactagramButton>
 			{posted && <Redirect to='/' />}
 		</FinaliseUpload>
 	);

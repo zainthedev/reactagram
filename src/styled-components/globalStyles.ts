@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { NavbarContentWrapper, MobileHeaderContentWrapper } from './navbarStyles';
 import { AuthButton } from './authStyles';
-import { UploadImage, FinaliseUpload } from './uploadStyles';
+import { UploadImage, FinaliseUpload, CaptionInputWrapper } from './uploadStyles';
 import searchIcon from '../images/searchIcon.svg';
 import Popover from 'react-bootstrap/Popover';
 
@@ -90,8 +90,8 @@ export const FormInputWrapper = styled.form`
 	${FinaliseUpload} & {
 		flex-direction: row;
 		height: auto;
-		width: 300px;
 	}
+	height: auto;
 `;
 
 export const FormInput = styled.input`
@@ -114,7 +114,7 @@ export const FormInput = styled.input`
 		}
 	}
 	${FinaliseUpload} & {
-		font-size: 18px;
+		font-size: calc((0.2em + 0.6vmin) + (0.2em + 0.6vmax));
 	}
 	@media (max-width: 768px) {
 		border-radius: 3px;
@@ -159,7 +159,7 @@ export const RemoveFollowerButton = styled.div`
 `;
 
 export const ReactagramButton = styled(AuthButton)`
-	font-size: 14px;
-	width: 150px;
+	font-size: calc((0.2em + 0.6vmin) + (0.2em + 0.6vmax));
+	width: 25%;
 	align-self: center;
 `;
