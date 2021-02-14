@@ -35,6 +35,7 @@ export const addPost = async (
 				tags: tags,
 				comments: '',
 				date: new Date(),
+				likers: [],
 			});
 		});
 };

@@ -22,6 +22,7 @@ export interface PostType {
 	tags: string[];
 	comments: CommentType[];
 	date: any;
+	likers: string[];
 }
 
 export interface CommentType {
