@@ -28,6 +28,7 @@ export const addPost = async (
 		.getDownloadURL()
 		.then((url) => {
 			postsQuery.doc(`${postID}`).set({
+				postID: `${postID}`,
 				poster: username,
 				caption: caption,
 				image: url,
