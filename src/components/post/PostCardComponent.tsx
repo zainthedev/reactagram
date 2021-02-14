@@ -26,7 +26,7 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 						<ImageWrapper>
 							<UploadedImage src={post.image} alt={`${post.poster}'s upload`} />
 						</ImageWrapper>
-						<PostCaptionComponent post={post} />
+						{post.caption && <PostCaptionComponent post={post} />}
 					</PostCard>
 				</PostCardWrapper>
 			)}

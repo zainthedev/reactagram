@@ -75,6 +75,6 @@ export const UploadedImage = styled.img`
 		max-width: 600px;
 		height: 100%;
 		border-radius: 0px;
-		padding-bottom: 10px;
+		padding-bottom: 20px;
 	}
 `;

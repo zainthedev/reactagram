@@ -14,7 +14,6 @@ export const AppWrapper = styled.div`
 	align-items: center;
 	place-content: center;
 	width: 60vw;
-	height: calc(100vh - 79px);
 	padding-top: 25px;
 	@media (max-width: 768px) {
 		width: 90vw;

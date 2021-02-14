@@ -4,22 +4,32 @@ export const PostCardWrapper = styled.div`
 	display: flex;
 	max-width: 600px;
 	flex-direction: column;
+	box-shadow: 0px 0px 0px 1px #dbdbdb;
+	background: white;
+	padding-top: 20px;
+	margin-bottom: 50px;
 `;
+
 export const PostCard = styled.div`
 	display: flex;
 	flex-direction: column;
-	height: 800px;
+	height: max-content;
+	margin-bottom: 10px;
 `;
 
 export const PostInfo = styled.div`
 	padding-bottom: 15px;
 	font-weight: 500;
+	width: 95%;
+	align-self: center;
 `;
 
 export const PostCaptionWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	padding-bottom: 15px;
+	padding-bottom: 20px;
+	width: 95%;
+	align-self: center;
 `;
 
 export const PostCaption = styled.p`
