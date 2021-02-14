@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { PostCard } from './postStyles';
 
 export const UserListWrapper = styled.div`
 	display: flex;
@@ -37,4 +38,7 @@ export const UserCard = styled.div`
 	text-decoration: none;
 	overflow-x: hidden;
 	margin-right: 10px;
+	${PostCard} & {
+		font-weight: 600;
+	}
 `;

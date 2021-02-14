@@ -5,7 +5,7 @@ import { AuthButton } from './authStyles';
 import { UploadImage, FinaliseUpload } from './uploadStyles';
 import searchIcon from '../images/searchIcon.svg';
 import Popover from 'react-bootstrap/Popover';
-import { PostCard } from './postStyles';
+import { PostCaption, PostCard } from './postStyles';
 import { Modal } from './modalStyles';
 
 export const AppWrapper = styled.div`
@@ -69,6 +69,9 @@ export const RouterLink = styled(Link)`
 	align-self: center;
 	${PostCard} & {
 		width: 100%;
+	}
+	${PostCaption} & {
+		font-weight: 600;
 	}
 `;
 
