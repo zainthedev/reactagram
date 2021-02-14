@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
-import { getUserPosts } from '../helper-functions/getUserPosts';
+import { getFollowingPosts } from '../helper-functions/getUserPosts';
 import { Home } from '../styled-components/homeStyles';
-import { PostType, UserType } from '../types';
+import { PostType } from '../types';
 import { PostCardComponent } from './PostCardComponent';
-import { ImageWrapper } from '../styled-components/imageStyles';
 
 export const HomeComponent = () => {
-	const [postIDs, setPostIDs]: any = useState([]);
 	const [posts, setPosts]: any = useState([]);
 	const userCollectionQuery = useFirestore().collection('users');
 	const userCollectionQueryData = useFirestoreCollectionData(userCollectionQuery);
@@ -17,6 +15,7 @@ export const HomeComponent = () => {
 	const postCollectionQueryData = useFirestoreCollectionData(postCollectionQuery);
 	console.log(postCollectionQueryData);
 
+	//Get all of the posts made by the current user's following users and display put them in state
 	useEffect(() => {
 		if (
 			userCollectionQueryData.data !== undefined &&
@@ -25,11 +24,12 @@ export const HomeComponent = () => {
 			posts.length === 0
 		) {
 			const currentUser: any = userCollectionQueryData.data.find((p) => p.name === currentUserName);
-			console.log(postCollectionQueryData.data);
-			const newPosts = getUserPosts(postCollectionQueryData.data, currentUser);
-			const newnewPosts = newPosts;
-			setPosts(newnewPosts);
-			console.log(posts);
+			const newPosts = getFollowingPosts(
+				userCollectionQueryData.data,
+				postCollectionQueryData.data,
+				currentUser.following
+			);
+			setPosts(newPosts);
 		}
 	}, [userCollectionQueryData, currentUserName, postCollectionQueryData, posts]);
 
@@ -38,7 +38,7 @@ export const HomeComponent = () => {
 			{posts.length > 0 &&
 				posts.map((post: PostType) => {
 					console.log(post);
-					return <PostCardComponent post={post} />;
+					return <PostCardComponent key={post.postID} post={post} />;
 				})}
 		</Home>
 	);
