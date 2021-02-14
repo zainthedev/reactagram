@@ -20,8 +20,13 @@ export interface PostType {
 	image: string;
 	location: string;
 	tags: string[];
-	comments: string[];
+	comments: CommentType[];
 	date: any;
+}
+
+export interface CommentType {
+	poster: UserType.user;
+	comment: string;
 }
 
 export interface UserListType extends UserType {
