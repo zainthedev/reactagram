@@ -19,7 +19,7 @@ export const PostCaptionComponent = ({ post }: PostCardComponentProps) => {
 			<PostCaption
 				style={
 					showFullCaption
-						? { overflow: 'inherit', whiteSpace: 'break-spaces' }
+						? { overflow: 'inherit', whiteSpace: 'break-spaces', maxHeight: '100%' }
 						: { textOverflow: 'ellipsis' }
 				}
 			>

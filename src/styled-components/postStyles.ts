@@ -61,3 +61,11 @@ export const PostTextInput = styled.textarea`
 		font-size: calc((0.2em + 0.8vmin) + (0.2em + 0.8vmax));
 	}
 `;
+
+export const PostTime = styled.div`
+	font-weight: 500;
+	width: 95%;
+	align-self: center;
+	font-size: 14px;
+	color: #8e8e8e;
+`;
