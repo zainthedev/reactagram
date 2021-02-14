@@ -4,8 +4,9 @@ import { PostCardWrapper, PostCard, PostInfo, PostTime } from '../../styled-comp
 import { ReactagramButton } from '../../styled-components/globalStyles';
 import { PostType } from '../../types';
 import { useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
-import { ImageWrapper, UploadedImage } from '../../styled-components/imageStyles';
+import { ImageWrapper, Icon, UploadedImage } from '../../styled-components/imageStyles';
 import { handleLike } from '../../helper-functions/handleLike';
+import heartIcon from '../../images/heartIcon.svg';
 
 interface PostCardComponentProps {
 	post: PostType;
@@ -44,13 +45,17 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 						<ImageWrapper>
 							<UploadedImage src={post.image} alt={`${post.poster}'s upload`} />
 						</ImageWrapper>
-						<ReactagramButton
+						<ImageWrapper
 							onClick={() =>
 								handleLike(post, userCollectionQuery, postCollectionQuery, currentUser)
 							}
 						>
-							{targetUserLikes.includes(post.postID) ? 'Unlike' : 'Like'}
-						</ReactagramButton>
+							<Icon
+								alt='Like button'
+								src={targetUserLikes.includes(post.postID) ? 'Unlike' : heartIcon}
+								style={{ marginLeft: '10px' }}
+							/>
+						</ImageWrapper>
 						{post.caption && <PostCaptionComponent post={post} />}
 						<PostTime>
 							{postedTimeSeconds < 60 && `${postedTimeSeconds} seconds ago`}

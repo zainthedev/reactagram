@@ -14,6 +14,9 @@ export const ImageWrapper = styled.div`
 	${Modal} & {
 		height: 100%;
 	}
+	${PostCard} & {
+		align-self: flex-start;
+	}
 `;
 
 export const UserProfileImageWrapper = styled(ImageWrapper)`
@@ -30,6 +33,9 @@ export const Icon = styled.img`
 
 	${UploadImage} & {
 		height: 200px;
+	}
+	${PostCard} & {
+		margin-bottom: 10px;
 	}
 `;
 
