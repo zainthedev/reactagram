@@ -14,10 +14,10 @@ export const AppWrapper = styled.div`
 	align-items: center;
 	place-content: center;
 	width: 60vw;
+	height: max-content;
 	padding-top: 25px;
 	@media (max-width: 768px) {
 		width: 90vw;
-		height: max-content;
 		align-items: center;
 		margin-bottom: 55px;
 	}
@@ -98,6 +98,7 @@ export const FormInputWrapper = styled.form`
 	height: 50%;
 	${FinaliseUpload} & {
 		flex-direction: row;
+		margin-bottom: 10px;
 		height: auto;
 	}
 `;

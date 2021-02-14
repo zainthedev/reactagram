@@ -23,8 +23,7 @@ export const UserProfileInfo = styled.div`
 	display: flex;
 	font-weight: 400;
 	width: 100%;
-	height: 100%;
-	place-content: space-between;
+	justify-content: space-evenly;
 	flex-direction: column;
 	place-items: center;
 `;

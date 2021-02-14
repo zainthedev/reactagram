@@ -3,7 +3,7 @@ import { ReactagramLink } from '../../styled-components/globalStyles';
 import { ImageCropComponent } from './ImageCropComponent';
 import { FinalisePostComponent } from './FinalisePostComponent';
 import { ImageWrapper, Icon } from '../../styled-components/imageStyles';
-import { UploadImage } from '../../styled-components/uploadStyles';
+import { UploadImageWrapper, UploadImage } from '../../styled-components/uploadStyles';
 import uploadIcon from '../../images/uploadIcon.svg';
 
 export const UploadImageComponent = () => {
@@ -31,7 +31,7 @@ export const UploadImageComponent = () => {
 	};
 
 	return (
-		<>
+		<UploadImageWrapper>
 			{!finishedEditing ? (
 				<UploadImage>
 					<label>
@@ -62,6 +62,6 @@ export const UploadImageComponent = () => {
 					handleFinishEditing={handleFinishEditing}
 				/>
 			)}
-		</>
+		</UploadImageWrapper>
 	);
 };

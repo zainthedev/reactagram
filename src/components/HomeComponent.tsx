@@ -23,27 +23,31 @@ export const HomeComponent = () => {
 			postCollectionQueryData.data !== undefined
 		) {
 			const currentUser: any = userCollectionQueryData.data.find((p) => p.name === currentUserName);
-			const newPosts = getFollowingPosts(
-				userCollectionQueryData.data,
-				postCollectionQueryData.data,
-				currentUser.following,
-				currentUser
-			);
-			setFollowingUsers(currentUser.following.length);
-			setPosts(newPosts);
+			if (currentUser !== undefined) {
+				console.log('hi');
+				const newPosts = getFollowingPosts(
+					userCollectionQueryData.data,
+					postCollectionQueryData.data,
+					currentUser.following,
+					currentUser
+				);
+				setFollowingUsers(currentUser.following.length);
+				setPosts(newPosts);
+			}
 		}
 	}, [currentUserName, userCollectionQueryData.data, postCollectionQueryData.data]);
 
 	return (
 		<Home>
-			{followingUsers > 0
-				? posts.length > 0
-					? posts.map((post: PostType) => {
-							console.log(post);
-							return <PostCardComponent key={post.postID} post={post} />;
-					  })
-					: `Looks like the people you follow haven't posted anything. Why not make one yourself?`
-				: `Looks like you aren't following anyone. Use the search function or the explore page to find new users.`}
+			{posts.length > 0
+				? posts.map((post: PostType) => {
+						console.log(post);
+						return <PostCardComponent key={post.postID} post={post} />;
+				  })
+				: `Looks like the people you follow haven't posted anything. Why not make one yourself?`}
+			{followingUsers > 0 &&
+				posts.length === 0 &&
+				`Looks like you aren't following anyone. Use the search function or the explore page to find new users.`}
 		</Home>
 	);
 };
