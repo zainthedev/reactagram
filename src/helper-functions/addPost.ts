@@ -34,6 +34,7 @@ export const addPost = async (
 				location: location,
 				tags: tags,
 				comments: '',
+				date: new Date(),
 			});
 		});
 };
