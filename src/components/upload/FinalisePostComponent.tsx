@@ -10,6 +10,7 @@ import {
 } from '../../styled-components/uploadStyles';
 import { FormInputWrapper, FormInput } from '../../styled-components/globalStyles';
 import { ModalWrapper, Modal } from '../../styled-components/modalStyles';
+import { PostTextInput } from '../../styled-components/postStyles';
 import { addPost } from '../../helper-functions/addPost';
 import { Redirect } from 'react-router-dom';
 
@@ -39,7 +40,7 @@ export const FinalisePostComponent = ({
 		setShowImage(!showImage);
 	};
 
-	const handleInput = (e: React.FormEvent<HTMLInputElement>) => {
+	const handleInput = (e: any) => {
 		const formValue = e.currentTarget.value;
 		e.currentTarget.placeholder.includes('caption')
 			? setCaption(formValue)
@@ -72,7 +73,11 @@ export const FinalisePostComponent = ({
 							<ImageWrapper>
 								<UserIcon src={displayPicture} alt={currentUserName + 'user icon'} />
 							</ImageWrapper>
-							<FormInput placeholder={'Write a caption...'} onChange={handleInput} />
+							<PostTextInput
+								placeholder={'Write a caption...'}
+								onChange={handleInput}
+								ng-Trim={false}
+							/>
 						</FormInputWrapper>
 						<ImageWrapper>
 							<UploadedImage
