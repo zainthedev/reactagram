@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import { UserProfileInfoWrapper } from './profileStyles';
 import { UserList } from './userListStyles';
 import { UploadImage, FinaliseUpload } from './uploadStyles';
-import { ModalWrapper, Modal } from './modalStyles';
-import { Home } from './homeStyles';
+import { Modal } from './modalStyles';
 import { PostCard } from './postStyles';
 
 export const ImageWrapper = styled.div`
@@ -59,6 +58,7 @@ export const UploadedImage = styled.img`
 	width: 300px;
 	cursor: pointer;
 	border-radius: 7px;
+	max-width: 600px;
 	${Modal} & {
 		width: 800px;
 		height: 100%;

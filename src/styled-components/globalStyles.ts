@@ -6,6 +6,7 @@ import { UploadImage, FinaliseUpload } from './uploadStyles';
 import searchIcon from '../images/searchIcon.svg';
 import Popover from 'react-bootstrap/Popover';
 import { PostCard } from './postStyles';
+import { Modal } from './modalStyles';
 
 export const AppWrapper = styled.div`
 	display: flex;
@@ -13,7 +14,6 @@ export const AppWrapper = styled.div`
 	align-items: center;
 	place-content: center;
 	width: 60vw;
-	max-width: 600px;
 	height: calc(100vh - 79px);
 	padding-top: 25px;
 	@media (max-width: 768px) {
@@ -166,4 +166,8 @@ export const ReactagramButton = styled(AuthButton)`
 	font-size: calc((0.2em + 0.6vmin) + (0.2em + 0.6vmax));
 	width: 25%;
 	align-self: center;
+	${Modal} & {
+		width: auto;
+		font-size: 16px;
+	}
 `;

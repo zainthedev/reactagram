@@ -1,7 +1,6 @@
 import firebase from 'firebase';
 import admin from 'firebase';
 import uniqid from 'uniqid';
-import PostType from '../types';
 
 export const addPost = async (
 	userQuery: any,
@@ -23,7 +22,7 @@ export const addPost = async (
 		posts: admin.firestore.FieldValue.arrayUnion(postID),
 	});
 
-	const createPost = storage
+	storage
 		.refFromURL(`gs://reactagram-zain.appspot.com/${postID}`)
 		.getDownloadURL()
 		.then((url) => {

@@ -1,5 +1,5 @@
 import { UserCardComponent } from './userProfiles/UserCardComponent';
-import { PostCard } from '../styled-components/postStyles';
+import { PostCardWrapper, PostCard, PostCaption } from '../styled-components/postStyles';
 import { PostType } from '../types';
 import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { ImageWrapper, UploadedImage } from '../styled-components/imageStyles';
@@ -16,13 +16,16 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 	return (
 		<>
 			{post !== undefined && (
-				<PostCard>
-					<UserCardComponent key={post.postID} user={currentUser} />
-					<p>{post.location}</p>
-					<ImageWrapper>
-						<UploadedImage src={post.image} alt={`${post.poster}'s upload`} />
-					</ImageWrapper>
-				</PostCard>
+				<PostCardWrapper>
+					<PostCard>
+						<UserCardComponent key={post.postID} user={currentUser} />
+						<p>{post.location}</p>
+						<ImageWrapper>
+							<UploadedImage src={post.image} alt={`${post.poster}'s upload`} />
+						</ImageWrapper>
+						<PostCaption>{post.caption}</PostCaption>
+					</PostCard>
+				</PostCardWrapper>
 			)}
 		</>
 	);
