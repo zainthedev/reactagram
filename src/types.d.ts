@@ -21,6 +21,7 @@ export interface PostType {
 	location: string;
 	tags: string[];
 	comments: string[];
+	date: any;
 }
 
 export interface UserListType extends UserType {
