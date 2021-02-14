@@ -7,7 +7,7 @@ export const addUser = async (query: any, username: string, picture: string) => 
 		posts: [],
 		taggedPosts: [],
 		followers: [],
-		following: [],
+		following: ['zainthedev'],
 		likes: [],
 	});
 };
