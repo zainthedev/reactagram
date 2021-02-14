@@ -3,6 +3,8 @@ import { UserProfileInfoWrapper } from './profileStyles';
 import { UserList } from './userListStyles';
 import { UploadImage, FinaliseUpload } from './uploadStyles';
 import { ModalWrapper, Modal } from './modalStyles';
+import { Home } from './homeStyles';
+import { PostCard } from './postStyles';
 
 export const ImageWrapper = styled.div`
 	display: flex;
@@ -64,5 +66,10 @@ export const UploadedImage = styled.img`
 		@media (max-width: 768px) {
 			width: 90vw;
 		}
+	}
+	${PostCard} & {
+		width: 100%;
+		height: 100%;
+		border-radius: 0px;
 	}
 `;

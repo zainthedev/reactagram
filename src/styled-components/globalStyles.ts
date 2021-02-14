@@ -2,9 +2,10 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { NavbarContentWrapper, MobileHeaderContentWrapper } from './navbarStyles';
 import { AuthButton } from './authStyles';
-import { UploadImage, FinaliseUpload, CaptionInputWrapper } from './uploadStyles';
+import { UploadImage, FinaliseUpload } from './uploadStyles';
 import searchIcon from '../images/searchIcon.svg';
 import Popover from 'react-bootstrap/Popover';
+import { PostCard } from './postStyles';
 
 export const AppWrapper = styled.div`
 	display: flex;
@@ -12,6 +13,7 @@ export const AppWrapper = styled.div`
 	align-items: center;
 	place-content: center;
 	width: 60vw;
+	max-width: 600px;
 	height: calc(100vh - 79px);
 	padding-top: 25px;
 	@media (max-width: 768px) {
@@ -65,6 +67,9 @@ export const RouterLink = styled(Link)`
 	user-select: none;
 	color: #262626;
 	align-self: center;
+	${PostCard} & {
+		width: 100%;
+	}
 `;
 
 export const GithubLink = styled.a`
@@ -91,7 +96,6 @@ export const FormInputWrapper = styled.form`
 		flex-direction: row;
 		height: auto;
 	}
-	height: auto;
 `;
 
 export const FormInput = styled.input`
