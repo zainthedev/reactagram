@@ -5,7 +5,7 @@ export const handleLike = (
 	post: PostType,
 	userCollectionQuery: any,
 	postCollectionQuery: any,
-	{ user }: UserType
+	user: any
 ) => {
 	const targetUserLikes = [...user.likes];
 	const targetPostLikers = [...post.likers];

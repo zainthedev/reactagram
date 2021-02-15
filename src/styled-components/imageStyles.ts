@@ -3,7 +3,7 @@ import { UserProfile, UserProfileInfoWrapper } from './profileStyles';
 import { UserList } from './userListStyles';
 import { UploadImage, FinaliseUpload } from './uploadStyles';
 import { Modal } from './modalStyles';
-import { PostBlocksWrapper, PostCard } from './postStyles';
+import { PostBlocksWrapper, PostCard, PostCommentWrapper } from './postStyles';
 
 export const ImageWrapper = styled.div`
 	display: flex;
@@ -37,6 +37,10 @@ export const Icon = styled.img`
 	}
 	${PostCard} & {
 		margin-bottom: 10px;
+	}
+	${PostCommentWrapper} & {
+		margin-bottom: 0px;
+		height: 16px;
 	}
 `;
 
