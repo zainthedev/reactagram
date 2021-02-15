@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { UserProfileInfoWrapper } from './profileStyles';
+import { UserProfile, UserProfileInfoWrapper } from './profileStyles';
 import { UserList } from './userListStyles';
 import { UploadImage, FinaliseUpload } from './uploadStyles';
 import { Modal } from './modalStyles';
-import { PostCard } from './postStyles';
+import { PostBlocksWrapper, PostCard } from './postStyles';
 
 export const ImageWrapper = styled.div`
 	display: flex;
@@ -11,6 +11,8 @@ export const ImageWrapper = styled.div`
 	justify-content: center;
 	color: #262626;
 	outline: none;
+	-webkit-tap-highlight-color: transparent;
+	user-select: none;
 	${Modal} & {
 		height: 100%;
 	}
@@ -30,7 +32,6 @@ export const GmailIcon = styled.img`
 export const Icon = styled.img`
 	height: 30px;
 	cursor: pointer;
-
 	${UploadImage} & {
 		height: 200px;
 	}
@@ -81,6 +82,26 @@ export const UploadedImage = styled.img`
 		max-width: 600px;
 		height: 100%;
 		border-radius: 0px;
-		padding-bottom: 20px;
+		padding-bottom: 10px;
+	}
+	${PostBlocksWrapper} & {
+		width: 19vw;
+		border-radius: 0px;
+		@media (max-width: 768px) {
+			width: 29vw;
+		}
+		@media (min-width: 2560px) {
+			width: 14vw;
+		}
+	}
+	${UserProfile} & {
+		width: 17vw;
+		border-radius: 0px;
+		@media (max-width: 768px) {
+			width: 29vw;
+		}
+		@media (min-width: 2560px) {
+			width: 12vw;
+		}
 	}
 `;

@@ -16,7 +16,6 @@ export const UserProfileInfoWrapper = styled.div`
 	display: flex;
 	height: 20%;
 	padding-bottom: 50px;
-	border-bottom: solid 1px #dbdbdb;
 `;
 
 export const UserProfileInfo = styled.div`
@@ -26,6 +25,7 @@ export const UserProfileInfo = styled.div`
 	justify-content: space-evenly;
 	flex-direction: column;
 	place-items: center;
+	border-bottom: solid 1px #dbdbdb;
 `;
 
 export const UserProfileName = styled.div`
@@ -63,3 +63,5 @@ export const UserProfileStatNumber = styled.div`
 export const UserProfileStatText = styled.div`
 	display: flex;
 `;
+
+export const UserProfilePosts = styled.div``;

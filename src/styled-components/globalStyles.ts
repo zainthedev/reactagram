@@ -140,6 +140,10 @@ export const StyledPopover = styled(Popover)`
 	background: white;
 	box-shadow: 0px 0px 4px 1px #dbdbdb;
 	white-space: pre;
+	color: #262626;
+	outline: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
 `;
 
 export const PopoverButton = styled.div`
