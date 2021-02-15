@@ -64,4 +64,6 @@ export const UserProfileStatText = styled.div`
 	display: flex;
 `;
 
-export const UserProfilePosts = styled.div``;
+export const UserProfilePosts = styled.div`
+	text-align: center;
+`;

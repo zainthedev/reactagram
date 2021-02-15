@@ -70,12 +70,16 @@ export const UserProfileComponent = () => {
 							handleClick={handleClick}
 						></UserProfileInfoComponent>
 						<UserProfilePosts>
-							<PostBlocksWrapper>
-								{posts.length > 0 &&
-									posts.map((post: PostType) => {
-										return <PostBlockComponent key={post.postID} post={post} />;
-									})}
-							</PostBlocksWrapper>
+							{posts.length > 0 ? (
+								<PostBlocksWrapper>
+									{posts.length > 0 &&
+										posts.map((post: PostType) => {
+											return <PostBlockComponent key={post.postID} post={post} />;
+										})}
+								</PostBlocksWrapper>
+							) : (
+								`This user hasn't posted anything yet.`
+							)}
 						</UserProfilePosts>
 					</>
 				) : (
