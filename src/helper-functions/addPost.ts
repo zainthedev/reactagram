@@ -33,7 +33,7 @@ export const addPost = async (
 				image: url,
 				location: location,
 				tags: tags,
-				comments: '',
+				comments: [],
 				date: new Date(),
 				likers: [],
 			});
