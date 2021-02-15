@@ -15,7 +15,7 @@ export const NavbarButtonsComponent = () => {
 					<Icon alt='home' src={homeIcon} />
 				</ImageWrapper>
 			</RouterLink>
-			<RouterLink to='/dashboard'>
+			<RouterLink to='/explore'>
 				<ImageWrapper>
 					<Icon alt='explore' src={exploreIcon} />
 				</ImageWrapper>

@@ -1,11 +1,17 @@
 import { PostType } from '../types';
 
+// Sorts post by most recent
+function sortPosts(array: PostType[]) {
+	array.sort((post1: PostType, post2: PostType) => post2.date - post1.date);
+	return array;
+}
+
 export const getUserPosts = (postCollectionQueryData: any, poster: any) => {
 	const gotPosts = postCollectionQueryData.filter((post: PostType) => {
 		return post.poster === poster.name;
 	});
 
-	return gotPosts;
+	return sortPosts(gotPosts);
 };
 
 export const getFollowingPosts = (
@@ -25,10 +31,5 @@ export const getFollowingPosts = (
 	//Get current user posts
 	postsArray.push(...getUserPosts(postCollectionQueryData, currentUser));
 
-	//Sort by most recent
-	const sortedPosts = postsArray.sort(
-		(post1: PostType, post2: PostType) => post2.date - post1.date
-	);
-
-	return sortedPosts;
+	return sortPosts(postsArray);
 };

@@ -29,9 +29,9 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 	const postedDate = post.date.toDate();
 
 	const postedTimeSeconds = Math.floor(Math.round((currentTime - postedDate) / 1000));
-	const postedTimeMinutes = Math.floor(Math.round(postedTimeSeconds / 60));
-	const postedTimeHours = Math.floor(Math.round(postedTimeMinutes / 60));
-	const postedTimeDays = Math.floor(Math.round(postedTimeHours / 24));
+	const postedTimeMinutes = Math.ceil(Math.round(postedTimeSeconds / 60));
+	const postedTimeHours = Math.ceil(Math.round(postedTimeMinutes / 60));
+	const postedTimeDays = Math.ceil(Math.round(postedTimeHours / 24));
 
 	return (
 		<>
@@ -42,7 +42,11 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 							<UserCardComponent key={post.postID} user={poster} />
 							{post.location && <p>{post.location}</p>}
 						</PostInfo>
-						<ImageWrapper>
+						<ImageWrapper
+							onDoubleClick={() =>
+								handleLike(post, userCollectionQuery, postCollectionQuery, currentUser)
+							}
+						>
 							<UploadedImage src={post.image} alt={`${post.poster}'s upload`} />
 						</ImageWrapper>
 						<ImageWrapper
@@ -58,10 +62,7 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 						</ImageWrapper>
 						{post.caption && <PostCaptionComponent post={post} />}
 						<PostTime>
-							{postedTimeSeconds < 60 && `${postedTimeSeconds} seconds ago`}
-							{postedTimeSeconds > 60 &&
-								postedTimeMinutes < 60 &&
-								`${postedTimeMinutes} minutes ago`}
+							{postedTimeMinutes < 60 && `${postedTimeMinutes} minutes ago`}
 							{postedTimeMinutes > 60 && postedTimeHours < 24 && `${postedTimeHours} hours ago`}
 							{postedTimeHours > 24 && `${postedTimeDays} hours ago`}
 						</PostTime>
