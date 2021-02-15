@@ -1,12 +1,12 @@
 import { UserCardComponent } from '../userProfiles/UserCardComponent';
 import { PostCaptionComponent } from './PostCaptionComponent';
 import { PostCardWrapper, PostCard, PostInfo, PostTime } from '../../styled-components/postStyles';
-import { ReactagramButton } from '../../styled-components/globalStyles';
 import { PostType } from '../../types';
 import { useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { ImageWrapper, Icon, UploadedImage } from '../../styled-components/imageStyles';
 import { handleLike } from '../../helper-functions/handleLike';
 import heartIcon from '../../images/heartIcon.svg';
+import heartIconRed from '../../images/heartIconRed.svg';
 
 interface PostCardComponentProps {
 	post: PostType;
@@ -52,7 +52,7 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 						>
 							<Icon
 								alt='Like button'
-								src={targetUserLikes.includes(post.postID) ? 'Unlike' : heartIcon}
+								src={targetUserLikes.includes(post.postID) ? heartIconRed : heartIcon}
 								style={{ marginLeft: '10px' }}
 							/>
 						</ImageWrapper>
