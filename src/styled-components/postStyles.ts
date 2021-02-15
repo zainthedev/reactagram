@@ -14,7 +14,6 @@ export const PostCard = styled.div`
 	display: flex;
 	flex-direction: column;
 	height: max-content;
-	margin-bottom: 10px;
 	max-width: 100vw;
 `;
 
@@ -47,6 +46,30 @@ export const MoreButton = styled.div`
 	font-weight: 500;
 `;
 
+export const PostCommentsWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 20px;
+	width: 95%;
+	align-self: center;
+`;
+
+export const PostCommentWrapper = styled.div`
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	align-self: center;
+`;
+
+export const PostComment = styled.div`
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	align-self: center;
+	white-space: break-spaces;
+	margin-bottom: 2px;
+`;
+
 export const PostTextInput = styled.textarea`
 	border: solid 1px #dbdbdb;
 	border-radius: 3px;
@@ -70,6 +93,7 @@ export const PostTime = styled.div`
 	align-self: center;
 	font-size: 14px;
 	color: #8e8e8e;
+	margin-bottom: 10px;
 `;
 
 export const PostBlocksWrapper = styled.div`

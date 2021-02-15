@@ -5,7 +5,7 @@ import { AuthButton } from './authStyles';
 import { UploadImage, FinaliseUpload } from './uploadStyles';
 import searchIcon from '../images/searchIcon.svg';
 import Popover from 'react-bootstrap/Popover';
-import { PostCaption, PostCard } from './postStyles';
+import { PostCaption, PostCard, PostCommentsWrapper } from './postStyles';
 import { Modal } from './modalStyles';
 
 export const AppWrapper = styled.div`
@@ -74,6 +74,10 @@ export const RouterLink = styled(Link)`
 	${PostCaption} & {
 		font-weight: 600;
 	}
+	${PostCommentsWrapper} & {
+		font-weight: 600;
+		width: auto;
+	}
 `;
 
 export const GithubLink = styled.a`
@@ -101,6 +105,10 @@ export const FormInputWrapper = styled.form`
 		margin-bottom: 10px;
 		height: auto;
 	}
+	${PostCard} & {
+		flex-direction: row;
+		border-top: solid 1px #dbdbdb;
+	}
 `;
 
 export const FormInput = styled.input`
@@ -125,6 +133,18 @@ export const FormInput = styled.input`
 	${FinaliseUpload} & {
 		font-size: calc((0.2em + 0.6vmin) + (0.2em + 0.6vmax));
 	}
+
+	${PostCard} & {
+		outline: none;
+		border: none;
+		width: 85%;
+		height: 100%;
+		background: none;
+		font-size: 16px;
+		padding: 10px;
+		text-align: left;
+	}
+
 	@media (max-width: 768px) {
 		border-radius: 3px;
 		padding-top: 5px;

@@ -26,6 +26,7 @@ export interface PostType {
 }
 
 export interface CommentType {
+	commentID: string;
 	poster: UserType.user;
 	comment: string;
 }
