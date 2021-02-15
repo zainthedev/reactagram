@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/nav/NavbarComponent';
 import { UserProfileComponent } from './components/userProfiles/UserProfileComponent';
 import { UploadImageComponent } from './components/upload/UploadImageComponent';
 import { AppWrapper } from './styled-components/globalStyles';
+import { ExploreComponent } from './components/ExploreComponent';
 
 export const App = () => {
 	return (
@@ -17,7 +18,7 @@ export const App = () => {
 				<Switch>
 					<AppWrapper>
 						<Route exact path='/' component={HomeComponent} />
-						<Route exact path='/explore' component={HomeComponent} />
+						<Route exact path='/explore' component={ExploreComponent} />
 						<Route exact path='/upload' component={UploadImageComponent} />
 						<Route exact path='/notifications' component={HomeComponent} />
 						<Route path='/u/:profile' component={UserProfileComponent} />
