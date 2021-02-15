@@ -29,7 +29,6 @@ export const ImageCropComponent = ({
 		try {
 			handleEditing();
 			const croppedImage: any = await getCroppedImg(selectedImage, croppedAreaPixels);
-			console.log(croppedImage);
 			handleImage(croppedImage);
 			handleFinishEditing();
 		} catch (e) {

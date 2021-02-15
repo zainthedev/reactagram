@@ -1,42 +1,39 @@
 import admin from 'firebase';
 import { PostType, UserType } from '../types';
 
-export const handleLike = async (
+export const handleLike = (
 	post: PostType,
 	userCollectionQuery: any,
 	postCollectionQuery: any,
-	targetUser: any
+	{ user }: UserType
 ) => {
-	const targetUserLikes = [...targetUser.likes];
+	const targetUserLikes = [...user.likes];
 	const targetPostLikers = [...post.likers];
 
-	console.log(targetUser);
-	console.log(targetUserLikes);
-	console.log(targetPostLikers);
-
 	if (!targetUserLikes.includes(post.postID)) {
-		await userCollectionQuery.doc(targetUser.name).update({
+		userCollectionQuery.doc(user.name).update({
 			likes: admin.firestore.FieldValue.arrayUnion(post.postID),
 		});
 
-		await postCollectionQuery.doc(post.postID).update({
-			likers: admin.firestore.FieldValue.arrayUnion(targetUser.name),
+		postCollectionQuery.doc(post.postID).update({
+			likers: admin.firestore.FieldValue.arrayUnion(user.name),
 		});
 	} else {
-		const filteredLikersArray = targetPostLikers.filter((p) => p !== targetUser.name);
+		const filteredLikersArray = targetPostLikers.filter((p) => p !== user.name);
 		const filteredLikesArray = targetUserLikes.filter((p) => p !== post.postID);
-		console.log(filteredLikersArray);
-		console.log('up');
 
-		await userCollectionQuery.doc(targetUser.name).set(
+		userCollectionQuery.doc(user.name).set(
 			{
 				likes: filteredLikesArray,
 			},
 			{ merge: true }
 		);
 
-		await userCollectionQuery.doc(post.postID).set({
-			likers: filteredLikersArray,
-		});
+		postCollectionQuery.doc(post.postID).set(
+			{
+				likers: filteredLikersArray,
+			},
+			{ merge: true }
+		);
 	}
 };

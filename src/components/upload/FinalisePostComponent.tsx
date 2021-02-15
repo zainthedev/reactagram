@@ -13,6 +13,7 @@ import { ModalWrapper, Modal } from '../../styled-components/modalStyles';
 import { PostTextInput } from '../../styled-components/postStyles';
 import { addPost } from '../../helper-functions/addPost';
 import { Redirect } from 'react-router-dom';
+import { useGetUser } from '../../helper-functions/useGetUser';
 
 type FinalisePostComponentProps = {
 	selectedImage: string;
@@ -31,9 +32,8 @@ export const FinalisePostComponent = ({
 
 	const userCollectionQuery = useFirestore().collection('users');
 	const postsCollectionQuery = useFirestore().collection('posts');
-	const userCollectionData = useFirestoreCollectionData(userCollectionQuery);
 	const currentUserName = useAuth().currentUser?.displayName!;
-	const currentUser: any = userCollectionData.data.find((p) => p.name === currentUserName)!;
+	const currentUser = useGetUser('currentUser');
 	const displayPicture: string = currentUser.displayPicture;
 
 	const showImageModal = () => {

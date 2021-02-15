@@ -37,7 +37,7 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 		}
 	}, [userCollectionData.data, list, user.name, targetUserFollowers, targetUserFollowing]);
 
-	async function removeFollower(targetUser: any) {
+	function removeFollower(targetUser: any) {
 		if (list === 'followers') {
 			const targetUserFollowing = [...targetUser.following];
 			const filteredFollowingArray = targetUserFollowing.filter((p) => p.name === user.name);
@@ -45,13 +45,13 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 			const userFollowers = [...user.followers];
 			const filteredFollowersArray = userFollowers.filter((p) => p !== targetUser.name);
 
-			await userCollectionQuery.doc(targetUser.name).set(
+			userCollectionQuery.doc(targetUser.name).set(
 				{
 					following: filteredFollowingArray,
 				},
 				{ merge: true }
 			);
-			await userCollectionQuery.doc(user.name).set(
+			userCollectionQuery.doc(user.name).set(
 				{
 					followers: filteredFollowersArray,
 				},

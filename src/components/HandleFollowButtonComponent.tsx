@@ -1,21 +1,20 @@
+import { useFirestore } from 'reactfire';
 import { ReactagramButton } from '../styled-components/globalStyles';
 import { handleFollow } from '../helper-functions/handleFollow';
-import { useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
+import { useGetUser } from '../helper-functions/useGetUser';
 import { UserType } from '../types';
 
 export const HandleFollowButtonComponent = ({ user }: UserType) => {
 	const userCollectionQuery = useFirestore().collection('users');
-	const userCollectionQueryData = useFirestoreCollectionData(userCollectionQuery);
-	const currentUserName = useAuth().currentUser?.displayName!;
-	const currentUser: any = userCollectionQueryData.data.find((p) => p.name === currentUserName);
-	const currentUserFollowing: any = currentUser.following;
+	const currentUser = useGetUser('currentUser');
+	const currentUserFollowing: string[] = currentUser.following;
 
 	return (
 		<>
-			{user.name !== currentUserName && (
+			{user.name !== currentUser.name && (
 				<ReactagramButton
 					onClick={() =>
-						handleFollow(userCollectionQuery, currentUserFollowing, currentUserName!, user)
+						handleFollow(userCollectionQuery, currentUserFollowing, currentUser.name, user)
 					}
 				>
 					{currentUserFollowing !== undefined && currentUserFollowing.includes(user.name)

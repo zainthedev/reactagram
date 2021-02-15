@@ -22,7 +22,7 @@ export const AuthFormComponent = (props: AuthFormComponentProps) => {
 			const picture = result.user.photoURL;
 			const username = result.user.email.split('@').shift();
 			await auth.currentUser?.updateProfile({ displayName: username });
-			const userExists = userCollectionQueryData.data.find((p) => p.name === username)!;
+			const userExists = userCollectionQueryData.data.find((p) => p.name === username);
 			if (!userExists) {
 				addUser(userCollectionQuery, username, picture);
 			}

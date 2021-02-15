@@ -2,9 +2,10 @@ import { UserCardComponent } from '../userProfiles/UserCardComponent';
 import { PostCaptionComponent } from './PostCaptionComponent';
 import { PostCardWrapper, PostCard, PostInfo, PostTime } from '../../styled-components/postStyles';
 import { PostType } from '../../types';
-import { useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
+import { useFirestore } from 'reactfire';
 import { ImageWrapper, Icon, UploadedImage } from '../../styled-components/imageStyles';
 import { handleLike } from '../../helper-functions/handleLike';
+import { useGetUser } from '../../helper-functions/useGetUser';
 import heartIcon from '../../images/heartIcon.svg';
 import heartIconRed from '../../images/heartIconRed.svg';
 
@@ -14,14 +15,11 @@ interface PostCardComponentProps {
 
 export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 	const userCollectionQuery = useFirestore().collection('users');
-	const userCollectionQueryData = useFirestoreCollectionData(userCollectionQuery);
-	const poster: any = userCollectionQueryData.data.find((p) => p.name === post.poster);
-
 	const postCollectionQuery = useFirestore().collection('posts');
-	const postCollectionQueryData = useFirestoreCollectionData(postCollectionQuery);
 
-	const currentUserName = useAuth().currentUser?.displayName!;
-	const currentUser: any = userCollectionQueryData.data.find((p) => p.name === currentUserName);
+	const currentUser = useGetUser('currentUser');
+	const poster = useGetUser(post.poster);
+
 	const targetUserLikes = [...currentUser.likes];
 
 	//Get the time since post was made
@@ -59,6 +57,7 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 								src={targetUserLikes.includes(post.postID) ? heartIconRed : heartIcon}
 								style={{ marginLeft: '10px' }}
 							/>
+							{post.likers.length > 0 && post.likers.length}
 						</ImageWrapper>
 						{post.caption && <PostCaptionComponent post={post} />}
 						<PostTime>

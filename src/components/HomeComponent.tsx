@@ -24,7 +24,6 @@ export const HomeComponent = () => {
 		) {
 			const currentUser: any = userCollectionQueryData.data.find((p) => p.name === currentUserName);
 			if (currentUser !== undefined) {
-				console.log('hi');
 				const newPosts = getFollowingPosts(
 					userCollectionQueryData.data,
 					postCollectionQueryData.data,
@@ -41,7 +40,6 @@ export const HomeComponent = () => {
 		<Home>
 			{posts.length > 0
 				? posts.map((post: PostType) => {
-						console.log(post);
 						return <PostCardComponent key={post.postID} post={post} />;
 				  })
 				: `Looks like the people you follow haven't posted anything. Why not make one yourself?`}

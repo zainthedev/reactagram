@@ -8,6 +8,7 @@ import { UserProfileComponent } from './components/userProfiles/UserProfileCompo
 import { UploadImageComponent } from './components/upload/UploadImageComponent';
 import { AppWrapper } from './styled-components/globalStyles';
 import { ExploreComponent } from './components/ExploreComponent';
+import { PostCardComponent } from './components/post/PostCardComponent';
 
 export const App = () => {
 	return (
@@ -22,6 +23,7 @@ export const App = () => {
 						<Route exact path='/upload' component={UploadImageComponent} />
 						<Route exact path='/notifications' component={HomeComponent} />
 						<Route path='/u/:profile' component={UserProfileComponent} />
+						<Route path='/u/:profile/:post' component={PostCardComponent} />
 					</AppWrapper>
 				</Switch>
 			</AuthCheck>
