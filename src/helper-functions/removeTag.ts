@@ -7,7 +7,6 @@ export const removeTag = (
 	user: any
 ) => {
 	const targetPostTags = [...post.tags];
-
 	const filteredTagsArray = targetPostTags.filter((p) => p !== user.name);
 
 	postCollectionQuery.doc(post.postID).set(
@@ -20,9 +19,9 @@ export const removeTag = (
 	const targetUserTags = [...user.taggedPosts];
 	const newUserTags = targetUserTags.filter((p) => p !== post.postID);
 
-	userCollectionQuery.doc(user.name).update(
+	userCollectionQuery.doc(user.name).set(
 		{
-			posts: newUserTags,
+			taggedPosts: newUserTags,
 		},
 		{ merge: true }
 	);

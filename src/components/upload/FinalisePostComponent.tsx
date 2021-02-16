@@ -9,6 +9,7 @@ import {
 	CaptionInputWrapper,
 	ExtraInfoWrapper,
 	TagsWrapper,
+	TagWrapper,
 } from '../../styled-components/uploadStyles';
 import { FormInputWrapper, FormInput } from '../../styled-components/globalStyles';
 import { PostTextInput } from '../../styled-components/postStyles';
@@ -60,7 +61,7 @@ export const FinalisePostComponent = ({
 
 	const removeTag = (e: React.MouseEvent) => {
 		const targetElement = e.target as HTMLInputElement;
-		const targetTag = targetElement.textContent;
+		const targetTag = targetElement.parentElement!.textContent;
 		const newTags = [...tags].filter((p) => p !== targetTag);
 		newTags.filter((p) => p !== targetTag);
 		setTags(newTags);
@@ -115,11 +116,11 @@ export const FinalisePostComponent = ({
 							<TagsWrapper style={{ display: 'flex' }}>
 								{tags.map((tag: string) => {
 									return (
-										<div style={{ cursor: 'pointer' }} onClick={removeTag}>
+										<TagWrapper style={{ cursor: 'pointer' }} onClick={removeTag}>
 											{tag}
-											<Icon src={deleteIcon} />
+											<Icon onClick={removeTag} src={deleteIcon} />
 											{tags.length > 1 && tags.indexOf(tag) !== tags.length - 1 && ', '}
-										</div>
+										</TagWrapper>
 									);
 								})}
 							</TagsWrapper>

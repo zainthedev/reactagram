@@ -55,7 +55,6 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 								style={{ marginLeft: '10px' }}
 							/>
 							{post.likers.length > 0 && post.likers.length}
-							{post.tags.length > 0 && `Tagged: ${post.tags.join(', ')}`}
 						</ImageWrapper>
 						{post.caption && <PostCaptionComponent post={post} />}
 						<PostCommentsComponent post={post} currentUser={currentUser} />

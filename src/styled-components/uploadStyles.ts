@@ -68,3 +68,8 @@ export const TagsWrapper = styled.div`
 	display: flex;
 	white-space: break-spaces;
 `;
+
+export const TagWrapper = styled.div`
+	display: flex;
+	white-space: break-spaces;
+`;

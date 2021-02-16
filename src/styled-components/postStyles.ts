@@ -44,6 +44,7 @@ export const PostInfo = styled.div`
 export const PostInfoTop = styled.div`
 	display: flex;
 	place-content: space-between;
+	align-items: center;
 	font-weight: 500;
 	width: 100%;
 `;
