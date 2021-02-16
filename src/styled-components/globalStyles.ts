@@ -5,7 +5,7 @@ import { AuthButton } from './authStyles';
 import { UploadImage, FinaliseUpload } from './uploadStyles';
 import searchIcon from '../images/searchIcon.svg';
 import Popover from 'react-bootstrap/Popover';
-import { PostCaption, PostCard, PostCommentsWrapper } from './postStyles';
+import { PostCaption, PostCard, PostCommentsWrapper, PostInfo } from './postStyles';
 import { Modal, PostModal } from './modalStyles';
 
 export const AppWrapper = styled.div`
@@ -197,8 +197,13 @@ export const ReactagramButton = styled(AuthButton)`
 	font-size: calc((0.2em + 0.6vmin) + (0.2em + 0.6vmax));
 	width: 25%;
 	align-self: center;
+	align-items: center;
 	${Modal} & {
 		width: auto;
 		font-size: 16px;
+	}
+	${PostInfo} & {
+		width: 50%;
+		height: 20%;
 	}
 `;
