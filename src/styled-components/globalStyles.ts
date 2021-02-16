@@ -6,7 +6,7 @@ import { UploadImage, FinaliseUpload } from './uploadStyles';
 import searchIcon from '../images/searchIcon.svg';
 import Popover from 'react-bootstrap/Popover';
 import { PostCaption, PostCard, PostCommentsWrapper } from './postStyles';
-import { Modal } from './modalStyles';
+import { Modal, PostModal } from './modalStyles';
 
 export const AppWrapper = styled.div`
 	display: flex;
@@ -68,14 +68,14 @@ export const RouterLink = styled(Link)`
 	user-select: none;
 	color: #262626;
 	align-self: center;
-	${PostCard} & {
-		width: 100%;
-	}
 	${PostCaption} & {
 		font-weight: 600;
 	}
 	${PostCommentsWrapper} & {
 		font-weight: 600;
+		width: auto;
+	}
+	${PostModal} & {
 		width: auto;
 	}
 `;
@@ -99,6 +99,7 @@ export const FormInputWrapper = styled.form`
 	flex-direction: column;
 	place-items: center;
 	justify-content: space-evenly;
+
 	height: 50%;
 	${FinaliseUpload} & {
 		flex-direction: row;
@@ -108,6 +109,7 @@ export const FormInputWrapper = styled.form`
 	${PostCard} & {
 		flex-direction: row;
 		border-top: solid 1px #dbdbdb;
+		padding-right: 10px;
 	}
 `;
 

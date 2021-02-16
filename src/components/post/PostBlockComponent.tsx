@@ -13,7 +13,12 @@ export const PostBlockComponent = ({ post }: PostCardComponentProps) => {
 	const handleClick = (e: React.MouseEvent) => {
 		const targetElement = e.target as HTMLInputElement;
 
-		setDisplayModal(!displayModal);
+		if (
+			targetElement.className === 'sc-dIUggk ftqKYZ' ||
+			targetElement.className === 'sc-fbkhIv iNNTcy'
+		) {
+			setDisplayModal(!displayModal);
+		}
 	};
 
 	return (

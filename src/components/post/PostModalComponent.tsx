@@ -1,4 +1,4 @@
-import { ModalWrapper, Modal } from '../../styled-components/modalStyles';
+import { PostModal, ModalWrapper, Modal } from '../../styled-components/modalStyles';
 import { PostType } from '../../types';
 import { PostCardComponent } from './PostCardComponent';
 
@@ -9,10 +9,12 @@ interface PostModalProps {
 
 export const PostModalComponent = ({ post, handleClick }: PostModalProps) => {
 	return (
-		<ModalWrapper onClick={handleClick}>
-			<Modal>
-				<PostCardComponent post={post} />
-			</Modal>
-		</ModalWrapper>
+		<PostModal>
+			<ModalWrapper onClick={handleClick}>
+				<Modal>
+					<PostCardComponent post={post} />
+				</Modal>
+			</ModalWrapper>
+		</PostModal>
 	);
 };

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { UserProfile, UserProfileInfoWrapper } from './profileStyles';
 import { UserList } from './userListStyles';
 import { UploadImage, FinaliseUpload } from './uploadStyles';
-import { Modal } from './modalStyles';
+import { Modal, PostModal } from './modalStyles';
 import { PostBlocksWrapper, PostCard, PostCommentWrapper } from './postStyles';
 
 export const ImageWrapper = styled.div`
@@ -38,6 +38,7 @@ export const Icon = styled.img`
 	${PostCard} & {
 		margin-bottom: 10px;
 	}
+
 	${PostCommentWrapper} & {
 		margin-bottom: 0px;
 		height: 16px;
@@ -65,6 +66,7 @@ export const UserIcon = styled(Icon)`
 	}
 	${PostCard} & {
 		margin-right: 10px;
+		margin-bottom: 0px;
 	}
 `;
 
@@ -107,5 +109,13 @@ export const UploadedImage = styled.img`
 		@media (min-width: 2560px) {
 			width: 12vw;
 		}
+	}
+	${PostModal} & {
+		width: 100vw;
+		max-width: 100%;
+		padding: 0px;
+		height: 100%;
+		border-radius: 0px;
+		padding-bottom: 10px;
 	}
 `;

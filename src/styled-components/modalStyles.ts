@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { FinaliseUpload } from './uploadStyles';
 
+export const PostModal = styled.div``;
+
 export const ModalWrapper = styled.div`
 	display: flex;
 	place-items: center;
@@ -35,5 +37,12 @@ export const Modal = styled.div`
 	${FinaliseUpload} & {
 		padding: 0px;
 		height: auto;
+	}
+	${PostModal} & {
+		width: auto;
+		height: auto;
+		padding: 0px;
+		font-weight: 400;
+		text-align: start;
 	}
 `;

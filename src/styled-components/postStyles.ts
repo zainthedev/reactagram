@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { PostModal } from './modalStyles';
 
 export const PostCardWrapper = styled.div`
 	display: flex;
@@ -8,6 +9,16 @@ export const PostCardWrapper = styled.div`
 	background: white;
 	padding-top: 20px;
 	margin-bottom: 50px;
+	${PostModal} & {
+		padding-top: 10px;
+		margin-bottom: 0px;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		max-height: 90vh;
+		min-width: 250px;
+		::-webkit-scrollbar {
+  		display: none;
+		}
 `;
 
 export const PostCard = styled.div`
