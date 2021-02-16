@@ -4,10 +4,12 @@ import { PostCaptionComponent } from './PostCaptionComponent';
 import { PostCommentsComponent } from './PostCommentsComponent';
 import { PostTimeComponent } from './PostTimeComponent';
 import { AddCommentComponent } from './AddCommentComponent';
+import { ReactagramLink } from '../../styled-components/globalStyles';
 import { PostCardWrapper, PostCard } from '../../styled-components/postStyles';
 import { ImageWrapper, Icon, UploadedImage } from '../../styled-components/imageStyles';
 import { handleLike } from '../../helper-functions/handleLike';
 import { useGetUser } from '../../helper-functions/useGetUser';
+import { removeTag } from '../../helper-functions/removeTag';
 import { PostType } from '../../types';
 import heartIcon from '../../images/heartIcon.svg';
 import heartIconRed from '../../images/heartIconRed.svg';
@@ -44,6 +46,15 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 						>
 							<UploadedImage src={post.image} alt={`${post.poster}'s upload`} data-type={'modal'} />
 						</ImageWrapper>
+						{post.tags.includes(currentUser.name) && (
+							<ReactagramLink
+								onClick={() =>
+									removeTag(post, userCollectionQuery, postCollectionQuery, currentUser)
+								}
+							>
+								Remove tag
+							</ReactagramLink>
+						)}
 						<ImageWrapper
 							onClick={() =>
 								handleLike(post, userCollectionQuery, postCollectionQuery, currentUser)

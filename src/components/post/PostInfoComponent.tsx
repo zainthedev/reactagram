@@ -3,15 +3,10 @@ import { ModalWrapper, Modal } from '../../styled-components/modalStyles';
 import { UserCardComponent } from '../userProfiles/UserCardComponent';
 import { PostInfo, PostInfoTop } from '../../styled-components/postStyles';
 import { ImageWrapper, Icon } from '../../styled-components/imageStyles';
-import {
-	ReactagramButton,
-	ReactagramLink,
-	ReactagramTextWrapper,
-} from '../../styled-components/globalStyles';
+import { ReactagramButton } from '../../styled-components/globalStyles';
 import { removePost } from '../../helper-functions/removePost';
 import { PostType } from '../../types';
 import deleteIcon from '../../images/deleteIcon.svg';
-import { removeTag } from '../../helper-functions/removeTag';
 
 interface PostInfoProps {
 	post: PostType;
@@ -59,13 +54,6 @@ export const PostInfoComponent = ({
 				</ImageWrapper>
 			</PostInfoTop>
 			{post.location && <p style={{ textAlign: 'start' }}>{post.location}</p>}
-			{post.tags.includes(currentUser.name) && (
-				<ReactagramLink
-					onClick={() => removeTag(post, userCollectionQuery, postCollectionQuery, currentUser)}
-				>
-					Remove tag
-				</ReactagramLink>
-			)}
 		</PostInfo>
 	);
 };

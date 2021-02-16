@@ -1,13 +1,24 @@
 import { useParams } from 'react-router-dom';
 import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { useEffect, useState } from 'react';
-import { UserProfile, UserProfilePosts } from '../../styled-components/profileStyles';
+import {
+	UserProfile,
+	UserProfilePostsWrapper,
+	UserProfilePostsContainer,
+	UserProfilePosts,
+	UserProfileTaggedPosts,
+} from '../../styled-components/profileStyles';
 import { UserProfileInfoComponent } from './UserProfileInfoComponent';
 import { UserListModalComponent } from './UserListModalComponent';
 import { PostBlockComponent } from '../post/PostBlockComponent';
 import { PostBlocksWrapper } from '../../styled-components/postStyles';
 import { PostType } from '../../types';
-import { getUserPosts } from '../../helper-functions/getUserPosts';
+import { getTaggedPosts, getUserPosts } from '../../helper-functions/getUserPosts';
+import { Navbar, NavbarContentWrapper } from '../../styled-components/navbarStyles';
+import { UserProfileNavbar } from '../../styled-components/profileStyles';
+import { Icon } from '../../styled-components/imageStyles';
+import gridIcon from '../../images/gridIcon.svg';
+import tagIcon from '../../images/tagIcon.svg';
 
 export const UserProfileComponent = () => {
 	const [user, setUser] = useState({
@@ -20,7 +31,9 @@ export const UserProfileComponent = () => {
 		likes: [],
 	});
 	const [posts, setPosts]: any = useState([]);
+	const [taggedPosts, setTaggedPosts]: any = useState([]);
 	const [displayModal, setDisplayModal] = useState({ display: false, list: '' });
+	const [viewTagged, setViewTagged] = useState(false);
 
 	const { profile }: any = useParams();
 
@@ -52,8 +65,10 @@ export const UserProfileComponent = () => {
 				setUser(foundUsername);
 			}
 			const newPosts = getUserPosts(postCollectionQueryData.data, foundUser);
-			getUserPosts(postCollectionQueryData.data, foundUser);
 			setPosts(newPosts);
+
+			const newTaggedPosts = getTaggedPosts(postCollectionQueryData.data, foundUser);
+			setTaggedPosts(newTaggedPosts);
 		}
 	}, [userCollectionQueryData.data, postCollectionQueryData.data, profile]);
 
@@ -73,18 +88,39 @@ export const UserProfileComponent = () => {
 							user={user}
 							handleClick={handleClick}
 						></UserProfileInfoComponent>
-						<UserProfilePosts>
-							{posts.length > 0 ? (
-								<PostBlocksWrapper>
-									{posts.length > 0 &&
-										posts.map((post: PostType) => {
-											return <PostBlockComponent key={post.postID} post={post} />;
-										})}
-								</PostBlocksWrapper>
-							) : (
-								`This user hasn't posted anything yet.`
-							)}
-						</UserProfilePosts>
+						<UserProfileNavbar>
+							<NavbarContentWrapper>
+								<Icon src={gridIcon} onClick={() => setViewTagged(false)} />
+								<Icon src={tagIcon} onClick={() => setViewTagged(true)} />
+							</NavbarContentWrapper>
+						</UserProfileNavbar>
+						{!viewTagged ? (
+							<UserProfilePosts>
+								{posts.length > 0 ? (
+									<PostBlocksWrapper>
+										{posts.length > 0 &&
+											posts.map((post: PostType) => {
+												return <PostBlockComponent key={post.postID} post={post} />;
+											})}
+									</PostBlocksWrapper>
+								) : (
+									`This user hasn't posted anything yet.`
+								)}
+							</UserProfilePosts>
+						) : (
+							<UserProfileTaggedPosts>
+								{taggedPosts.length > 0 ? (
+									<PostBlocksWrapper>
+										{posts.length > 0 &&
+											taggedPosts.map((post: PostType) => {
+												return <PostBlockComponent key={post.postID} post={post} />;
+											})}
+									</PostBlocksWrapper>
+								) : (
+									'No tagged posts.'
+								)}
+							</UserProfileTaggedPosts>
+						)}
 					</>
 				) : (
 					'User not found'

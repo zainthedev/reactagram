@@ -7,6 +7,7 @@ import searchIcon from '../images/searchIcon.svg';
 import Popover from 'react-bootstrap/Popover';
 import { PostCaption, PostCard, PostCommentsWrapper, PostInfo } from './postStyles';
 import { Modal, PostModal } from './modalStyles';
+import { UserProfileNavbar } from './profileStyles';
 
 export const AppWrapper = styled.div`
 	display: flex;
@@ -59,6 +60,11 @@ export const ReactagramLink = styled.div`
 	${UploadImage} & {
 		font-size: 24px;
 		text-align: center;
+	}
+	${UserProfileNavbar} & {
+		width: 100%;
+		background: white;
+		border-bottom: solid 1px black;
 	}
 `;
 

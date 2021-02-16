@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { UserProfile } from './profileStyles';
 
 export const Navbar = styled.div`
 	display: flex;
@@ -40,6 +41,10 @@ export const NavbarContentWrapper = styled.div`
 	width: 60%;
 	place-items: center;
 	place-content: space-between;
+	${UserProfile} & {
+		justify-content: space-around;
+		width: 100%;
+	}
 	@media (max-width: 768px) {
 		place-content: space-around;
 		width: 100%;

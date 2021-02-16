@@ -64,6 +64,20 @@ export const UserProfileStatText = styled.div`
 	display: flex;
 `;
 
+export const UserProfileNavbar = styled.div`
+	height: 50px;
+`;
+
+export const UserProfilePostsWrapper = styled.div`
+	width: 100%;
+`;
+
+export const UserProfilePostsContainer = styled.div`
+	width: 200%;
+`;
+
 export const UserProfilePosts = styled.div`
 	text-align: center;
 `;
+
+export const UserProfileTaggedPosts = styled(UserProfilePosts)``;

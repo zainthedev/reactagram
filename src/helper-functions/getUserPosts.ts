@@ -14,6 +14,19 @@ export const getUserPosts = (postCollectionQueryData: any, poster: any) => {
 	return sortPosts(gotPosts);
 };
 
+export const getTaggedPosts = (postCollectionQueryData: any, user: any) => {
+	const gotPosts: PostType[] = [];
+
+	postCollectionQueryData.forEach((post: PostType) => {
+		const postTags = [...post.tags];
+		if (postTags.includes(user.name)) {
+			gotPosts.push(post);
+		}
+	});
+
+	return sortPosts(gotPosts);
+};
+
 export const getFollowingPosts = (
 	userCollectionQueryData: any,
 	postCollectionQueryData: any,
