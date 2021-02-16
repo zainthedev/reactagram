@@ -1,5 +1,5 @@
 import admin from 'firebase';
-import { PostType, UserType } from '../types';
+import { PostType } from '../types';
 
 export const handleLike = (
 	post: PostType,

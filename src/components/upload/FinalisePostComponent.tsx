@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
+import { useAuth, useFirestore } from 'reactfire';
 import { ReactagramButton } from '../../styled-components/globalStyles';
 import { ImageWrapper, UserIcon, UploadedImage } from '../../styled-components/imageStyles';
 import {

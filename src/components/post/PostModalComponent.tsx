@@ -10,7 +10,7 @@ interface PostModalProps {
 export const PostModalComponent = ({ post, handleClick }: PostModalProps) => {
 	return (
 		<PostModal>
-			<ModalWrapper onClick={handleClick}>
+			<ModalWrapper onClick={handleClick} data-type={'modal'}>
 				<Modal>
 					<PostCardComponent post={post} />
 				</Modal>

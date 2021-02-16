@@ -12,11 +12,9 @@ export const PostBlockComponent = ({ post }: PostCardComponentProps) => {
 
 	const handleClick = (e: React.MouseEvent) => {
 		const targetElement = e.target as HTMLInputElement;
+		console.log(targetElement);
 
-		if (
-			targetElement.className === 'sc-dIUggk ftqKYZ' ||
-			targetElement.className === 'sc-fbkhIv iNNTcy'
-		) {
+		if (targetElement.getAttribute('data-type') === 'modal') {
 			setDisplayModal(!displayModal);
 		}
 	};
@@ -25,7 +23,7 @@ export const PostBlockComponent = ({ post }: PostCardComponentProps) => {
 		<>
 			{displayModal && <PostModalComponent post={post} handleClick={handleClick} />}
 			<ImageWrapper onClick={handleClick}>
-				<UploadedImage src={post.image} alt={`${post.poster}'s upload`} />
+				<UploadedImage src={post.image} alt={`${post.poster}'s upload`} data-type={'modal'} />
 			</ImageWrapper>
 		</>
 	);
