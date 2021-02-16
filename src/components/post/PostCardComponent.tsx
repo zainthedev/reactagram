@@ -1,5 +1,6 @@
 import { useFirestore } from 'reactfire';
 import { UserCardComponent } from '../userProfiles/UserCardComponent';
+import { PostInfoComponent } from './PostInfoComponent';
 import { PostCaptionComponent } from './PostCaptionComponent';
 import { PostCommentsComponent } from './PostCommentsComponent';
 import { PostTimeComponent } from './PostTimeComponent';
@@ -8,9 +9,11 @@ import { PostCardWrapper, PostCard, PostInfo } from '../../styled-components/pos
 import { ImageWrapper, Icon, UploadedImage } from '../../styled-components/imageStyles';
 import { handleLike } from '../../helper-functions/handleLike';
 import { useGetUser } from '../../helper-functions/useGetUser';
+import { removePost } from '../../helper-functions/removePost';
 import { PostType } from '../../types';
 import heartIcon from '../../images/heartIcon.svg';
 import heartIconRed from '../../images/heartIconRed.svg';
+import deleteIcon from '../../images/deleteIcon.svg';
 
 interface PostCardComponentProps {
 	post: PostType;
@@ -30,10 +33,13 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 			{post !== undefined && (
 				<PostCardWrapper>
 					<PostCard>
-						<PostInfo>
-							<UserCardComponent key={post.postID} user={poster} />
-							{post.location && <p style={{ textAlign: 'start' }}>{post.location}</p>}
-						</PostInfo>
+						<PostInfoComponent
+							post={post}
+							poster={poster}
+							currentUser={currentUser}
+							userCollectionQuery={userCollectionQuery}
+							postCollectionQuery={postCollectionQuery}
+						/>
 						<ImageWrapper
 							onDoubleClick={() =>
 								handleLike(post, userCollectionQuery, postCollectionQuery, currentUser)

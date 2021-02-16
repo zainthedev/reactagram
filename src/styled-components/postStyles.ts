@@ -32,10 +32,20 @@ export const PostCard = styled.div`
 `;
 
 export const PostInfo = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	place-content: space-between;
 	padding-bottom: 15px;
 	font-weight: 500;
 	width: 95%;
-	align-self: center;
+`;
+
+export const PostInfoTop = styled.div`
+	display: flex;
+	place-content: space-between;
+	font-weight: 500;
+	width: 100%;
 `;
 
 export const PostCaptionWrapper = styled.div`
