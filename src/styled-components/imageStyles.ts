@@ -4,6 +4,7 @@ import { UserList } from './userListStyles';
 import { UploadImage, FinaliseUpload } from './uploadStyles';
 import { Modal, PostModal } from './modalStyles';
 import { PostBlocksWrapper, PostCard, PostCommentWrapper } from './postStyles';
+import { StyledPopover } from './globalStyles';
 
 export const ImageWrapper = styled.div`
 	display: flex;
@@ -67,6 +68,9 @@ export const UserIcon = styled(Icon)`
 	${PostCard} & {
 		margin-right: 10px;
 		margin-bottom: 0px;
+	}
+	${StyledPopover} & {
+		margin-right: 10px;
 	}
 `;
 

@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth, useFirestore } from 'reactfire';
-import { UserListModal } from '../userProfiles/UserListModal';
+import { TagModalComponent } from './TagModalComponent';
 import { ReactagramButton } from '../../styled-components/globalStyles';
 import { ImageWrapper, UserIcon, UploadedImage } from '../../styled-components/imageStyles';
 import {
@@ -27,9 +27,8 @@ export const FinalisePostComponent = ({
 }: FinalisePostComponentProps) => {
 	const [caption, setCaption] = useState('');
 	const [location, setLocation] = useState('');
-	const [tags, setTags] = useState([]);
+	const [tags, setTags]: any = useState([]);
 	const [posted, setPosted] = useState(false);
-	const [showImage, setShowImage] = useState(false);
 	const [showTags, setShowTags] = useState(false);
 
 	const userCollectionQuery = useFirestore().collection('users');
@@ -38,12 +37,18 @@ export const FinalisePostComponent = ({
 	const currentUser = useGetUser('currentUser');
 	const displayPicture: string = currentUser.displayPicture;
 
-	const showImageModal = () => {
-		setShowImage(!showImage);
+	const showTagsModal = (e: React.MouseEvent) => {
+		const targetElement = e.target as HTMLInputElement;
+		// Prevent closing the modal on search bar click
+		if (targetElement.className !== 'sc-iUuytg eIhgWJ') {
+			setShowTags(!showTags);
+		}
 	};
 
-	const showTagsModal = () => {
-		setShowTags(!showTags);
+	const handleTags = (user: string) => {
+		const newTags = [...tags];
+		newTags.push(user);
+		setTags(newTags);
 	};
 
 	const handleInput = (e: any) => {
@@ -86,11 +91,7 @@ export const FinalisePostComponent = ({
 							/>
 						</FormInputWrapper>
 						<ImageWrapper>
-							<UploadedImage
-								src={selectedImage}
-								alt='The chosen, cropped image to be posted'
-								onClick={showImageModal}
-							/>
+							<UploadedImage src={selectedImage} alt='The chosen, cropped image to be posted' />
 						</ImageWrapper>
 					</CaptionInputWrapper>
 					<ExtraInfoWrapper>
@@ -101,18 +102,7 @@ export const FinalisePostComponent = ({
 					</ExtraInfoWrapper>
 				</>
 			)}
-			{showImage && (
-				<ModalWrapper onClick={showImageModal}>
-					<Modal>
-						<ImageWrapper>
-							<UploadedImage src={selectedImage} alt='The chosen, cropped image to be posted' />
-						</ImageWrapper>
-					</Modal>
-				</ModalWrapper>
-			)}
-			{showTags && (
-				<UserListModal list={'following'} user={currentUser} handleClick={showTagsModal} />
-			)}
+			{showTags && <TagModalComponent showTags={showTagsModal} handleTags={handleTags} />}
 			{posted && <Redirect to='/' />}
 		</FinaliseUpload>
 	);

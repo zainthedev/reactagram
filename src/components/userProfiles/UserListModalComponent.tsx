@@ -5,7 +5,7 @@ import { UserModalType } from '../../types';
 interface UserListModalProps extends UserModalType {
 	list: string;
 }
-export const UserListModal = ({ user, list, handleClick }: UserListModalProps) => {
+export const UserListModalComponent = ({ user, list, handleClick }: UserListModalProps) => {
 	return (
 		<ModalWrapper onClick={handleClick}>
 			<Modal>

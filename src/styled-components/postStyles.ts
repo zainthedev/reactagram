@@ -104,6 +104,7 @@ export const PostTextInput = styled.textarea`
 	background: #fafafa;
 	outline-color: #3d6ec9;
 	font-family: Helvetica, Arial, sans-serif;
+	font-size: calc((0.2em + 0.6vmin) + (0.2em + 0.6vmax));
 	resize: none;
 	@media (max-width: 768px) {
 		border-radius: 3px;

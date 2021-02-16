@@ -35,8 +35,8 @@ export const Modal = styled.div`
 		width: 80vw;
 	}
 	${FinaliseUpload} & {
-		padding: 0px;
-		height: auto;
+		justify-content: normal;
+		place-items: center;
 	}
 	${PostModal} & {
 		width: auto;

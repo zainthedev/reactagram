@@ -3,7 +3,7 @@ import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { useEffect, useState } from 'react';
 import { UserProfile, UserProfilePosts } from '../../styled-components/profileStyles';
 import { UserProfileInfoComponent } from './UserProfileInfoComponent';
-import { UserListModal } from './UserListModal';
+import { UserListModalComponent } from './UserListModalComponent';
 import { PostBlockComponent } from '../post/PostBlockComponent';
 import { PostBlocksWrapper } from '../../styled-components/postStyles';
 import { PostType } from '../../types';
@@ -63,7 +63,11 @@ export const UserProfileComponent = () => {
 				userCollectionQueryData.data.includes(user) ? (
 					<>
 						{displayModal.display === true && (
-							<UserListModal user={user} list={displayModal.list} handleClick={handleClick} />
+							<UserListModalComponent
+								user={user}
+								list={displayModal.list}
+								handleClick={handleClick}
+							/>
 						)}
 						<UserProfileInfoComponent
 							user={user}

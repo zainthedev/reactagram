@@ -38,4 +38,12 @@ export const addPost = async (
 				likers: [],
 			});
 		});
+
+	if (tags.length > 0) {
+		tags.forEach((tag) => {
+			userQuery.doc(tag).update({
+				taggedPosts: admin.firestore.FieldValue.arrayUnion(postID),
+			});
+		});
+	}
 };
