@@ -103,6 +103,8 @@ export const PostTextInput = styled.textarea`
 	text-align: center;
 	background: #fafafa;
 	outline-color: #3d6ec9;
+	font-family: Helvetica, Arial, sans-serif;
+	resize: none;
 	@media (max-width: 768px) {
 		border-radius: 3px;
 		padding-top: 5px;

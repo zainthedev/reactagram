@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAuth, useFirestore } from 'reactfire';
+import { UserListModal } from '../userProfiles/UserListModal';
 import { ReactagramButton } from '../../styled-components/globalStyles';
 import { ImageWrapper, UserIcon, UploadedImage } from '../../styled-components/imageStyles';
 import {
@@ -29,6 +30,7 @@ export const FinalisePostComponent = ({
 	const [tags, setTags] = useState([]);
 	const [posted, setPosted] = useState(false);
 	const [showImage, setShowImage] = useState(false);
+	const [showTags, setShowTags] = useState(false);
 
 	const userCollectionQuery = useFirestore().collection('users');
 	const postsCollectionQuery = useFirestore().collection('posts');
@@ -38,6 +40,10 @@ export const FinalisePostComponent = ({
 
 	const showImageModal = () => {
 		setShowImage(!showImage);
+	};
+
+	const showTagsModal = () => {
+		setShowTags(!showTags);
 	};
 
 	const handleInput = (e: any) => {
@@ -91,7 +97,7 @@ export const FinalisePostComponent = ({
 						<FormInputWrapper>
 							<FormInput placeholder={'Enter a location'} onChange={handleInput} />
 						</FormInputWrapper>
-						<ReactagramButton>Tag people</ReactagramButton>
+						<ReactagramButton onClick={showTagsModal}>Tag people</ReactagramButton>
 					</ExtraInfoWrapper>
 				</>
 			)}
@@ -103,6 +109,9 @@ export const FinalisePostComponent = ({
 						</ImageWrapper>
 					</Modal>
 				</ModalWrapper>
+			)}
+			{showTags && (
+				<UserListModal list={'following'} user={currentUser} handleClick={showTagsModal} />
 			)}
 			{posted && <Redirect to='/' />}
 		</FinaliseUpload>
