@@ -1,4 +1,4 @@
-import { PostType, UserType } from '../types';
+import { PostType } from '../types';
 
 export const removePost = (
 	post: PostType,
@@ -8,7 +8,8 @@ export const removePost = (
 ) => {
 	const targetUserPosts = [...user.posts];
 	const newUserPosts = targetUserPosts.filter((p) => p !== post.postID);
-	userCollectionQuery.doc(user.name).set(
+
+	userCollectionQuery.doc(user.name).update(
 		{
 			posts: newUserPosts,
 		},
