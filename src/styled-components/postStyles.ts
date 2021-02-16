@@ -17,8 +17,11 @@ export const PostCardWrapper = styled.div`
 		max-height: 90vh;
 		min-width: 250px;
 		::-webkit-scrollbar {
-  		display: none;
+			display: none;
 		}
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
 `;
 
 export const PostCard = styled.div`
