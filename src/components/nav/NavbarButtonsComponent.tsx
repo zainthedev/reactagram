@@ -2,6 +2,7 @@ import { UserPopoverComponent } from './UserPopoverComponent';
 import { RouterLink } from '../../styled-components/globalStyles';
 import { NavbarButtons } from '../../styled-components/navbarStyles';
 import { ImageWrapper, Icon } from '../../styled-components/imageStyles';
+import { NotificationsPopoverComponent } from '../notifications/NotificationsPopoverComponent';
 import homeIcon from '../../images/homeIcon.svg';
 import exploreIcon from '../../images/exploreIcon.svg';
 import uploadIcon from '../../images/uploadIcon.svg';
@@ -25,11 +26,7 @@ export const NavbarButtonsComponent = () => {
 					<Icon alt='uploadIcon' src={uploadIcon} />
 				</ImageWrapper>
 			</RouterLink>
-			<RouterLink to='/notifications'>
-				<ImageWrapper>
-					<Icon alt='notifications' src={heartIcon} />
-				</ImageWrapper>
-			</RouterLink>
+			<NotificationsPopoverComponent />
 			<UserPopoverComponent />
 		</NavbarButtons>
 	);

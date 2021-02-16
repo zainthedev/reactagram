@@ -19,7 +19,7 @@ export const UserPopoverComponent = () => {
 	const userCollectionData = useFirestoreCollectionData(userCollectionQuery);
 
 	useEffect(() => {
-		if (userCollectionData.data !== undefined && userData !== undefined) {
+		if (userCollectionData.data && userData) {
 			const foundUser = userCollectionData.data.find((user) => user.name === userData.displayName);
 			if (foundUser) {
 				const foundUsername: any = foundUser.name;

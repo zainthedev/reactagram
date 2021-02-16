@@ -36,8 +36,7 @@ export const AddCommentComponent = ({
 	};
 
 	const handlePost = () => {
-		addComment(post, postCollectionQuery, currentUser, comment);
-		addNotification(post.postID, userCollectionQuery, currentUser.name, post.poster, 'comment');
+		addComment(post, postCollectionQuery, currentUser.name, comment);
 	};
 
 	return (

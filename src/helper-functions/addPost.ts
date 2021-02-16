@@ -48,5 +48,5 @@ export const addPost = async (
 		});
 	}
 
-	addNotification(`${postID}`, userQuery, username, tags, 'post');
+	addNotification(`${postID}`, userQuery, username, tags, 'tag');
 };

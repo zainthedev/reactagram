@@ -5,7 +5,7 @@ export type SignupUserType = {
 export interface NotificationType {
 	notificationID: string;
 	postID: string;
-	from: string;
+	from: any;
 	to: string[];
 	type: string;
 	seen: boolean;

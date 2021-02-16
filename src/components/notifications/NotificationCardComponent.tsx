@@ -11,6 +11,19 @@ interface NotificationProps extends UserType {
 export const NotificationCardComponent = ({ user, notification }: NotificationProps) => {
 	let { url } = useRouteMatch();
 
+	const getNotificationText = () => {
+		if (notification.type === 'comment') {
+			console.log(notification.from);
+			return <p>{notification.from.name} commented on your post.</p>;
+		}
+		if (notification.type === 'tag') {
+			return <p>{notification.from.name} tagged you in a post.</p>;
+		}
+		if (notification.type === 'like') {
+			return <p>{notification.from.name} liked your post.</p>;
+		}
+	};
+
 	return (
 		<RouterLink
 			to={url.substring(0, 3) === '/u/' ? user.name : 'u/' + user.name}
@@ -20,7 +33,7 @@ export const NotificationCardComponent = ({ user, notification }: NotificationPr
 				<ImageWrapper>
 					<UserIcon alt='user' src={user.displayPicture} />
 				</ImageWrapper>
-				{user.name}
+				{getNotificationText()}
 			</UserCard>
 		</RouterLink>
 	);
