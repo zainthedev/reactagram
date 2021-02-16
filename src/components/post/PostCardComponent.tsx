@@ -13,6 +13,7 @@ import { removeTag } from '../../helper-functions/removeTag';
 import { PostType } from '../../types';
 import heartIcon from '../../images/heartIcon.svg';
 import heartIconRed from '../../images/heartIconRed.svg';
+import { addNotification } from '../../helper-functions/addNotification';
 
 interface PostCardComponentProps {
 	post: PostType;
@@ -26,6 +27,11 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 	const poster = useGetUser(post.poster);
 
 	const targetUserLikes = [...currentUser.likes];
+
+	const handleLikeButton = () => {
+		handleLike(post, userCollectionQuery, postCollectionQuery, currentUser);
+		addNotification(post.postID, userCollectionQuery, currentUser, post.poster, 'like');
+	};
 
 	return (
 		<>
@@ -55,11 +61,7 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 								Remove tag
 							</ReactagramLink>
 						)}
-						<ImageWrapper
-							onClick={() =>
-								handleLike(post, userCollectionQuery, postCollectionQuery, currentUser)
-							}
-						>
+						<ImageWrapper onClick={handleLikeButton}>
 							<Icon
 								alt='Like button'
 								src={targetUserLikes.includes(post.postID) ? heartIconRed : heartIcon}
@@ -73,6 +75,7 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 						<AddCommentComponent
 							post={post}
 							currentUser={currentUser}
+							userCollectionQuery={userCollectionQuery}
 							postCollectionQuery={postCollectionQuery}
 						/>
 					</PostCard>

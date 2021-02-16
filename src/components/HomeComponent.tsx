@@ -4,7 +4,6 @@ import { getFollowingPosts } from '../helper-functions/getUserPosts';
 import { Home } from '../styled-components/homeStyles';
 import { PostType } from '../types';
 import { PostCardComponent } from './post/PostCardComponent';
-
 export const HomeComponent = () => {
 	const [posts, setPosts]: any = useState([]);
 	const [followingUsers, setFollowingUsers] = useState(0);

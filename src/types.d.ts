@@ -2,6 +2,15 @@ export type SignupUserType = {
 	signupUser: { email: string; password: string };
 };
 
+export interface NotificationType {
+	notificationID: string;
+	postID: string;
+	from: string;
+	to: string[];
+	type: string;
+	seen: boolean;
+}
+
 export interface UserType {
 	user: {
 		name: string;
@@ -11,6 +20,7 @@ export interface UserType {
 		followers: string[];
 		following: string[];
 		likes: string[];
+		notifications: NotificationType[];
 	};
 }
 export interface PostType {

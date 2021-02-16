@@ -1,6 +1,7 @@
 import firebase from 'firebase';
 import admin from 'firebase';
 import uniqid from 'uniqid';
+import { addNotification } from './addNotification';
 
 export const addPost = async (
 	userQuery: any,
@@ -46,4 +47,6 @@ export const addPost = async (
 			});
 		});
 	}
+
+	addNotification(`${postID}`, userQuery, username, tags, 'post');
 };

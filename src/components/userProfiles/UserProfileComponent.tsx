@@ -29,6 +29,7 @@ export const UserProfileComponent = () => {
 		followers: [],
 		following: [],
 		likes: [],
+		notifications: [],
 	});
 	const [posts, setPosts]: any = useState([]);
 	const [taggedPosts, setTaggedPosts]: any = useState([]);
@@ -61,8 +62,7 @@ export const UserProfileComponent = () => {
 		if (userCollectionQueryData.data && postCollectionQueryData.data) {
 			const foundUser: any = userCollectionQueryData.data.find((p) => p.name === profile);
 			if (foundUser !== undefined) {
-				const foundUsername = foundUser;
-				setUser(foundUsername);
+				setUser(foundUser);
 			}
 			const newPosts = getUserPosts(postCollectionQueryData.data, foundUser);
 			setPosts(newPosts);

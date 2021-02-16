@@ -8,6 +8,7 @@ import { UserProfileComponent } from './components/userProfiles/UserProfileCompo
 import { UploadImageComponent } from './components/upload/UploadImageComponent';
 import { AppWrapper } from './styled-components/globalStyles';
 import { ExploreComponent } from './components/ExploreComponent';
+import { NotificationListComponent } from './components/notifications/NotificationListComponent';
 
 export const App = () => {
 	return (
@@ -20,7 +21,7 @@ export const App = () => {
 						<Route exact path='/' component={HomeComponent} />
 						<Route exact path='/explore' component={ExploreComponent} />
 						<Route exact path='/upload' component={UploadImageComponent} />
-						<Route exact path='/notifications' component={HomeComponent} />
+						<Route exact path='/notifications' component={NotificationListComponent} />
 						<Route path='/u/:profile' component={UserProfileComponent} />
 					</AppWrapper>
 				</Switch>

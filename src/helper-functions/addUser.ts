@@ -9,5 +9,6 @@ export const addUser = async (query: any, username: string, picture: string) => 
 		followers: [],
 		following: ['zainthedev'],
 		likes: [],
+		notifications: [],
 	});
 };
