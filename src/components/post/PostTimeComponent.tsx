@@ -18,10 +18,10 @@ export const PostTimeComponent = ({ post }: PostTimeProps) => {
 		<PostTime>
 			{postedTimeMinutes === 1 && `${postedTimeMinutes} minute ago`}
 			{postedTimeMinutes > 1 && postedTimeMinutes < 60 && `${postedTimeMinutes} minutes ago`}
-			{postedTimeHours === 1 && `${postedTimeHours} hour ago`}
-			{postedTimeHours < 24 && postedTimeHours > 1 && `${postedTimeHours} hours ago`}
-			{postedTimeHours > 24 && `${postedTimeDays} day ago`}
-			{postedTimeHours > 48 && `${postedTimeDays} days ago`}
+			{postedTimeMinutes > 60 && postedTimeHours === 1 && `${postedTimeHours} hour ago`}
+			{postedTimeHours > 1 && postedTimeHours < 24 && `${postedTimeHours} hours ago`}
+			{postedTimeHours >= 24 && postedTimeHours < 48 && `${postedTimeDays} day ago`}
+			{postedTimeHours > 24 && postedTimeHours >= 48 && `${postedTimeDays} days ago`}
 		</PostTime>
 	);
 };

@@ -10,7 +10,7 @@ interface PostCommentProps {
 	postCollectionQuery: any;
 }
 
-export const AddCommentCompoennt = ({
+export const AddCommentComponent = ({
 	post,
 	currentUser,
 	postCollectionQuery,

@@ -3,7 +3,7 @@ import { PostInfoComponent } from './PostInfoComponent';
 import { PostCaptionComponent } from './PostCaptionComponent';
 import { PostCommentsComponent } from './PostCommentsComponent';
 import { PostTimeComponent } from './PostTimeComponent';
-import { AddCommentCompoennt } from './AddCommentComponent';
+import { AddCommentComponent } from './AddCommentComponent';
 import { PostCardWrapper, PostCard } from '../../styled-components/postStyles';
 import { ImageWrapper, Icon, UploadedImage } from '../../styled-components/imageStyles';
 import { handleLike } from '../../helper-functions/handleLike';
@@ -55,11 +55,12 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 								style={{ marginLeft: '10px' }}
 							/>
 							{post.likers.length > 0 && post.likers.length}
+							{post.tags.length > 0 && `Tagged: ${post.tags.join(', ')}`}
 						</ImageWrapper>
 						{post.caption && <PostCaptionComponent post={post} />}
 						<PostCommentsComponent post={post} currentUser={currentUser} />
 						<PostTimeComponent post={post} />
-						<AddCommentCompoennt
+						<AddCommentComponent
 							post={post}
 							currentUser={currentUser}
 							postCollectionQuery={postCollectionQuery}

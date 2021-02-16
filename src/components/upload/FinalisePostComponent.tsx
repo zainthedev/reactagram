@@ -1,20 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useAuth, useFirestore } from 'reactfire';
 import { TagModalComponent } from './TagModalComponent';
 import { ReactagramButton } from '../../styled-components/globalStyles';
-import { ImageWrapper, UserIcon, UploadedImage } from '../../styled-components/imageStyles';
+import { ImageWrapper, UserIcon, UploadedImage, Icon } from '../../styled-components/imageStyles';
 import {
 	FinaliseUpload,
 	NavigationButtonWrapper,
 	CaptionInputWrapper,
 	ExtraInfoWrapper,
+	TagsWrapper,
 } from '../../styled-components/uploadStyles';
 import { FormInputWrapper, FormInput } from '../../styled-components/globalStyles';
-import { ModalWrapper, Modal } from '../../styled-components/modalStyles';
 import { PostTextInput } from '../../styled-components/postStyles';
 import { addPost } from '../../helper-functions/addPost';
 import { Redirect } from 'react-router-dom';
 import { useGetUser } from '../../helper-functions/useGetUser';
+import deleteIcon from '../../images/deleteIcon.svg';
 
 type FinalisePostComponentProps = {
 	selectedImage: string;
@@ -30,6 +31,7 @@ export const FinalisePostComponent = ({
 	const [tags, setTags]: any = useState([]);
 	const [posted, setPosted] = useState(false);
 	const [showTags, setShowTags] = useState(false);
+	const [maxTagsError, setMaxTagsError] = useState(false);
 
 	const userCollectionQuery = useFirestore().collection('users');
 	const postsCollectionQuery = useFirestore().collection('posts');
@@ -40,14 +42,27 @@ export const FinalisePostComponent = ({
 	const showTagsModal = (e: React.MouseEvent) => {
 		const targetElement = e.target as HTMLInputElement;
 		// Prevent closing the modal on search bar click
-		if (targetElement.className !== 'sc-iUuytg eIhgWJ') {
+		if (targetElement.placeholder !== 'Search') {
 			setShowTags(!showTags);
 		}
 	};
 
 	const handleTags = (user: string) => {
 		const newTags = [...tags];
-		newTags.push(user);
+		if (!tags.includes(user)) {
+			newTags.push(user);
+		}
+		if (tags.length > 5) {
+			setMaxTagsError(true);
+		}
+		setTags(newTags);
+	};
+
+	const removeTag = (e: React.MouseEvent) => {
+		const targetElement = e.target as HTMLInputElement;
+		const targetTag = targetElement.textContent;
+		const newTags = [...tags].filter((p) => p !== targetTag);
+		newTags.filter((p) => p !== targetTag);
 		setTags(newTags);
 	};
 
@@ -94,11 +109,28 @@ export const FinalisePostComponent = ({
 							<UploadedImage src={selectedImage} alt='The chosen, cropped image to be posted' />
 						</ImageWrapper>
 					</CaptionInputWrapper>
+					{tags.length > 0 && (
+						<>
+							<p style={{ fontWeight: 600 }}>Tags: </p>
+							<TagsWrapper style={{ display: 'flex' }}>
+								{tags.map((tag: string) => {
+									return (
+										<div style={{ cursor: 'pointer' }} onClick={removeTag}>
+											{tag}
+											<Icon src={deleteIcon} />
+											{tags.length > 1 && tags.indexOf(tag) !== tags.length - 1 && ', '}
+										</div>
+									);
+								})}
+							</TagsWrapper>
+						</>
+					)}
 					<ExtraInfoWrapper>
 						<FormInputWrapper>
 							<FormInput placeholder={'Enter a location'} onChange={handleInput} />
 						</FormInputWrapper>
 						<ReactagramButton onClick={showTagsModal}>Tag people</ReactagramButton>
+						{maxTagsError && 'Max tags reached'}
 					</ExtraInfoWrapper>
 				</>
 			)}

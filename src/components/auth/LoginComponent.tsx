@@ -25,7 +25,7 @@ export const LoginComponent = () => {
 					</AuthTextWrapper>
 					<TestingText>
 						Just testing?{'\n'}
-						Email: test@test.test{'\n'}
+						Email: tester@test.com{'\n'}
 						Password: testpass
 					</TestingText>
 				</>

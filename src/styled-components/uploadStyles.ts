@@ -63,3 +63,8 @@ export const ExtraInfoWrapper = styled.div`
 	width: 100%;
 	place-content: space-evenly;
 `;
+
+export const TagsWrapper = styled.div`
+	display: flex;
+	white-space: break-spaces;
+`;

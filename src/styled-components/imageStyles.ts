@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { UserProfile, UserProfileInfoWrapper } from './profileStyles';
 import { UserList } from './userListStyles';
-import { UploadImage, FinaliseUpload } from './uploadStyles';
+import { UploadImage, FinaliseUpload, TagsWrapper } from './uploadStyles';
 import { Modal, PostModal } from './modalStyles';
 import { PostBlocksWrapper, PostCard, PostCommentWrapper } from './postStyles';
 import { StyledPopover } from './globalStyles';
@@ -43,6 +43,10 @@ export const Icon = styled.img`
 	${PostCommentWrapper} & {
 		margin-bottom: 0px;
 		height: 16px;
+	}
+	${TagsWrapper} & {
+		height: 16px;
+		margin-left: 10px;
 	}
 `;
 
