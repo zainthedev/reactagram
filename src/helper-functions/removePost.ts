@@ -1,4 +1,5 @@
 import { PostType } from '../types';
+import admin from 'firebase';
 
 export const removePost = (
 	post: PostType,
@@ -15,6 +16,14 @@ export const removePost = (
 		},
 		{ merge: true }
 	);
+
+	if (post.tags.length > 0) {
+		post.tags.forEach((tag) => {
+			userCollectionQuery.doc(tag).update({
+				taggedPosts: admin.firestore.FieldValue.arrayRemove(post.postID),
+			});
+		});
+	}
 
 	postCollectionQuery.doc(post.postID).delete();
 };
