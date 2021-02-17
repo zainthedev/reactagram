@@ -35,20 +35,20 @@ export const AddCommentComponent = ({
 		setComment(newComment);
 	};
 
-	const handlePost = () => {
-		addComment(post, postCollectionQuery, currentUser.name, comment);
+	const handleComment = () => {
+		addComment(post, userCollectionQuery, postCollectionQuery, currentUser, comment);
 	};
 
 	return (
 		<FormInputWrapper
 			onSubmit={(e) => {
 				e.preventDefault();
-				addComment(post, postCollectionQuery, currentUser, comment);
+				handleComment();
 				setComment({ commentID: '', poster: '', comment: '' });
 			}}
 		>
 			<FormInput placeholder={'Add a comment...'} onChange={handleInput} value={comment.comment} />
-			<ReactagramLink onClick={handlePost}>Post</ReactagramLink>
+			<ReactagramLink onClick={handleComment}>Post</ReactagramLink>
 		</FormInputWrapper>
 	);
 };

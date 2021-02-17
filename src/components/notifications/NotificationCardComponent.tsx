@@ -17,10 +17,12 @@ export const NotificationCardComponent = ({ user, notification }: NotificationPr
 			return <p>{notification.from.name} commented on your post.</p>;
 		}
 		if (notification.type === 'tag') {
-			return <p>{notification.from.name} tagged you in a post.</p>;
+			console.log(notification.from);
+			return <p>{notification.from} tagged you in a psost.</p>;
 		}
 		if (notification.type === 'like') {
-			return <p>{notification.from.name} liked your post.</p>;
+			console.log(notification.from);
+			return <p>{notification.from} liked your post.</p>;
 		}
 	};
 

@@ -1,11 +1,13 @@
 import admin from 'firebase';
 import uniqid from 'uniqid';
-import { PostType, UserType } from '../types';
+import { PostType } from '../types';
+import { addNotification } from './addNotification';
 
 export const addComment = (
 	post: PostType,
+	userCollectionQuery: any,
 	postCollectionQuery: any,
-	user: UserType,
+	user: string,
 	comment: any
 ) => {
 	const commentID = uniqid();
@@ -16,4 +18,6 @@ export const addComment = (
 			comment: comment.comment,
 		}),
 	});
+
+	addNotification(post.postID, userCollectionQuery, user, post.poster, 'comment');
 };

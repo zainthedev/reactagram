@@ -14,7 +14,7 @@ import { PostBlockComponent } from '../post/PostBlockComponent';
 import { PostBlocksWrapper } from '../../styled-components/postStyles';
 import { PostType } from '../../types';
 import { getTaggedPosts, getUserPosts } from '../../helper-functions/getUserPosts';
-import { Navbar, NavbarContentWrapper } from '../../styled-components/navbarStyles';
+import { NavbarContentWrapper } from '../../styled-components/navbarStyles';
 import { UserProfileNavbar } from '../../styled-components/profileStyles';
 import { Icon } from '../../styled-components/imageStyles';
 import gridIcon from '../../images/gridIcon.svg';

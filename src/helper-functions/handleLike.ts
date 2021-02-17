@@ -1,5 +1,6 @@
 import admin from 'firebase';
 import { PostType } from '../types';
+import { addNotification } from './addNotification';
 
 export const handleLike = (
 	post: PostType,
@@ -18,6 +19,8 @@ export const handleLike = (
 		postCollectionQuery.doc(post.postID).update({
 			likers: admin.firestore.FieldValue.arrayUnion(user.name),
 		});
+
+		addNotification(post.postID, userCollectionQuery, user.name, post.poster, 'like');
 	} else {
 		const filteredLikersArray = targetPostLikers.filter((p) => p !== user.name);
 		const filteredLikesArray = targetUserLikes.filter((p) => p !== post.postID);
