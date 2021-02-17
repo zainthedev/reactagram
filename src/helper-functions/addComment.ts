@@ -1,17 +1,15 @@
+import firebase from 'firebase';
 import admin from 'firebase';
 import uniqid from 'uniqid';
 import { PostType } from '../types';
 import { addNotification } from './addNotification';
 
-export const addComment = (
-	post: PostType,
-	userCollectionQuery: any,
-	postCollectionQuery: any,
-	user: string,
-	comment: any
-) => {
+export const addComment = (post: PostType, user: string, comment: any) => {
+	const postsQuery = firebase.firestore().collection('posts');
+
+	console.log(user);
 	const commentID = uniqid();
-	postCollectionQuery.doc(post.postID).update({
+	postsQuery.doc(post.postID).update({
 		comments: admin.firestore.FieldValue.arrayUnion({
 			commentID: `${commentID}`,
 			poster: user,
@@ -19,5 +17,5 @@ export const addComment = (
 		}),
 	});
 
-	addNotification(post.postID, userCollectionQuery, user, post.poster, 'comment');
+	addNotification(post.postID, user, post.poster, 'comment');
 };

@@ -8,16 +8,9 @@ import { addNotification } from '../../helper-functions/addNotification';
 interface PostCommentProps {
 	post: PostType;
 	currentUser: any;
-	userCollectionQuery: any;
-	postCollectionQuery: any;
 }
 
-export const AddCommentComponent = ({
-	post,
-	currentUser,
-	userCollectionQuery,
-	postCollectionQuery,
-}: PostCommentProps) => {
+export const AddCommentComponent = ({ post, currentUser }: PostCommentProps) => {
 	const [comment, setComment] = useState({
 		commentID: '',
 		poster: '',
@@ -36,7 +29,7 @@ export const AddCommentComponent = ({
 	};
 
 	const handleComment = () => {
-		addComment(post, userCollectionQuery, postCollectionQuery, currentUser, comment);
+		addComment(post, currentUser.name, comment);
 	};
 
 	return (

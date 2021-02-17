@@ -4,8 +4,6 @@ import uniqid from 'uniqid';
 import { addNotification } from './addNotification';
 
 export const addPost = async (
-	userQuery: any,
-	postsQuery: any,
 	username: string,
 	picture: string,
 	caption: string,
@@ -16,6 +14,8 @@ export const addPost = async (
 	const storageRef = storage.ref();
 	const postID = uniqid();
 	const imageRef = storageRef.child(`${postID}`);
+	const userQuery = firebase.firestore().collection('users');
+	const postsQuery = firebase.firestore().collection('posts');
 
 	await imageRef.putString(picture, 'data_url');
 
@@ -48,5 +48,5 @@ export const addPost = async (
 		});
 	}
 
-	addNotification(`${postID}`, userQuery, username, tags, 'tag');
+	addNotification(`${postID}`, username, tags, 'tag');
 };

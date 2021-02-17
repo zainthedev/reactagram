@@ -43,10 +43,10 @@ export const PostCommentsComponent = ({ post, currentUser }: PostCommentProps) =
 					return (
 						<PostCommentWrapper key={comment.commentID}>
 							<PostComment>
-								<RouterLink to={`/u/${comment.poster.name}`}>{comment.poster.name} </RouterLink>
+								<RouterLink to={`/u/${comment.poster}`}>{comment.poster} </RouterLink>
 								{comment.comment}
 							</PostComment>
-							{comment.poster.name === currentUser.name && (
+							{comment.poster === currentUser.name && (
 								<ImageWrapper onClick={() => removeComment(post, postCollectionQuery, comment)}>
 									<Icon alt='Delete button' src={deleteIcon} />
 								</ImageWrapper>
@@ -64,10 +64,10 @@ export const PostCommentsComponent = ({ post, currentUser }: PostCommentProps) =
 							return (
 								<PostCommentWrapper key={comment.commentID}>
 									<PostComment>
-										<RouterLink to={`/u/${comment.poster.name}`}>{comment.poster.name} </RouterLink>
+										<RouterLink to={`/u/${comment.poster}`}>{comment.poster} </RouterLink>
 										{comment.comment}
 									</PostComment>
-									{comment.poster.name === currentUser.name && (
+									{comment.poster === currentUser.name && (
 										<ImageWrapper onClick={() => removeComment(post, postCollectionQuery, comment)}>
 											<Icon alt='Delete button' src={deleteIcon} />
 										</ImageWrapper>

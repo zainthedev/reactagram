@@ -13,7 +13,6 @@ import { removeTag } from '../../helper-functions/removeTag';
 import { PostType } from '../../types';
 import heartIcon from '../../images/heartIcon.svg';
 import heartIconRed from '../../images/heartIconRed.svg';
-import { addNotification } from '../../helper-functions/addNotification';
 
 interface PostCardComponentProps {
 	post: PostType;
@@ -29,8 +28,7 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 	const targetUserLikes = [...currentUser.likes];
 
 	const handleLikeButton = () => {
-		handleLike(post, userCollectionQuery, postCollectionQuery, currentUser);
-		addNotification(post.postID, userCollectionQuery, currentUser, post.poster, 'like');
+		handleLike(post, currentUser);
 	};
 
 	return (
@@ -45,11 +43,7 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 							userCollectionQuery={userCollectionQuery}
 							postCollectionQuery={postCollectionQuery}
 						/>
-						<ImageWrapper
-							onDoubleClick={() =>
-								handleLike(post, userCollectionQuery, postCollectionQuery, currentUser)
-							}
-						>
+						<ImageWrapper onDoubleClick={handleLikeButton}>
 							<UploadedImage src={post.image} alt={`${post.poster}'s upload`} data-type={'modal'} />
 						</ImageWrapper>
 						{post.tags.includes(currentUser.name) && (
@@ -72,12 +66,7 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 						{post.caption && <PostCaptionComponent post={post} />}
 						<PostCommentsComponent post={post} currentUser={currentUser} />
 						<PostTimeComponent post={post} />
-						<AddCommentComponent
-							post={post}
-							currentUser={currentUser}
-							userCollectionQuery={userCollectionQuery}
-							postCollectionQuery={postCollectionQuery}
-						/>
+						<AddCommentComponent post={post} currentUser={currentUser} />
 					</PostCard>
 				</PostCardWrapper>
 			)}

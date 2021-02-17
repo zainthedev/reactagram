@@ -1,15 +1,16 @@
+import firebase from 'firebase';
 import admin from 'firebase';
 import uniqid from 'uniqid';
 import { NotificationType } from '../types';
 
 export const addNotification = (
 	postID: string,
-	userCollectionQuery: any,
 	currentUserName: string,
 	targetUser: string[],
 	type: string
 ) => {
 	const notificationID = uniqid();
+	const userQuery = firebase.firestore().collection('users');
 
 	const newNotification: NotificationType = {
 		notificationID: `${notificationID}`,
@@ -22,12 +23,12 @@ export const addNotification = (
 
 	if (typeof targetUser !== 'string') {
 		targetUser.forEach((user) => {
-			userCollectionQuery.doc(user).update({
+			userQuery.doc(user).update({
 				notifications: admin.firestore.FieldValue.arrayUnion(newNotification),
 			});
 		});
 	} else {
-		userCollectionQuery.doc(targetUser).update({
+		userQuery.doc(targetUser).update({
 			notifications: admin.firestore.FieldValue.arrayUnion(newNotification),
 		});
 	}

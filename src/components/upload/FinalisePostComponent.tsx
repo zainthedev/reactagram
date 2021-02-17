@@ -34,8 +34,6 @@ export const FinalisePostComponent = ({
 	const [showTags, setShowTags] = useState(false);
 	const [maxTagsError, setMaxTagsError] = useState(false);
 
-	const userCollectionQuery = useFirestore().collection('users');
-	const postsCollectionQuery = useFirestore().collection('posts');
 	const currentUserName = useAuth().currentUser?.displayName!;
 	const currentUser = useGetUser('currentUser');
 	const displayPicture: string = currentUser.displayPicture;
@@ -75,15 +73,7 @@ export const FinalisePostComponent = ({
 	};
 
 	const handlePost = () => {
-		addPost(
-			userCollectionQuery,
-			postsCollectionQuery,
-			currentUserName,
-			selectedImage,
-			caption,
-			location,
-			tags
-		);
+		addPost(currentUserName, selectedImage, caption, location, tags);
 		setPosted(true);
 	};
 
