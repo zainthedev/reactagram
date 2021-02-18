@@ -31,9 +31,10 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 		handleLike(post, currentUser);
 	};
 
+	console.log(post);
 	return (
 		<>
-			{post !== undefined && (
+			{post.postID ? (
 				<PostCardWrapper>
 					<PostCard>
 						<PostInfoComponent
@@ -69,6 +70,8 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 						<AddCommentComponent post={post} currentUser={currentUser} />
 					</PostCard>
 				</PostCardWrapper>
+			) : (
+				<PostCard>Post not found.</PostCard>
 			)}
 		</>
 	);

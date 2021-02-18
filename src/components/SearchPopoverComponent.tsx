@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { ImageWrapper, UserIcon } from '../styled-components/imageStyles';
-import { StyledPopover, PopoverButton, RouterLink } from '../styled-components/globalStyles';
+import { StyledPopover, TextButton, RouterLink } from '../styled-components/globalStyles';
 import { FormInputWrapper, FormInput } from '../styled-components/globalStyles';
 import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -37,14 +37,14 @@ export const SearchPopoverComponent = () => {
 					searchInput.length > 0 &&
 					foundUsers.map((user: any) => {
 						return (
-							<PopoverButton key={user.name}>
+							<TextButton key={user.name}>
 								<RouterLink to={`/u/${user.name}`}>
 									<ImageWrapper>
 										<UserIcon alt='user' src={user.displayPicture} />
 										<p>{user.name}</p>
 									</ImageWrapper>
 								</RouterLink>
-							</PopoverButton>
+							</TextButton>
 						);
 					})}
 			</Popover.Content>

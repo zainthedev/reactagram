@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useUser, useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { ImageWrapper, Icon, UserIcon } from '../../styled-components/imageStyles';
-import { StyledPopover, PopoverButton, RouterLink } from '../../styled-components/globalStyles';
+import { StyledPopover, TextButton, RouterLink } from '../../styled-components/globalStyles';
 import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import userIcon from '../../images/userIcon.svg';
@@ -37,20 +37,20 @@ export const UserPopoverComponent = () => {
 	const popover = (
 		<StyledPopover>
 			<Popover.Content>
-				<PopoverButton>
+				<TextButton>
 					<RouterLink to={`/u/${username}`}>
 						<ImageWrapper>
 							<UserIcon alt='user' src={userImage} />
 							<p> Profile</p>
 						</ImageWrapper>
 					</RouterLink>
-				</PopoverButton>
-				<PopoverButton onClick={() => signOut()}>
+				</TextButton>
+				<TextButton onClick={() => signOut()}>
 					<ImageWrapper>
 						<Icon alt='logout' src={logoutIcon} />
 						<p> Log out</p>
 					</ImageWrapper>
-				</PopoverButton>
+				</TextButton>
 			</Popover.Content>
 		</StyledPopover>
 	);

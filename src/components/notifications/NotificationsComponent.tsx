@@ -1,14 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useAuth, useFirestore, useFirestoreCollectionData } from 'reactfire';
-import Popover from 'react-bootstrap/Popover';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import { ImageWrapper, Icon } from '../../styled-components/imageStyles';
-import { StyledPopover, PopoverButton } from '../../styled-components/globalStyles';
 import { NotificationCardComponent } from './NotificationCardComponent';
-import { NotificationType, PostType } from '../../types';
-import heartIcon from '../../images/heartIcon.svg';
+import { NotificationType } from '../../types';
+import { Notifications } from '../../styled-components/notificationsStyles';
 
-export const NotificationsPopoverComponent = () => {
+export const NotificationsComponent = () => {
 	const [notifications, setNotifications] = useState<NotificationType[]>([]);
 	const [targetUser, setTargetUser]: any = useState();
 
@@ -32,31 +28,17 @@ export const NotificationsPopoverComponent = () => {
 		}
 	}, [currentUserName, userCollectionData.data]);
 
-	const popover = (
-		<StyledPopover>
-			<Popover.Content>
-				{notifications.length > 0 &&
-					notifications.map((notification: NotificationType) => {
-						return (
-							<PopoverButton key={notification.notificationID}>
-								<NotificationCardComponent
-									notification={notification}
-									user={targetUser}
-								></NotificationCardComponent>
-							</PopoverButton>
-						);
-					})}
-			</Popover.Content>
-		</StyledPopover>
-	);
-
 	return (
-		<>
-			<OverlayTrigger trigger='click' rootClose placement='auto' overlay={popover}>
-				<ImageWrapper>
-					<Icon alt='notifications' src={heartIcon} />
-				</ImageWrapper>
-			</OverlayTrigger>
-		</>
+		<Notifications>
+			{notifications.length > 0 &&
+				notifications.map((notification: NotificationType) => {
+					return (
+						<NotificationCardComponent
+							notification={notification}
+							user={targetUser}
+						></NotificationCardComponent>
+					);
+				})}
+		</Notifications>
 	);
 };

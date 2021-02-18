@@ -38,6 +38,7 @@ export const UserCard = styled.div`
 	text-decoration: none;
 	overflow-x: hidden;
 	margin-right: 10px;
+	white-space: break-spaces;
 	${PostCard} & {
 		font-weight: 600;
 		padding-bottom: 10px;
