@@ -7,7 +7,6 @@ import { addNotification } from './addNotification';
 export const addComment = (post: PostType, user: string, comment: any) => {
 	const postsQuery = firebase.firestore().collection('posts');
 
-	console.log(user);
 	const commentID = uniqid();
 	postsQuery.doc(post.postID).update({
 		comments: admin.firestore.FieldValue.arrayUnion({

@@ -8,6 +8,7 @@ import Popover from 'react-bootstrap/Popover';
 import { PostCaption, PostCard, PostCommentsWrapper, PostInfo } from './postStyles';
 import { Modal, PostModal } from './modalStyles';
 import { UserProfileNavbar } from './profileStyles';
+import { Notifications } from './notificationsStyles';
 
 export const AppWrapper = styled.div`
 	display: flex;
@@ -26,6 +27,7 @@ export const AppWrapper = styled.div`
 
 export const ReactagramTextWrapper = styled.div`
 	display: flex;
+	margin-bottom: 10px;
 `;
 
 export const ReactagramText = styled.div`
@@ -174,7 +176,7 @@ export const StyledPopover = styled(Popover)`
 	-webkit-tap-highlight-color: transparent;
 `;
 
-export const PopoverButton = styled.div`
+export const TextButton = styled.div`
 	display: flex;
 	border: none;
 	padding: 10px;
@@ -186,6 +188,9 @@ export const PopoverButton = styled.div`
 	user-select: none;
 	:hover {
 		background: #f7f7f7;
+	}
+	${Notifications} & {
+		border-bottom: solid 1px #dbdbdb;
 	}
 `;
 
