@@ -27,7 +27,6 @@ export const AppWrapper = styled.div`
 
 export const ReactagramTextWrapper = styled.div`
 	display: flex;
-	margin-bottom: 10px;
 `;
 
 export const ReactagramText = styled.div`
@@ -130,16 +129,6 @@ export const FormInput = styled.input`
 	text-align: center;
 	background: #fafafa;
 	outline-color: #3d6ec9;
-	${NavbarContentWrapper} & {
-		background-image: url(${searchIcon});
-		background-position-x: 30%;
-		background-position-y: 45%;
-		background-size: calc((0.1em + 0.4vmin) + (0.1em + 0.4vmax));
-		background-repeat: no-repeat;
-		@media (max-width: 768px) {
-			display: none;
-		}
-	}
 	${FinaliseUpload} & {
 		font-size: calc((0.2em + 0.6vmin) + (0.2em + 0.6vmax));
 	}

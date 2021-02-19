@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useFirestore, useFirestoreCollectionData } from 'reactfire';
-import { ImageWrapper, UserIcon } from '../styled-components/imageStyles';
-import { StyledPopover, TextButton, RouterLink } from '../styled-components/globalStyles';
-import { FormInputWrapper, FormInput } from '../styled-components/globalStyles';
-import Popover from 'react-bootstrap/Popover';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import { ModalWrapper, Modal } from '../../styled-components/modalStyles';
+import { FormInputWrapper, FormInput } from '../../styled-components/globalStyles';
+import { TextButton, RouterLink } from '../../styled-components/globalStyles';
+import { ImageWrapper, UserIcon } from '../../styled-components/imageStyles';
 
-export const SearchPopoverComponent = () => {
+export const SearchModalComponent = ({ toggleModal }: any) => {
 	const [foundUsers, setFoundUsers]: any = useState([]);
 	const [searchInput, setSearchInput] = useState('');
 	const userCollectionQuery = useFirestore().collection('users');
@@ -30,9 +29,14 @@ export const SearchPopoverComponent = () => {
 		}
 	}, [searchInput, userCollectionData.data]);
 
-	const popover = (
-		<StyledPopover>
-			<Popover.Content>
+	return (
+		<ModalWrapper onClick={toggleModal}>
+			<Modal>
+				<label>
+					<FormInputWrapper>
+						<FormInput onChange={handleInput} placeholder='Search'></FormInput>
+					</FormInputWrapper>
+				</label>
 				{foundUsers.length > 0 &&
 					searchInput.length > 0 &&
 					foundUsers.map((user: any) => {
@@ -47,17 +51,7 @@ export const SearchPopoverComponent = () => {
 							</TextButton>
 						);
 					})}
-			</Popover.Content>
-		</StyledPopover>
-	);
-
-	return (
-		<OverlayTrigger trigger='click' rootClose placement='auto' overlay={popover}>
-			<label>
-				<FormInputWrapper>
-					<FormInput onChange={handleInput} placeholder='Search'></FormInput>
-				</FormInputWrapper>
-			</label>
-		</OverlayTrigger>
+			</Modal>
+		</ModalWrapper>
 	);
 };

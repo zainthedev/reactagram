@@ -5,6 +5,7 @@ import { UploadImage, FinaliseUpload, TagsWrapper } from './uploadStyles';
 import { Modal, PostModal } from './modalStyles';
 import { PostBlocksWrapper, PostCard, PostCommentWrapper } from './postStyles';
 import { StyledPopover } from './globalStyles';
+import { NavbarContentWrapper } from './navbarStyles';
 
 export const ImageWrapper = styled.div`
 	display: flex;
@@ -19,6 +20,10 @@ export const ImageWrapper = styled.div`
 	}
 	${PostCard} & {
 		align-self: flex-start;
+	}
+	${NavbarContentWrapper} & {
+		font-size: calc((0.1em + 0.4vmin) + (0.1em + 0.4vmax));
+		cursor: pointer;
 	}
 `;
 

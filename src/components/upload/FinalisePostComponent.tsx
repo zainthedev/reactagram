@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAuth, useFirestore } from 'reactfire';
+import { useAuth } from 'reactfire';
 import { TagModalComponent } from './TagModalComponent';
 import { ReactagramButton } from '../../styled-components/globalStyles';
 import { ImageWrapper, UserIcon, UploadedImage, Icon } from '../../styled-components/imageStyles';
@@ -31,18 +31,18 @@ export const FinalisePostComponent = ({
 	const [location, setLocation] = useState('');
 	const [tags, setTags]: any = useState([]);
 	const [posted, setPosted] = useState(false);
-	const [showTags, setShowTags] = useState(false);
+	const [showModal, setShowModal] = useState(false);
 	const [maxTagsError, setMaxTagsError] = useState(false);
 
 	const currentUserName = useAuth().currentUser?.displayName!;
 	const currentUser = useGetUser('currentUser');
 	const displayPicture: string = currentUser.displayPicture;
 
-	const showTagsModal = (e: React.MouseEvent) => {
+	const toggleModal = (e: React.MouseEvent) => {
 		const targetElement = e.target as HTMLInputElement;
 		// Prevent closing the modal on search bar click
 		if (targetElement.placeholder !== 'Search') {
-			setShowTags(!showTags);
+			setShowModal(!showModal);
 		}
 	};
 
@@ -120,12 +120,12 @@ export const FinalisePostComponent = ({
 						<FormInputWrapper>
 							<FormInput placeholder={'Enter a location'} onChange={handleInput} />
 						</FormInputWrapper>
-						<ReactagramButton onClick={showTagsModal}>Tag people</ReactagramButton>
+						<ReactagramButton onClick={toggleModal}>Tag people</ReactagramButton>
 						{maxTagsError && 'Max tags reached'}
 					</ExtraInfoWrapper>
 				</>
 			)}
-			{showTags && <TagModalComponent showTags={showTagsModal} handleTags={handleTags} />}
+			{showModal && <TagModalComponent toggleModal={toggleModal} handleTags={handleTags} />}
 			{posted && <Redirect to='/' />}
 		</FinaliseUpload>
 	);

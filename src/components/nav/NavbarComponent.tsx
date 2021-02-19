@@ -2,7 +2,7 @@ import { RouterLink } from '../../styled-components/globalStyles';
 import { ReactagramLogoComponent } from '../ReactagramLogoComponent';
 import { Navbar, NavbarContentWrapper } from '../../styled-components/navbarStyles';
 import { NavbarButtonsComponent } from './NavbarButtonsComponent';
-import { SearchPopoverComponent } from '../SearchPopoverComponent';
+import { SearchButtonComponent } from './SearchButtonComponent';
 
 export const NavbarComponent = () => {
 	return (
@@ -11,7 +11,7 @@ export const NavbarComponent = () => {
 				<RouterLink to='/'>
 					<ReactagramLogoComponent />
 				</RouterLink>
-				<SearchPopoverComponent />
+				<SearchButtonComponent />
 				<NavbarButtonsComponent />
 			</NavbarContentWrapper>
 		</Navbar>

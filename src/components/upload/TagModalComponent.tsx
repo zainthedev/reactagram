@@ -4,7 +4,7 @@ import { ModalWrapper, Modal } from '../../styled-components/modalStyles';
 import { ImageWrapper, UserIcon } from '../../styled-components/imageStyles';
 import { FormInputWrapper, FormInput } from '../../styled-components/globalStyles';
 
-export const TagModalComponent = ({ showTags, handleTags }: any) => {
+export const TagModalComponent = ({ toggleModal, handleTags }: any) => {
 	const [foundUsers, setFoundUsers]: any = useState([]);
 	const [searchInput, setSearchInput] = useState('');
 	const userCollectionQuery = useFirestore().collection('users');
@@ -34,7 +34,7 @@ export const TagModalComponent = ({ showTags, handleTags }: any) => {
 	};
 
 	return (
-		<ModalWrapper onClick={showTags}>
+		<ModalWrapper onClick={toggleModal}>
 			<Modal>
 				<label>
 					<FormInputWrapper>
