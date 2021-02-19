@@ -18,6 +18,7 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 	const targetUserFollowing: any = targetUser.following;
 	const targetUserFollowers: any = targetUser.followers;
 
+	// Set the target list to be either the list of followers or following users
 	useEffect(() => {
 		if (userCollectionData.data !== undefined) {
 			const userList: any = [];

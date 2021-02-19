@@ -3,7 +3,6 @@ import uniqid from 'uniqid';
 import { ReactagramLink, FormInputWrapper, FormInput } from '../../styled-components/globalStyles';
 import { addComment } from '../../helper-functions/addComment';
 import { CommentType, PostType } from '../../types';
-import { addNotification } from '../../helper-functions/addNotification';
 
 interface PostCommentProps {
 	post: PostType;

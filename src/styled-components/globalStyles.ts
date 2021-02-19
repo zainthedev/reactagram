@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { NavbarContentWrapper, MobileHeaderContentWrapper } from './navbarStyles';
 import { AuthButton } from './authStyles';
 import { UploadImage, FinaliseUpload } from './uploadStyles';
-import searchIcon from '../images/searchIcon.svg';
 import Popover from 'react-bootstrap/Popover';
 import { PostCaption, PostCard, PostCommentsWrapper, PostInfo } from './postStyles';
 import { Modal, PostModal } from './modalStyles';

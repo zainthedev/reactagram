@@ -20,10 +20,10 @@ export const NotificationCardComponent = ({ user, notification }: NotificationPr
 	useEffect(() => {
 		if (postData.data) {
 			setPost(postData.data);
-			console.log(postData.data);
 		}
 	}, [postData.data]);
 
+	// Get the appropriate text for the notification based on the type of notification
 	const getNotificationText = () => {
 		if (notification.type === 'comment') {
 			return <p data-type={'modal'}> {notification.from} commented on your post.</p>;
@@ -38,7 +38,7 @@ export const NotificationCardComponent = ({ user, notification }: NotificationPr
 
 	const handleClick = (e: React.MouseEvent) => {
 		const targetElement = e.target as HTMLInputElement;
-		console.log(targetElement);
+
 		if (targetElement.getAttribute('data-type') === 'modal') {
 			setDisplayModal(!displayModal);
 		}

@@ -3,8 +3,6 @@ import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { useEffect, useState } from 'react';
 import {
 	UserProfile,
-	UserProfilePostsWrapper,
-	UserProfilePostsContainer,
 	UserProfilePosts,
 	UserProfileTaggedPosts,
 } from '../../styled-components/profileStyles';

@@ -8,6 +8,7 @@ export const SearchButtonComponent = () => {
 
 	const toggleModal = (e: React.MouseEvent) => {
 		const targetElement = e.target as HTMLInputElement;
+
 		// Prevent closing the modal on search bar click
 		if (targetElement.placeholder !== 'Search') {
 			setShowModal(!showModal);

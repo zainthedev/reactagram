@@ -31,7 +31,6 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 		handleLike(post, currentUser);
 	};
 
-	console.log(post);
 	return (
 		<>
 			{post.postID ? (
