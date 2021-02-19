@@ -46,3 +46,13 @@ export const Modal = styled.div`
 		text-align: start;
 	}
 `;
+
+export const DeletePostModal = styled(Modal)`
+	${PostModal} & {
+		width: 20vw;
+		height: 30vh;
+		padding: 20px;
+		font-weight: 600;
+		text-align: center;
+	}
+`;

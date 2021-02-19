@@ -5,7 +5,7 @@ import { PostCommentsComponent } from './PostCommentsComponent';
 import { PostTimeComponent } from './PostTimeComponent';
 import { AddCommentComponent } from './AddCommentComponent';
 import { ReactagramLink } from '../../styled-components/globalStyles';
-import { PostCardWrapper, PostCard } from '../../styled-components/postStyles';
+import { PostCardWrapper, PostCard, NoPostModal } from '../../styled-components/postStyles';
 import { ImageWrapper, Icon, UploadedImage } from '../../styled-components/imageStyles';
 import { handleLike } from '../../helper-functions/handleLike';
 import { useGetUser } from '../../helper-functions/useGetUser';
@@ -70,7 +70,7 @@ export const PostCardComponent = ({ post }: PostCardComponentProps) => {
 					</PostCard>
 				</PostCardWrapper>
 			) : (
-				<PostCard>Post not found.</PostCard>
+				<NoPostModal>Post not found.</NoPostModal>
 			)}
 		</>
 	);

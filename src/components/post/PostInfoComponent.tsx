@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ModalWrapper, Modal } from '../../styled-components/modalStyles';
+import { ModalWrapper, DeletePostModal } from '../../styled-components/modalStyles';
 import { UserCardComponent } from '../userProfiles/UserCardComponent';
 import { PostInfo, PostInfoTop } from '../../styled-components/postStyles';
 import { ImageWrapper, Icon } from '../../styled-components/imageStyles';
@@ -33,7 +33,7 @@ export const PostInfoComponent = ({
 		<PostInfo>
 			{deletingPost && (
 				<ModalWrapper onClick={handleDelete}>
-					<Modal>
+					<DeletePostModal>
 						Are you sure you want to delete this post?
 						<ReactagramButton
 							onClick={() =>
@@ -44,7 +44,7 @@ export const PostInfoComponent = ({
 							Delete
 						</ReactagramButton>
 						<ReactagramButton onClick={handleDelete}>Cancel</ReactagramButton>
-					</Modal>
+					</DeletePostModal>
 				</ModalWrapper>
 			)}
 			<PostInfoTop>

@@ -31,6 +31,14 @@ export const PostCard = styled.div`
 	max-width: 100vw;
 `;
 
+export const NoPostModal = styled(PostCard)`
+	min-width: 10vw;
+	min-height: 10vh;
+	font-weight: 600;
+	place-content: center;
+	place-items: center;
+`;
+
 export const PostInfo = styled.div`
 	display: flex;
 	flex-direction: column;

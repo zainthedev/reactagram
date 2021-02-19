@@ -49,8 +49,12 @@ export const NotificationCardComponent = ({ user, notification }: NotificationPr
 			{displayModal && (
 				<PostModalComponent post={post} handleClick={handleClick} data-type={'modal'} />
 			)}
-			<TextButton onClick={handleClick} style={{ overflowX: 'hidden', color: '#262626' }}>
-				<UserCard data-type={'modal'}>
+			<TextButton
+				onClick={handleClick}
+				data-type={'modal'}
+				style={{ overflowX: 'hidden', color: '#262626' }}
+			>
+				<UserCard>
 					<ImageWrapper>
 						<UserIcon alt='user' src={user.displayPicture} />
 					</ImageWrapper>
