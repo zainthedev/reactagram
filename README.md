@@ -4,22 +4,18 @@ A clone of Instagram built with React, TypeScript and Firebase.
 
 # Features:
 
-- Login with Gmail or create your own account.
-- Crop and upload images with captions, tags and a location to your profile.
-- View user profiles with dynamic routing.
-- Search for, follow and tag other users in your posts.
-- Comment on and Like other users' posts.
-- View the posts of the users you follow on the home page.
-- View the explore page to view all posts on to Reactagram.
-- Receive notifications upon user interactions.
+- Login with Gmail or create your own account
+- Crop and upload images with captions, tags and a location to your profile
+- View user profiles with dynamic routing
+- Search for, follow and tag other users in your posts
+- Comment on and Like other users' posts
+- View the posts of the users you follow on the home page
+- View the explore page to view all posts on to Reactagram
+- Receive notifications upon user interactions
 
 # Screenshots
 
-Home page
-[![Screenshot-from-2021-02-19-22-52-28.png](https://i.postimg.cc/FsSL1psm/Screenshot-from-2021-02-19-22-52-28.png)](https://postimg.cc/mtbD5QH6)
-
-Explore page
-[![Screenshot-from-2021-02-19-22-54-34.png](https://i.postimg.cc/PJwPpfHK/Screenshot-from-2021-02-19-22-54-34.png)](https://postimg.cc/T5TRB6pW)
+<img src="https://i.imgur.com/iwsJmT1.png" width="45%"></img> <img src="https://i.imgur.com/tS4ILN8.png" width="45%"></img>
 
 # Reflection
 
