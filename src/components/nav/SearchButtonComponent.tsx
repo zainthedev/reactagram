@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { SearchModalComponent } from './SearchModalComponent';
-import { ImageWrapper, Icon } from '../../styled-components/imageStyles';
+import { SearchImageWrapper, Icon } from '../../styled-components/imageStyles';
 import searchIcon from '../../images/searchIcon.svg';
 
 export const SearchButtonComponent = () => {
@@ -17,9 +17,9 @@ export const SearchButtonComponent = () => {
 
 	return (
 		<>
-			<ImageWrapper onClick={toggleModal}>
+			<SearchImageWrapper onClick={toggleModal}>
 				<Icon src={searchIcon} />
-			</ImageWrapper>
+			</SearchImageWrapper>
 			{showModal && <SearchModalComponent toggleModal={toggleModal} />}
 		</>
 	);

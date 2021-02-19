@@ -27,6 +27,16 @@ export const ImageWrapper = styled.div`
 	}
 `;
 
+export const SearchImageWrapper = styled(ImageWrapper)`
+	${NavbarContentWrapper} & {
+		font-size: calc((0.1em + 0.4vmin) + (0.1em + 0.4vmax));
+		cursor: pointer;
+		@media (max-width: 768px) {
+			display: none;
+		}
+	}
+`;
+
 export const UserProfileImageWrapper = styled(ImageWrapper)`
 	place-content: center;
 `;
