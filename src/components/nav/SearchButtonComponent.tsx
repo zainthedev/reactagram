@@ -19,7 +19,6 @@ export const SearchButtonComponent = () => {
 		<>
 			<ImageWrapper onClick={toggleModal}>
 				<Icon src={searchIcon} />
-				Search
 			</ImageWrapper>
 			{showModal && <SearchModalComponent toggleModal={toggleModal} />}
 		</>
