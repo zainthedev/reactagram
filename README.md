@@ -1,46 +1,40 @@
-# Getting Started with Create React App
+## Reactagram (An Instagram Clone)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A clone of Instagram built with React, TypeScript and Firebase.
 
-## Available Scripts
+# Features:
 
-In the project directory, you can run:
+- Login with Gmail or create your own account.
+- Crop and upload images with captions, tags and a location to your profile.
+- View user profiles with dynamic routing.
+- Search for, follow and tag other users in your posts.
+- Comment on and Like other users' posts.
+- View the posts of the users you follow on the home page.
+- View the explore page to view all posts on to Reactagram.
+- Receive notifications upon user interactions.
 
-### `yarn start`
+# Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Home page
+[![Screenshot-from-2021-02-19-22-52-28.png](https://i.postimg.cc/FsSL1psm/Screenshot-from-2021-02-19-22-52-28.png)](https://postimg.cc/mtbD5QH6)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Explore page
+[![Screenshot-from-2021-02-19-22-54-34.png](https://i.postimg.cc/PJwPpfHK/Screenshot-from-2021-02-19-22-54-34.png)](https://postimg.cc/T5TRB6pW)
 
-### `yarn test`
+# Reflection
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Tasked with creating a clone of a favourite website, this was created for the final project in The Odin Project's JavaScript section.
+I went with Instagram as I figured I could showcase my skills by going deep with features. It's also very familiar and recognizable to most people.
 
-### `yarn build`
+For this project, I set out to build the most complete clone of Instagram on the internet. Shoot for the moon and land among the stars, right?
+Although it's missing Instagram's chat and some small QoL features, I think I managed to do fairly well considering it was made solely by myself in 2.5 weeks rather than by the undoubtedly massive collective efforts of Facebook.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This project was challenging in terms of scope. I had to plan quite carefully in order to not create an impossible task for myself. Planning is incredibly valuable!
+Fortunately, my previous projects had given me the tools I needed to create Reactaram. It was just a matter of putting in the hours and making it work.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project made use of React, TypeScript, Firebase (partly through Reactfire), React Router, and styled-components. I also didn't want to waste time reinventing the wheel and used Bootstrap for just on UI element - a popover.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+I chose React and TypeScript as they synergise incredibly well, with React allowing for blazingly fast website creation and TypeScript allowing for type-checking and reduced debugging time.
+Firebase was an obvious choice as I have yet to learn backend and NodeJS (that's next!). Firebase is a backend-as-a-service that allows the data to be hosted for free by Google. Thanks Google!
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The next time I create such an app, I hope to use a backend created by myself as well as learn more about animation in React.
