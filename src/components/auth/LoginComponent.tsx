@@ -1,15 +1,22 @@
 import { LoginFormComponent } from './LoginFormComponent';
 import { SignupComponent } from './SignupComponent';
 import { AuthFormComponent } from './AuthFormComponent';
-import { Auth, AuthTextWrapper, TestingText } from '../../styled-components/authStyles';
+import { Auth, AuthTextWrapper, TestingText, AuthButton } from '../../styled-components/authStyles';
 import { ReactagramLink, GithubLink } from '../../styled-components/globalStyles';
 import { useState } from 'react';
+import { useAuth } from 'reactfire';
 
 export const LoginComponent = () => {
 	const [signingUp, setSigningUp] = useState(false);
 
+	const auth = useAuth();
+
 	const handleSigningUp = () => {
 		return signingUp === false ? setSigningUp(true) : setSigningUp(false);
+	};
+
+	const guestSignIn = async () => {
+		await auth.signInWithEmailAndPassword('tester@test.com', 'testpass');
 	};
 
 	return (
@@ -25,8 +32,7 @@ export const LoginComponent = () => {
 					</AuthTextWrapper>
 					<TestingText>
 						Just testing?{'\n'}
-						Email: tester@test.com{'\n'}
-						Password: testpass
+						<AuthButton onClick={guestSignIn}>Log in as guest</AuthButton>
 					</TestingText>
 				</>
 			) : (

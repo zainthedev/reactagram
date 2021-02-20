@@ -29,9 +29,9 @@ export const AddCommentComponent = ({ post, currentUser }: PostCommentProps) => 
 
 	const handleComment = () => {
 		if (comment.comment.length > 0) {
+			setComment({ commentID: '', poster: '', comment: '' });
 			setTimeout(() => {
 				addComment(post, currentUser.name, comment);
-				setComment({ commentID: '', poster: '', comment: '' });
 			}, 1500);
 		}
 	};
