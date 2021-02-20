@@ -28,7 +28,12 @@ export const AddCommentComponent = ({ post, currentUser }: PostCommentProps) => 
 	};
 
 	const handleComment = () => {
-		addComment(post, currentUser.name, comment);
+		if (comment.comment.length > 0) {
+			setTimeout(() => {
+				addComment(post, currentUser.name, comment);
+				setComment({ commentID: '', poster: '', comment: '' });
+			}, 1500);
+		}
 	};
 
 	return (
@@ -36,7 +41,6 @@ export const AddCommentComponent = ({ post, currentUser }: PostCommentProps) => 
 			onSubmit={(e) => {
 				e.preventDefault();
 				handleComment();
-				setComment({ commentID: '', poster: '', comment: '' });
 			}}
 		>
 			<FormInput placeholder={'Add a comment...'} onChange={handleInput} value={comment.comment} />
