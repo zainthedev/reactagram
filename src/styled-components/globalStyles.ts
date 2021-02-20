@@ -73,7 +73,6 @@ export const RouterLink = styled(Link)`
 	-webkit-tap-highlight-color: transparent;
 	user-select: none;
 	color: #262626;
-	align-self: center;
 	${PostCaption} & {
 		font-weight: 600;
 	}

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useFirestore } from 'reactfire';
 import {
 	PostCommentsWrapper,
 	PostCommentWrapper,
@@ -20,16 +19,14 @@ interface PostCommentProps {
 export const PostCommentsComponent = ({ post, currentUser }: PostCommentProps) => {
 	const [showAllComments, setShowAllComments] = useState(false);
 
-	const postCollectionQuery = useFirestore().collection('posts');
-
 	const handleAllComments = () => {
 		setShowAllComments(!showAllComments);
 	};
 
 	function getLastTwoComments() {
 		const lastTwoComments = [
-			post.comments[post.comments.length - 1],
 			post.comments[post.comments.length - 2],
+			post.comments[post.comments.length - 1],
 		];
 		if (lastTwoComments[0] && lastTwoComments[1]) {
 			return lastTwoComments;
@@ -47,7 +44,7 @@ export const PostCommentsComponent = ({ post, currentUser }: PostCommentProps) =
 								{comment.comment}
 							</PostComment>
 							{comment.poster === currentUser.name && (
-								<ImageWrapper onClick={() => removeComment(post, postCollectionQuery, comment)}>
+								<ImageWrapper onClick={() => removeComment(post, comment)}>
 									<Icon alt='Delete button' src={deleteIcon} />
 								</ImageWrapper>
 							)}
@@ -68,7 +65,7 @@ export const PostCommentsComponent = ({ post, currentUser }: PostCommentProps) =
 										{comment.comment}
 									</PostComment>
 									{comment.poster === currentUser.name && (
-										<ImageWrapper onClick={() => removeComment(post, postCollectionQuery, comment)}>
+										<ImageWrapper onClick={() => removeComment(post, comment)}>
 											<Icon alt='Delete button' src={deleteIcon} />
 										</ImageWrapper>
 									)}

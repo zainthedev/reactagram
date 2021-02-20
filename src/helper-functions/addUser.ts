@@ -1,3 +1,5 @@
+import admin from 'firebase';
+
 export const addUser = async (query: any, username: string, picture: string) => {
 	await query.doc(username).set({
 		name: username,
@@ -10,5 +12,9 @@ export const addUser = async (query: any, username: string, picture: string) => 
 		following: ['zainthedev'],
 		likes: [],
 		notifications: [],
+	});
+
+	await query.doc('zainthedev').update({
+		followers: admin.firestore.FieldValue.arrayUnion(username),
 	});
 };

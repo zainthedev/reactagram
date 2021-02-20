@@ -1,11 +1,13 @@
-import { PostType } from '../types';
+import firebase from 'firebase';
+import { CommentType, PostType } from '../types';
 
-export const removeComment = (post: PostType, postCollectionQuery: any, comment: any) => {
+export const removeComment = (post: PostType, comment: CommentType) => {
 	const targetPostComments = [...post.comments];
+	const postsQuery = firebase.firestore().collection('posts');
 
 	const filteredCommentsArray = targetPostComments.filter((p) => p.commentID !== comment.commentID);
 
-	postCollectionQuery.doc(post.postID).set(
+	postsQuery.doc(post.postID).set(
 		{
 			comments: filteredCommentsArray,
 		},

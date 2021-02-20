@@ -1,5 +1,6 @@
+import firebase from 'firebase';
+
 export const handleFollow = async (
-	userCollectionQuery: any,
 	currentUserFollowing: any[],
 	currentUserName: string,
 	targetUser: any
@@ -7,17 +8,19 @@ export const handleFollow = async (
 	const targetUserFollowers = [...targetUser.followers];
 	const userFollowing = [...currentUserFollowing];
 
+	const userQuery = firebase.firestore().collection('users');
+
 	if (userFollowing.includes(targetUser.name)) {
 		const filteredFollowersArray = targetUserFollowers.filter((p) => p !== currentUserName);
 		const filteredFollowingArray = userFollowing.filter((p) => p !== targetUser.name);
-		await userCollectionQuery.doc(targetUser.name).set(
+		await userQuery.doc(targetUser.name).set(
 			{
 				followers: filteredFollowersArray,
 			},
 			{ merge: true }
 		);
 
-		await userCollectionQuery.doc(currentUserName).set(
+		await userQuery.doc(currentUserName).set(
 			{
 				following: filteredFollowingArray,
 			},
@@ -26,13 +29,13 @@ export const handleFollow = async (
 	} else {
 		targetUserFollowers.push(currentUserName);
 		userFollowing.push(targetUser.name);
-		await userCollectionQuery.doc(targetUser.name).set(
+		await userQuery.doc(targetUser.name).set(
 			{
 				followers: targetUserFollowers,
 			},
 			{ merge: true }
 		);
-		await userCollectionQuery.doc(currentUserName).set(
+		await userQuery.doc(currentUserName).set(
 			{
 				following: userFollowing,
 			},
