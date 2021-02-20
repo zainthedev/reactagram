@@ -16,10 +16,12 @@ export const ExploreComponent = () => {
 	useEffect(() => {
 		if (currentUserName && postCollectionQueryData.data) {
 			//No need for fisher-yates here, just roughly sort all the posts randomly
-			const newPosts = [...postCollectionQueryData.data].sort(() => 0.5 - Math.random());
-			setPosts(newPosts);
+			if (posts.length === 0) {
+				const newPosts = [...postCollectionQueryData.data].sort(() => 0.5 - Math.random());
+				setPosts(newPosts);
+			}
 		}
-	}, [currentUserName, postCollectionQueryData.data]);
+	}, [currentUserName, postCollectionQueryData.data, posts.length]);
 
 	return (
 		<ExploreWrapper>
