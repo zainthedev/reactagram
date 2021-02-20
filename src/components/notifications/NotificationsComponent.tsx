@@ -30,15 +30,16 @@ export const NotificationsComponent = () => {
 
 	return (
 		<Notifications>
-			{notifications.length > 0 &&
-				notifications.map((notification: NotificationType) => {
-					return (
-						<NotificationCardComponent
-							notification={notification}
-							user={targetUser}
-						></NotificationCardComponent>
-					);
-				})}
+			{notifications.length > 0
+				? notifications.map((notification: NotificationType) => {
+						return (
+							<NotificationCardComponent
+								notification={notification}
+								user={targetUser}
+							></NotificationCardComponent>
+						);
+				  })
+				: `No notifications to show.`}
 		</Notifications>
 	);
 };
