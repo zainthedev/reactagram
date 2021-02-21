@@ -20,7 +20,7 @@ export const TagModalComponent = ({ toggleModal, handleTags }: any) => {
 			const allUsers = [...userCollectionData.data];
 			const allFoundUsers: any = [];
 			allUsers.forEach((user: any) => {
-				if (user.name.includes(searchInput)) {
+				if (user.name.toLowerCase().includes(searchInput.toLowerCase())) {
 					allFoundUsers.push(user);
 				}
 			});
