@@ -2,6 +2,8 @@
 
 A clone of Instagram built with React, TypeScript and Firebase.
 
+[View live](https://reactagram-zain.web.app/)
+
 # Features:
 
 - Login with Gmail or create your own account
@@ -25,8 +27,7 @@ I went with Instagram as I figured I could showcase my skills by going deep with
 For this project, I set out to build the most complete clone of Instagram on the internet. Shoot for the moon and land among the stars, right?
 Although it's missing Instagram's chat and some small QoL features, I think I managed to do fairly well considering it was made solely by myself in 2.5 weeks rather than by the undoubtedly massive collective efforts of Facebook.
 
-This project was challenging in terms of scope. I had to plan quite carefully in order to not create an impossible task for myself. Planning is incredibly valuable!
-Fortunately, my previous projects had given me the tools I needed to create Reactaram. It was just a matter of putting in the hours and making it work.
+Hammering down the functionality and interaction with Firebase was undoubtedly one of the biggest challenges of this project. I also had a tough time with the dynamic routing for user profiles, but with some grit and perseverance, I overcame these challenges.
 
 This project made use of React, TypeScript, Firebase (partly through Reactfire), React Router, and styled-components. I also didn't want to waste time reinventing the wheel and used Bootstrap for just on UI element - a popover.
 
