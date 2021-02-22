@@ -12,11 +12,13 @@ export const UserProfileStatsComponent = ({ user, handleClick }: UserModalType) 
 		<UserProfileStats>
 			<UserPostsStat>
 				<UserProfileStatNumber>{user.posts.length}</UserProfileStatNumber>
-				<UserProfileStatText>posts</UserProfileStatText>
+				<UserProfileStatText>{user.posts.length > 1 ? 'posts' : 'post'}</UserProfileStatText>
 			</UserPostsStat>
 			<UserProfileStat onClick={handleClick}>
 				<UserProfileStatNumber>{user.followers.length}</UserProfileStatNumber>
-				<UserProfileStatText>followers</UserProfileStatText>
+				<UserProfileStatText>
+					{user.followers.length > 1 ? 'followers' : 'follower'}
+				</UserProfileStatText>
 			</UserProfileStat>
 			<UserProfileStat onClick={handleClick}>
 				<UserProfileStatNumber>{user.following.length}</UserProfileStatNumber>
