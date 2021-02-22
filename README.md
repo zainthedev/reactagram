@@ -1,10 +1,10 @@
-## Reactagram (An Instagram Clone)
+# Reactagram (An Instagram Clone)
 
 A clone of Instagram built with React, TypeScript and Firebase.
 
 [View live](https://reactagram-zain.web.app/)
 
-# Features:
+## Features:
 
 - Login with Gmail or create your own account
 - Crop and upload images with captions, tags and a location to your profile
@@ -15,11 +15,11 @@ A clone of Instagram built with React, TypeScript and Firebase.
 - View the explore page to view all posts on to Reactagram
 - Receive notifications upon user interactions
 
-# Screenshots
+## Screenshots
 
 <img src="https://i.imgur.com/iwsJmT1.png" width="45%"></img> <img src="https://i.imgur.com/tS4ILN8.png" width="45%"></img>
 
-# Reflection
+## Reflection
 
 Tasked with creating a clone of a favourite website, this was created for the final project in The Odin Project's JavaScript section.
 I went with Instagram as I figured I could showcase my skills by going deep with features. It's also very familiar and recognizable to most people.
