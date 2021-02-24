@@ -22,7 +22,7 @@ export const SearchModalComponent = ({ toggleModal }: any) => {
 			const allUsers = [...userCollectionData.data];
 			const allFoundUsers: any = [];
 			allUsers.forEach((user: any) => {
-				if (user.name.toLowerCase().includes(searchInput.toLowerCase())) {
+				if (user.name.toLowerCase().startsWith(searchInput.toLowerCase())) {
 					allFoundUsers.push(user);
 				}
 			});
