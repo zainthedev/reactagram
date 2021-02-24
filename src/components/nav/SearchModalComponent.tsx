@@ -4,6 +4,7 @@ import { ModalWrapper, Modal } from '../../styled-components/modalStyles';
 import { FormInputWrapper, FormInput } from '../../styled-components/globalStyles';
 import { TextButton, RouterLink } from '../../styled-components/globalStyles';
 import { ImageWrapper, UserIcon } from '../../styled-components/imageStyles';
+import { UserListWrapper, UserList } from '../../styled-components/userListStyles';
 
 export const SearchModalComponent = ({ toggleModal }: any) => {
 	const [foundUsers, setFoundUsers]: any = useState([]);
@@ -37,20 +38,24 @@ export const SearchModalComponent = ({ toggleModal }: any) => {
 						<FormInput onChange={handleInput} placeholder='Search'></FormInput>
 					</FormInputWrapper>
 				</label>
-				{foundUsers.length > 0 &&
-					searchInput.length > 0 &&
-					foundUsers.map((user: any) => {
-						return (
-							<TextButton key={user.name}>
-								<RouterLink to={`/u/${user.name}`}>
-									<ImageWrapper>
-										<UserIcon alt='user' src={user.displayPicture} />
-										<p>{user.name}</p>
-									</ImageWrapper>
-								</RouterLink>
-							</TextButton>
-						);
-					})}
+				{foundUsers.length > 0 && searchInput.length > 0 && (
+					<UserListWrapper>
+						<UserList>
+							{foundUsers.map((user: any) => {
+								return (
+									<TextButton key={user.name}>
+										<RouterLink to={`/u/${user.name}`}>
+											<ImageWrapper>
+												<UserIcon alt='user' src={user.displayPicture} />
+												<p>{user.name}</p>
+											</ImageWrapper>
+										</RouterLink>
+									</TextButton>
+								);
+							})}
+						</UserList>
+					</UserListWrapper>
+				)}
 			</Modal>
 		</ModalWrapper>
 	);

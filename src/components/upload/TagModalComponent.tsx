@@ -3,6 +3,7 @@ import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { ModalWrapper, Modal } from '../../styled-components/modalStyles';
 import { ImageWrapper, UserIcon } from '../../styled-components/imageStyles';
 import { FormInputWrapper, FormInput } from '../../styled-components/globalStyles';
+import { UserListWrapper, UserList } from '../../styled-components/userListStyles';
 
 export const TagModalComponent = ({ toggleModal, handleTags }: any) => {
 	const [foundUsers, setFoundUsers]: any = useState([]);
@@ -41,16 +42,20 @@ export const TagModalComponent = ({ toggleModal, handleTags }: any) => {
 						<FormInput onChange={handleInput} placeholder='Search'></FormInput>
 					</FormInputWrapper>
 				</label>
-				{foundUsers.length > 0 &&
-					searchInput.length > 0 &&
-					foundUsers.map((user: any) => {
-						return (
-							<ImageWrapper style={{ cursor: 'pointer' }} onClick={addTag}>
-								<UserIcon alt='user' src={user.displayPicture} />
-								<p>{user.name}</p>
-							</ImageWrapper>
-						);
-					})}
+				<UserListWrapper>
+					<UserList>
+						{foundUsers.length > 0 &&
+							searchInput.length > 0 &&
+							foundUsers.map((user: any) => {
+								return (
+									<ImageWrapper style={{ cursor: 'pointer' }} onClick={addTag}>
+										<UserIcon alt='user' src={user.displayPicture} />
+										<p>{user.name}</p>
+									</ImageWrapper>
+								);
+							})}
+					</UserList>
+				</UserListWrapper>
 			</Modal>
 		</ModalWrapper>
 	);
