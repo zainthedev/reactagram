@@ -22,12 +22,14 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 	useEffect(() => {
 		if (userCollectionData.data !== undefined) {
 			const userList: any = [];
-			if (list === 'followers') {
+			console.log(list);
+			if (list === 'followers' || list === 'follower') {
 				targetUserFollowers.forEach((target: string) => {
 					const newTarget = userCollectionData.data.find((p) => p.name === target)!;
 					userList.push(newTarget);
 				});
 				setTargetList(userList);
+				console.log(userList);
 			} else {
 				targetUserFollowing.forEach((target: string) => {
 					const newTarget = userCollectionData.data.find((p) => p.name === target)!;
