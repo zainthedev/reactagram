@@ -29,7 +29,6 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 					userList.push(newTarget);
 				});
 				setTargetList(userList);
-				console.log(userList);
 			} else {
 				targetUserFollowing.forEach((target: string) => {
 					const newTarget = userCollectionData.data.find((p) => p.name === target)!;
