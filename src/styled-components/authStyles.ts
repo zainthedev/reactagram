@@ -59,6 +59,7 @@ export const GmailLoginWrapper = styled(AuthButton)`
 	background: none;
 	color: #3d6ec9;
 	width: 90%;
+	border: none;
 	min-inline-size: max-content;
 	:hover {
 		background: none;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { NavbarContentWrapper, MobileHeaderContentWrapper, Navbar } from './navbarStyles';
+import { NavbarContentWrapper, MobileHeaderContentWrapper } from './navbarStyles';
 import { AuthButton } from './authStyles';
 import { UploadImage, FinaliseUpload } from './uploadStyles';
 import Popover from 'react-bootstrap/Popover';

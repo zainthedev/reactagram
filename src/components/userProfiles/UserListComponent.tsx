@@ -22,7 +22,6 @@ export const UserListComponent = ({ user, list }: UserListType) => {
 	useEffect(() => {
 		if (userCollectionData.data !== undefined) {
 			const userList: any = [];
-			console.log(list);
 			if (list === 'followers' || list === 'follower') {
 				targetUserFollowers.forEach((target: string) => {
 					const newTarget = userCollectionData.data.find((p) => p.name === target)!;
