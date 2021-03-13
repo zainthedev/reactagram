@@ -19,12 +19,14 @@ export const AddCommentComponent = ({ post, currentUser }: PostCommentProps) => 
 	const handleInput = (e: React.ChangeEvent) => {
 		const targetElement = e.target as HTMLInputElement;
 		const formValue = targetElement.value;
-		const newComment: CommentType = {
-			commentID: uniqid(),
-			poster: currentUser,
-			comment: formValue,
-		};
-		setComment(newComment);
+		if (formValue.length < 2200) {
+			const newComment: CommentType = {
+				commentID: uniqid(),
+				poster: currentUser,
+				comment: formValue,
+			};
+			setComment(newComment);
+		}
 	};
 
 	const handleComment = () => {

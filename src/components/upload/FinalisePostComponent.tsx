@@ -67,9 +67,13 @@ export const FinalisePostComponent = ({
 
 	const handleInput = (e: any) => {
 		const formValue = e.currentTarget.value;
-		e.currentTarget.placeholder.includes('caption')
-			? setCaption(formValue)
-			: setLocation(formValue);
+		if (e.currentTarget.placeholder.includes('caption')) {
+			if (formValue.length < 2200) {
+				setCaption(formValue);
+			}
+		} else {
+			setLocation(formValue);
+		}
 	};
 
 	const handlePost = () => {
@@ -97,7 +101,7 @@ export const FinalisePostComponent = ({
 							/>
 						</FormInputWrapper>
 						<ImageWrapper>
-							<UploadedImage src={selectedImage} alt='The chosen, cropped image to be posted' />
+							<UploadedImage src={selectedImage} alt="The chosen, cropped image to be posted" />
 						</ImageWrapper>
 					</CaptionInputWrapper>
 					{tags.length > 0 && (
@@ -126,7 +130,7 @@ export const FinalisePostComponent = ({
 				</>
 			)}
 			{showModal && <TagModalComponent toggleModal={toggleModal} handleTags={handleTags} />}
-			{posted && <Redirect to='/' />}
+			{posted && <Redirect to="/" />}
 		</FinaliseUpload>
 	);
 };
